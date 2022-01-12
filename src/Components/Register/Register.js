@@ -1,9 +1,11 @@
 import styles from "./register.module.css"
+import NavButton from '../NavButton/NavButton'
 
 const Register = () => {
     return(
-        <div>
+        <div className = {styles.register}>
             Register
+            <NavButton path="/" text="Go Back"/>
         </div>
     )
 }
