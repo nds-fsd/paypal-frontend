@@ -7,6 +7,7 @@ const LandingPage = () => {
             LandingPage
             <NavButton path="/login" text="Login"/>
             <NavButton path="/register" text="Register"/>
+            <NavButton path="/confirmacionpago" text="confirmacionpago"/>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import React from "react"
 
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Main from './Main';
+import ConfirmacionPago from './Components/ConfirmacionPago/ConfirmacionPago';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/main/*" element={<Main/>} />
+        <Route path="/confirmacionpago/*" element={<ConfirmacionPago/>} />
       </Routes>
     </BrowserRouter>
     

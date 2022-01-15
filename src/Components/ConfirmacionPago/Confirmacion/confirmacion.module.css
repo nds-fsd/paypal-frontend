@@ -1,0 +1,46 @@
+
+/* .confirmacionpago {
+    background-color: #F8FBFF;
+    display: flex;
+    justify-content: center;
+    width: 
+    height: 100%;
+    min-height: 100vh;
+} */
+
+.confirmacionpago {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F8FBFF;
+  }
+
+  h1 {
+    position: relative;
+    top: 200px;
+    text-align: center;
+  }
+
+  .volverhome {
+    background-color: blue; /* Green */
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: calc(10px + 1vmin);
+  border: none;
+  border-radius: 5px;
+  margin: 10px 40%;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+
+  position: relative;
+    top: 400px;
+}
