@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import NavButton from '../../NavButton/NavButton'
 import styles from "./confirmacion.module.css"
 
 const Confirmacion = () => {
@@ -7,7 +7,7 @@ const Confirmacion = () => {
         <div className={styles.confirmacionpago}>
 
                 <h1>Confirmación de Pago</h1>
-                <Link to={"/"} className={styles.volverhome} >Volver al Dashboard</Link>
+                <div className={styles.estilohome}><NavButton path = "/" text="Volver al Dashboard"/></div>
 
         </div>
     )
