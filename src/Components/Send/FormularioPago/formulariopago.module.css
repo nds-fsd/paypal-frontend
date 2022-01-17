@@ -1,0 +1,63 @@
+.mainpago {
+        
+    display: flex;
+    
+}
+
+.formulariopago {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F8FBFF;
+}
+
+h1 {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+  }
+
+  .estilohome {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+
+    background-color: #258AFF; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 20vw;
+    margin:0 auto;
+
+  }
+
+  .formulario {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+    margin: 1%
+}
+
+    .submit {
+    background-color: #258AFF; 
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 20vw;
+    margin:0.5% auto;
+    }
+
+    .error {
+      color: red;
+  }

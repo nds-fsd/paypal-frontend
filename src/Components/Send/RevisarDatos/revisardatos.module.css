@@ -1,0 +1,132 @@
+.mainpago {
+        
+    display: flex;
+    
+}
+
+.formulariopago {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F8FBFF;
+}
+
+h1 {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+  }
+
+h2 {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+  }
+
+  .estilohome {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+
+    background-color: #258AFF; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 20vw;
+    margin:0 auto;
+
+  }
+
+  .formulario {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+    margin: 1%
+}
+
+.estilohome {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+
+    background-color: #258AFF; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 20vw;
+    margin:0 auto;
+
+  }
+
+    .submit {
+    position: relative;
+    top: 40vh;
+    text-align: center;
+
+    background-color: #258AFF; 
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 20vw;
+    margin:0.5% auto;
+    }
+
+    .error {
+      color: red;
+  }
+
+  .confirmacionpago {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F8FBFF;
+  }
+
+
+
+  .volverhome {
+    background-color: blue; /* Green */
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: calc(10px + 1vmin);
+  border: none;
+  border-radius: 5px;
+  margin: 10px 40%;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+
+  position: relative;
+    top: 400px;
+}
+
+
+/* display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 25vw;
+height:100vh; */
