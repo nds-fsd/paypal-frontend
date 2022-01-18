@@ -6,8 +6,8 @@ import NavButton from '../../NavButton/NavButton';
 import dotpattern from '../Images/DotPattern.svg';
 import reactangulo from '../Images/Rectangle.png';
 import NavBar from '../../NavBar/NavBar';
-import ConfirmacionPago from '../ConfirmacionPago/ConfirmacionPago';
-import RevisarDatos from '../RevisarDatos/RevisarDatos';
+import ConfirmacionPago from '../../Send/ConfirmacionPago/ConfirmacionPago';
+import RevisarDatos from '../../Send/RevisarDatos/RevisarDatos';
 export const ContextApp=createContext([])
 
 

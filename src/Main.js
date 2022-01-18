@@ -6,7 +6,7 @@ import Send from "./Components/Send/Send"
 import Request from "./Components/Request/Request"
 import AccountSetting from "./Components/AccountSetting/AccountSetting"
 import styles from "./main.module.css"
-import FormularioPago from "./Components/Send/FormularioPago/FormularioPago"
+import FormularioPago from "./Components/Old/FormularioPago/FormularioPago"
 import ConfirmacionPago from "./Components/Send/ConfirmacionPago/ConfirmacionPago"
 import RevisarDatos from "./Components/Send/RevisarDatos/RevisarDatos"
 
