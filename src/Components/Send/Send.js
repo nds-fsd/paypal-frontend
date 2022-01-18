@@ -8,9 +8,14 @@ import NavButton from "../NavButton/NavButton";
 
 const Send = () => {
     const [pago, setPago] = useState()
+    const [change, setChange] = useState(0)
+
     return(
         <div className = {styles.send}>
-            <FormularioPago pago={pago} setPago={setPago}/>
+            {change===0 && <FormularioPago setPago={setPago} setChange={setChange}/>}
+            {change===1 && <RevisarDatos pago={pago} setChange={setChange}/>}
+            {change===2 && <ConfirmacionPago setChange={setChange}/>}
+
         </div>
     )
 
