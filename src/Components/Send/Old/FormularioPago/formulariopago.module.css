@@ -24,7 +24,7 @@
 
   .titulo {
     position: absolute;
-    top: 46vh;
+    top: 44vh;
     left: 45vw;
     font-size: 28px;
     text-align: center;
@@ -64,20 +64,27 @@ margin-top: 1vh;
 
 
     .submit {
-    background-color: #258AFF; 
-    border: none;
-    color: black;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: calc(10px + 1vmin);
-    border-radius: 5px;
-    width: 13vw;
-    height: 4vh;
-    margin:0.5% auto;
-    margin-top: 2vh;
+      position: absolute;
+      top: 15vh;
+      left: 2vw;
+
+      background-color: #258AFF; 
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: calc(10px + 1vmin);
+      border-radius: 5px;
+      width: 15vw;
+      margin:0 auto;
     }
 
+
+      /* position: absolute;
+      top: 68vh;
+      left: 48vw; */
+ 
     .error {
       color: red;
   }

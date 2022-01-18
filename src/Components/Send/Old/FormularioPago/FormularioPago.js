@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import styles from "./formulariopago.module.css";
-import dotpattern from '../Images/DotPattern.svg';
-import reactangulo from '../Images/Rectangle.png';
+import dotpattern from '../../Images/DotPattern.svg';
+import reactangulo from '../../Images/Rectangle.png';
 
 
 const FormularioPago = ({setPago, setChange}) => {
@@ -19,16 +19,14 @@ const FormularioPago = ({setPago, setChange}) => {
         console.log(email);
         setPago(data);
         setChange(1)
-        // fetch('http://localhost:3001/sent', {
-        //     method: 'POST',
+        // fetch('http://localhost:3001/usuario', {
+        //     method: 'GET',
         //     headers: {
         //         'Content-Type': 'application/json',
         //     },
         //     body: JSON.stringify(data)
         // });
     }
-
-
 
     
     return (

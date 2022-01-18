@@ -13,7 +13,7 @@
   .rectangulo {
     position: relative;
     top: 39vh;
-    left: 23vw;
+    left: 18vw;
     width: 27vw;
     height: 40vh;
   }
@@ -56,6 +56,21 @@
     margin:0 auto;
   }
 
-
+    .submit {
+      position: absolute;
+      top: 68vh;
+      left: 48vw;
+    
+      background-color: #258AFF; 
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: calc(10px + 1vmin);
+      border-radius: 5px;
+      width: 15vw;
+      margin:0 auto;
+    }
 
 

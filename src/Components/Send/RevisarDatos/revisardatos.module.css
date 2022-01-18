@@ -13,7 +13,7 @@
   .rectangulo {
     position: relative;
     top: 39vh;
-    left: 23vw;
+    left: 18vw;
     width: 27vw;
     height: 40vh;
   }
@@ -26,7 +26,7 @@
 
   .titulo {
     position: absolute;
-    top: 50vh;
+    top: 44vh;
     left: 45vw;
     font-size: 28px;
     text-align: center;
@@ -37,10 +37,10 @@
 
   .texto {
     position: absolute;
-    top: 55vh;
-    left: 45vw;
-    font-size: 28px;
-    text-align: center;
+    top: 53vh;
+    left: 46vw;
+    font-size: 18px;
+    text-align: left;
     font-family: 'Manrope', sans-serif;
     margin:0 auto;
     width: 23vw;
@@ -49,9 +49,9 @@
   .texto1 {
     position: absolute;
     top: 60vh;
-    left: 45vw;
-    font-size: 28px;
-    text-align: center;
+    left: 46vw;
+    font-size: 18px;
+    text-align: left;
     font-family: 'Manrope', sans-serif;
     margin:0 auto;
     width: 23vw;
@@ -73,7 +73,7 @@
 
 .submit {
   position: absolute;
-  top: 65vh;
+  top: 68vh;
   left: 48vw;
 
   background-color: #258AFF; 

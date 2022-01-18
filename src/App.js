@@ -6,9 +6,6 @@ import React from "react"
 
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Main from './Main';
-import FormularioPago from './Components/Send/FormularioPago/FormularioPago';
-import RevisarDatos from './Components/Send/RevisarDatos/RevisarDatos';
-import ConfirmacionPago from './Components/Send/ConfirmacionPago/ConfirmacionPago';
 
 function App() {
   return (
