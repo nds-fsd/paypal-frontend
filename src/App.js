@@ -18,9 +18,6 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/main/*" element={<Main/>} />
-        <Route path="/confirmacionpago/*" element={<ConfirmacionPago/>} />
-        <Route path="/revisardatos/*" element={<RevisarDatos/>} />
-        <Route path="/formulariopago/*" element={<FormularioPago/>} />
       </Routes>
     </BrowserRouter>
     

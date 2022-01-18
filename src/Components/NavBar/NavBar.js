@@ -7,33 +7,34 @@ import sendLogo from './sendLogo.svg';
 import receiveLogo from './receiveLogo.svg';
 import accountLogo from './accountlogo.svg';
 
+
 const NavBar = () => {
     return(
         <div className = {styles.navbar}>
             <DayPayLogo className={styles.logo}/>
             
-            <div style={{paddingLeft: '15%'}}>
-                <img  src={dashboardLogo} alt="dashboardlogo" style={{paddingRight: '10%'}}/>
+            <div style={{paddingLeft: '20%'}}>
+                <img  src={dashboardLogo} alt="dashboardlogo" style={{paddingRight: '20%'}}/>
                 <NavButton path = "/main/dashboard" text="Dashboard" />
             </div>
-
-            <div style={{paddingLeft: '15%'}}>
-                <img  src={walletLogo} alt="walletlogo" style={{paddingRight: '10%'}}/>
+            <br/><br/>
+            <div style={{paddingLeft: '20%'}}>
+                <img  src={walletLogo} alt="walletlogo" style={{paddingRight: '20%'}}/>
                 <NavButton path = "/main/wallet" text="Wallet"/>
             </div>
-            
-            <div style={{paddingLeft: '15%'}} >
-                <img  src={sendLogo} alt="sendLogo" style={{paddingRight: '10%'}}/>
+            <br/><br/>
+            <div style={{paddingLeft: '20%'}} >
+                <img  src={sendLogo} alt="sendLogo" style={{paddingRight: '20%'}}/>
                 <NavButton path = "/main/send" text="Send"/>
             </div>
-            
-            <div style={{paddingLeft: '15%'}} >
-                <img  src={receiveLogo} alt="receiveLogo" style={{paddingRight: '10%'}}/>
+            <br/><br/>
+            <div style={{paddingLeft: '20%'}} >
+                <img  src={receiveLogo} alt="receiveLogo" style={{paddingRight: '20%'}}/>
                 <NavButton path = "/main/request" text="Request"/>
             </div>
-
-            <div style={{paddingLeft: '15%'}}>
-                <img  src={accountLogo} alt="accountLogo" style={{paddingRight: '10%'}}/>
+            <br/><br/>
+            <div style={{paddingLeft: '20%'}}>
+                <img  src={accountLogo} alt="accountLogo" style={{paddingRight: '20%'}}/>
                 <NavButton path = "/main/accountsetting" text="Account Setting"/>
             </div>
             

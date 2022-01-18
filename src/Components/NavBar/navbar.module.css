@@ -6,13 +6,15 @@
 
     width: 25vw;
     height:100vh;
+    font-family: 'Manrope', sans-serif;
 }
 
 .logo {
     position: relative;
-    top: -30vh;
+    top: -15vh;
     align-items: center;
     margin:0 auto;
     
 }
+
 

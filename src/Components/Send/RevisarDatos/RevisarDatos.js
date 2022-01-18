@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { ContextApp } from '../FormularioPago/FormularioPago';
 import NavBar from '../../NavBar/NavBar';
 import NavButton from '../../NavButton/NavButton';
+import dotpattern from '../Images/DotPattern.svg'
+import reactangulo from '../Images/Rectangle.png';
 
 const RevisarDatos = () => {
     const navigate = useNavigate();
@@ -15,25 +17,25 @@ const RevisarDatos = () => {
     console.log(formValues)
     
     return (
-        <>
-        <div className={styles.mainpago}>
-            <NavBar/>
+        // <>
+        // <div className={styles.mainpago}>
+        //     <NavBar/>
             <div className={styles.confirmacionpago}>
+                <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
+                <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/>
+                <h1 className={styles.titulo}>Confirm your input</h1>
+                <h2 className={styles.texto}>Email: </h2>
+                <br/>
+                <h2 className={styles.texto1}>Amount: </h2>
+                <br/>
+                
 
-                <h1>Confirm your input</h1>
-                <h2>Name: </h2>
-                <br/>
-                <h2>Amount: </h2>
-                <br/>
-                <h2>Payment Method: </h2>
-                <br/>
-
-                <div className={styles.estilohome}><NavButton path = "/" text="Volver al Dashboard"/></div>
-                <input type="submit" className={styles.submit} onClick={()=> navigate("/confirmacionpago")}/>
+                {/* <div className={styles.estilohome}><NavButton path = "/main/dashboard" text="Volver al Dashboard"/></div> */}
+                <input type="submit" className={styles.submit} onClick={()=> navigate("/main/confirmacionpago")}/>
             </div>
             
-        </div>
-        </>
+        // </div>
+        // </>
     )
 }
 

@@ -1,6 +1,61 @@
-.mainpago {
-        
-        display: flex;
-        
-    }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap');
+
+.confirmacionpago {
+    height: 100vh;
+    width: 100%; 
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F8FBFF;
+
+    
+  }
+
+  .rectangulo {
+    position: relative;
+    top: 39vh;
+    left: 23vw;
+    width: 27vw;
+    height: 40vh;
+  }
+
+  .dotpattern {
+    position: absolute;
+    top: 35vh;
+    left: 40vw;
+  }
+
+  .titulo {
+    position: absolute;
+    top: 50vh;
+    left: 45vw;
+    font-size: 28px;
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    margin:0 auto;
+    width: 23vw;
+  }
+
+  button {
+    font-size: 16px;
+  }
+
+  .estilohome {
+    position: absolute;
+    top: 60vh;
+    left: 48vw;
+
+    background-color: #258AFF; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 15vw;
+    margin:0 auto;
+  }
+
+
+
 

@@ -1,49 +1,66 @@
-.mainpago {
-        
-    display: flex;
-    
-}
-
 .formulariopago {
-    height: 100%;
-    min-height: 100vh;
-    width: 100%; 
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background-color: #F8FBFF;
+  height: 100vh;
+  width: 100%; 
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #F8FBFF;
 }
 
-h1 {
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap');
+
+  .rectangulo {
     position: relative;
-    top: 40vh;
-    text-align: center;
+    top: 39vh;
+    left: 18vw;
+    width: 27vw;
+    height: 40vh;
   }
 
-  .estilohome {
-    position: relative;
-    top: 40vh;
-    text-align: center;
+  .dotpattern {
+    position: absolute;
+    top: 35vh;
+    left: 40vw;
+  }
 
-    background-color: #258AFF; 
-    border: none;
-    color: white;
-    padding: 5px 10px;
+  .titulo {
+    position: absolute;
+    top: 46vh;
+    left: 45vw;
+    font-size: 28px;
     text-align: center;
-    text-decoration: none;
-    font-size: calc(10px + 1vmin);
-    border-radius: 5px;
-    width: 20vw;
+    font-family: 'Manrope', sans-serif;
     margin:0 auto;
-
+    width: 23vw;
   }
 
+
+  button {
+    font-size: 16px;
+  }
+
+ 
   .formulario {
-    position: relative;
-    top: 40vh;
+    position: absolute;
+    top: 53vh;
+    left: 46vw;
     text-align: center;
-    margin: 1%
 }
+
+.input {
+  box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+border-radius: 4px;
+font-size: 16px;
+/* width: 283px;
+height: 56px; */
+background: #FFFFFF;
+
+width: 20vw;
+height: 5vh;
+
+margin-top: 1vh;
+}
+
+
 
     .submit {
     background-color: #258AFF; 
@@ -54,10 +71,29 @@ h1 {
     text-decoration: none;
     font-size: calc(10px + 1vmin);
     border-radius: 5px;
-    width: 20vw;
+    width: 13vw;
+    height: 4vh;
     margin:0.5% auto;
+    margin-top: 2vh;
     }
 
     .error {
       color: red;
+  }
+
+  .estilohome {
+    position: absolute;
+    top: 60vh;
+    left: 48vw;
+
+    background-color: #258AFF; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 15vw;
+    margin:0 auto;
   }
