@@ -19,7 +19,7 @@ const FormularioPago = ({setPago, setChange}) => {
         console.log(email);
         setPago(data);
         setChange(1)
-        // fetch('http://localhost:3002/sent', {
+        // fetch('http://localhost:3001/sent', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json',
