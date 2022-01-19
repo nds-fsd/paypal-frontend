@@ -1,0 +1,72 @@
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.send{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+    width:75vw;
+    height: 100vh;
+}
+
+.paybox{
+    display: flex;
+    width: 426px;
+    height: 360px;
+    left: 0px;
+    top: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E9E9E9;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.amount{
+    margin: 10px;
+    width: 120%;
+    height: 30px;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    padding: 5px;
+}
+
+.email{
+    margin: 10px;
+    width: 120%;
+    height: 30px;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    padding: 5px;
+
+}
+
+.submit{
+    margin: 10px;
+    width: 200%;
+    height: 30px;
+    background-color:#258AFF;
+    border:none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+NavButton{
+    
+}
