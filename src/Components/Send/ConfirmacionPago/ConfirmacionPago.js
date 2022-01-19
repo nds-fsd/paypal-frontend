@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from "./confirmacionpago.module.css"
 import dotpattern from '../Images/DotPattern.svg'
-import reactangulo from '../Images/Rectangle.png';
 
 
 const ConfirmacionPago = ({setChange}) => {

@@ -1,7 +1,6 @@
 import { useState} from 'react'
 import styles from "./formulariopago.module.css";
 import dotpattern from '../../Images/DotPattern.svg';
-import reactangulo from '../../Images/Rectangle.png';
 
 
 const FormularioPago = ({setPago, setChange}) => {
@@ -34,22 +33,26 @@ const FormularioPago = ({setPago, setChange}) => {
             <div className={styles.formulariopago}>
                 
                 <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
-                <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/>
-                <h1 className={styles.titulo}>Formulario de Pago</h1>
+                {/* <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/> */}
+                
+                <div className={styles.rectangulo}>
+                    <h1 className={styles.titulo}>Formulario de Pago</h1>
              
-                <form className={styles.formulario} onSubmit={()=>{onSubmit()}}>
-                    <label className={styles.shadow}>
-                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
+                    <form className={styles.formulario} onSubmit={()=>{onSubmit()}}>
+                        <label className={styles.shadow}>
+                        <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
 
-                    </label>
-                    <br/>
-                    <label>
-                    <input type="number" placeholder='Amount' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
- 
-                    </label>
-                    <br/>
-                    <input type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
-                </form>
+                        </label>
+                        <br/>
+                        <label>
+                        <input type="number" placeholder='Amount' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
+
+                        </label>
+                        <br/>
+                        <input type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
+                    </form>
+                </div>
+                
             </div>
 
     )
