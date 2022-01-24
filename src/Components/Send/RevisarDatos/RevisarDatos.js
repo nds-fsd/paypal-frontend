@@ -13,6 +13,7 @@ const RevisarDatos = ({setChange, pago}) => {
         //     body: JSON.stringify(pago)
         // });
     }
+    
     const onReturn = () => {
         setChange(0)
         // fetch('http://localhost:3001/payment', {
@@ -42,6 +43,7 @@ const RevisarDatos = ({setChange, pago}) => {
                         <input value="Editar" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
                         <input value="Confirmar" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
                     </div>
+
                 </div>
                 
             </div>

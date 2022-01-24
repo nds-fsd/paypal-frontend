@@ -47,6 +47,7 @@ const FormularioPago = ({setPago, setChange}) => {
                         </form>
                     </div>     
                 </div>
+
             </div>
 
     )

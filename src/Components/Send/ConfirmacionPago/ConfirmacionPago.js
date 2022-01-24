@@ -6,6 +6,7 @@ import dotpattern from '../Images/DotPattern.svg'
 const ConfirmacionPago = ({setChange}) => {
     return (
         <div className={styles.confirmacionpago}>
+
             <div className={styles.formdot}> 
                 <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
                 {/* <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/> */}
@@ -14,6 +15,7 @@ const ConfirmacionPago = ({setChange}) => {
                     <input type='button' value='Done' className={styles.submit} onClick={()=> setChange(0)}/>
                 </div>
             </div> 
+
         </div>
     )
 }
