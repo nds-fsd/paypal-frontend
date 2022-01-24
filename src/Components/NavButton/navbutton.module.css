@@ -7,4 +7,5 @@ button {
     text-decoration: none;
     font-size: calc(10px + 1vmin);
     font-family: 'Manrope', sans-serif;
+    cursor: pointer;
 }
