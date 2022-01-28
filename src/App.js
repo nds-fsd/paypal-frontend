@@ -1,11 +1,11 @@
 import './App.css';
-import LandingPage from './Components/LandingPage/LandingPage'
-import Login from './Components/Login/Login'
-import Register from './Components/Register/Register'
+import LandingPage from '../src/pages/LandingPage/LandingPage'
+import Login from '../src/pages/LandingPage/LandingPage'
+import Register from '../src/pages/Register/Register'
 import React from "react"
 
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Main from './Main';
+// import SideBar from '../src/Components/SideBar/SideBar';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<LandingPage/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
-        <Route path="/main/*" element={<Main/>} />
+        {/* <Route path="/main/*" element={<SideBar/>} /> */}
       </Routes>
     </BrowserRouter>
     

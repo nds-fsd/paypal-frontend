@@ -1,5 +1,5 @@
 import styles from "./register.module.css"
-import NavButton from '../NavButton/NavButton'
+import NavButton from '../../Components/NavButton/NavButton'
 
 const Register = () => {
     return(

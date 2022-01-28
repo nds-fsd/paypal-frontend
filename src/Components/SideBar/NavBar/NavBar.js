@@ -1,5 +1,5 @@
 import styles from "./navbar.module.css"
-import NavButton from "../NavButton/NavButton"
+import NavButton from "../../NavButton/NavButton"
 import { ReactComponent as DayPayLogo } from './DayPay.svg';
 import walletLogo from './walletLogo.svg';
 import dashboardLogo from './dashboardLogo.svg';
