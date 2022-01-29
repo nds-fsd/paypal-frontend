@@ -1,5 +1,5 @@
 import styles from "./login.module.css"
-import NavButton from '../NavButton/NavButton'
+import NavButton from '../../Components/NavButton/NavButton'
 
 const Login = () => {
     return(

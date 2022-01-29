@@ -1,11 +1,11 @@
 import {Routes, Route} from "react-router-dom"
 import NavBar from "./NavBar/NavBar"
-import Dashboard from '../../pagesw/Dashboard/Dashboard'
+import Dashboard from '../../pages/Dashboard/Dashboard'
 import Wallet from "../../pages/Wallet/Wallet"
 import Send from "../../pages/Send/Send"
 import Request from "../../pages/Request/Request"
 import AccountSetting from "../../pages/AccountSetting/AccountSetting"
-import styles from "./SideBar.module.css"
+import styles from "../SideBar/sideBar.module.css"
 
 const SideBar = () => {
     return(
