@@ -1,0 +1,45 @@
+.block_footer{
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   align-content: flex-start;
+   align-items: flex-start;
+   justify-content: center;
+   background-color: #F6FCFF;
+   margin-bottom: 50px;
+   width: 100vw;
+}
+
+.footer{
+   margin:50px;
+   color: #7C8087;
+}
+
+.email{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: center;
+   align-items: center;
+}
+
+.email > img{
+   width: 20px;
+   margin-right: 20px;
+}
+
+.email > p {
+   color: #7C8087;
+   font-size: 14px;
+}
+
+.subscribe > button{
+   background-color: #258AFF;
+   height: 63px;
+   width: 160px;
+   border-radius: 5px;
+   border: none;
+   color: white;
+   margin-left: 30px
+}
