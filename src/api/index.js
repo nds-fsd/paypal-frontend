@@ -1,4 +1,5 @@
 import {getUserToken} from "./auth";
+import { useNavigate } from "react-router";
 
 export const API_URL =  window.location.hostname === 'payday-deployed-front' ? "payday-deployed-backend" : "http://localhost:3001";
 // Custom API error to throw
@@ -24,6 +25,7 @@ function ApiError(message, data, status) {
 
 // API wrapper function
 const fetchResource = (method = "GET", path, userOptions = {}) => {
+   
     // Define default options
     const defaultOptions = {
         mode: 'cors',
@@ -62,14 +64,17 @@ const fetchResource = (method = "GET", path, userOptions = {}) => {
     let response = null;
 
     return fetch(url, options)
+        
         .then(responseObject => {
             // Saving response for later use in lower scopes
             response = responseObject;
 
             // HTTP unauthorized
             if (response.status === 401) {
+                const navigate = useNavigate();
                 // Handle unauthorized requests
                 // Maybe redirect to login page?
+                navigate("/login");
                 return {authError: true}
             }
 

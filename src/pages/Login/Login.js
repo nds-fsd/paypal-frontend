@@ -8,15 +8,13 @@ import imageLog from "../../assets/imageLog.png";
 import paydayLogo from "../../assets/paydayLogo.png";
 import { Link } from 'react-router-dom';
 
-
-
 const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
         const token = getUserToken()
         if (token) navigate("/dashboard");
-      }, []);
+      }, );
     
       const { register, handleSubmit, formState: { errors } } = useForm();
     
@@ -39,10 +37,10 @@ const Login = () => {
                 </div>
                 <div className={styles.login_inputs}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input placeholder="email" {...register("email", {required: true })}/>
+                        <input type='text' placeholder="email" {...register("email", {required: true })}/>
                         {errors.email && <span className={styles.error}>email field is required</span>}
                         
-                        <input placeholder="password"{...register("password", { required: true })} />
+                        <input type='password' placeholder="password"{...register("password", { required: true })} />
                         {errors.password && <span>password field is required</span>}
                         
                         <div className={styles.send_button}>
