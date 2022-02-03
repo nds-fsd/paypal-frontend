@@ -1,0 +1,89 @@
+
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .register {
+    height: 100vh;
+    width: 100%; 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color: #F8FBFF;   
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap');
+  
+  .rectangulo {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly ;
+    align-items: center;
+  
+    background-color: white;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+    border-radius: 4px;
+    width: 35vw;
+    height: 75vh;
+  }
+  
+  .dotpattern {
+    position: inherit;
+    top: -7vh;
+    left: -15vw;
+    height: 50vh;
+    width: 44vw;
+  }
+  
+  .titulo {
+    font-size:4vh;
+    text-align: center;
+    font-weight: 600;
+  
+  }
+  
+   
+  .formulario {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .input {
+    border: none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.10), 0px 4px 16px rgba(51, 51, 51, 0.08);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 2px;
+    padding-left: 5px;
+    background: #FFFFFF;
+    outline: none;
+    width: 25vw;
+    height: 6vh;
+  
+  }
+  
+  .formdot{
+    position: absolute;
+  }
+  
+  
+  .submit {
+    background-color: #258AFF; 
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.14), 0px 4px 16px rgba(51, 51, 51, 0.08);
+    border: none;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: calc(10px + 1vmin);
+    border-radius: 5px;
+    width: 18vw;
+    cursor : pointer;
+    height: 5vh
+  }
