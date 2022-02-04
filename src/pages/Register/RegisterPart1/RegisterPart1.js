@@ -1,5 +1,5 @@
 import styles from "../RegisterPart1/registerpart1.module.css"
-import dotpattern from '../Images/DotPattern.svg'
+import dotpattern from '../../../assets/DotPattern.svg'
 
 
 const RegisterPart1 = ({setChange}) => {
