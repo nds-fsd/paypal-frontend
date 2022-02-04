@@ -1,7 +1,7 @@
 import {getUserToken} from "./auth";
 import { useNavigate } from "react-router";
 
-export const API_URL =  window.location.hostname === 'payday-deployed-front' ? "payday-deployed-backend" : "http://localhost:3090";
+export const API_URL =  window.location.hostname === 'payday-deployed-front' ? "payday-deployed-backend" : "http://localhost:3001";
 // Custom API error to throw
 function ApiError(message, data, status) {
     let response = null;

@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import LandingPage from '../src/pages/LandingPage/LandingPage'
 import Login from '../src/pages/Login/Login'
-import Register from '../src/pages/Register/RegisterPart1/RegisterPart1'
+import Register from '../src/pages/Register/Register'
 import React from "react"
 import SideBar from '../src/Components/SideBar/SideBar';
 import About from './pages/about/about';

@@ -1,4 +1,4 @@
-import styles from "./login.module.css"
+import styles from "./register.module.css"
 import customFetch from '../../api';
 import { setUserSession, getUserToken } from "../../api/auth";
 import { useForm } from "react-hook-form";
@@ -8,7 +8,7 @@ import imageLog from "../../assets/imageLog.png";
 import paydayLogo from "../../assets/paydayLogo.png";
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Login = () => {
       const { register, handleSubmit, formState: { errors } } = useForm();
     
       const onSubmit = (data) => {
-        customFetch("POST", "login", {body: data})
+        customFetch("POST", "users", {body: data})
         .then(userSession => {
           setUserSession(userSession);
           navigate("/main/dashboard");
@@ -37,17 +37,24 @@ const Login = () => {
                 </div>
                 <div className={styles.login_inputs}>
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <input type='text' placeholder="First Name" {...register("name", {required: true })}/>
+                        {errors.name && <span className={styles.error}>First Name field is required</span>}
+                        
+                        <input type='text' placeholder="Last Name"{...register("surname", { required: true })} />
+                        {errors.surname && <span>Last Name field is required</span>}
+
+
                         <input type='email' placeholder="Email" {...register("email", {required: true })}/>
                         {errors.email && <span className={styles.error}>Email field is required</span>}
                         
                         <input type='password' placeholder="Password"{...register("password", { required: true })} />
-                        {errors.password && <span>password field is required</span>}
+                        {errors.password && <span>Password field is required</span>}
                         
                         <div className={styles.send_button}>
-                            <input type="submit" value="Login" />
+                            <input type="submit" value="Register  " />
                         </div>
                     </form>
-                    <p>Don´t have an account? <Link className={styles.link} to='/register'>Sign up</Link></p>
                 </div>
             </div>
              
@@ -59,4 +66,4 @@ const Login = () => {
       );
     };
     
-    export default Login;
+    export default Register;
