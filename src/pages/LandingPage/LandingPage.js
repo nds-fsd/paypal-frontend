@@ -55,7 +55,7 @@ const LandingPage = () => {
             </div>
             {/* second page */}
             <div className={styles.block2}>
-                <div class={styles.block_header}></div>
+                <div className={styles.block_header}></div>
                 <div className={styles.block_symbols}>
                     <h1>
                     Grow your <br/>
