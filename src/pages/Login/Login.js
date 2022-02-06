@@ -37,7 +37,7 @@ const Login = () => {
                 </div>
                 <div className={styles.login_inputs}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type='text' placeholder="email" {...register("email", {required: true })}/>
+                        <input type='email' placeholder="email" {...register("email", {required: true })}/>
                         {errors.email && <span className={styles.error}>email field is required</span>}
                         
                         <input type='password' placeholder="password"{...register("password", { required: true })} />
