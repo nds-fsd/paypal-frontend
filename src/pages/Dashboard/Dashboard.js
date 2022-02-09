@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
-    const [email, setEmail] = useState();
+    const [name, setName] = useState();
     const navigate = useNavigate();
-     
+    
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    fetch("http://localhost:3090/users" , {
+    const userSession = localStorage.getItem("user-session");
+    console.log(userSession);
+  const { token } = JSON.parse(userSession);
+    fetch("http://localhost:3090/users/me" , {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -22,7 +24,7 @@ const Dashboard = () => {
         return response.json();
       })
       .then((json) => {
-        setEmail(json.email);
+        setName(json.name);
        
       })
       .catch(() => {
@@ -34,7 +36,7 @@ const Dashboard = () => {
    
   return(
     <div className = {styles.dashboard}>
-        <p>Welcome: {email}</p>
+        <p>Welcome: {name}</p>
     </div>
    
 )
