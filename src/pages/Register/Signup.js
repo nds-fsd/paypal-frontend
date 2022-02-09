@@ -23,7 +23,7 @@ const SignUp = () => {
       customFetch("POST", "users", {body: data})
       .then(userSession => {
         setUserSession(userSession);
-        navigate("/main");
+        navigate("/main/dashboard");
       }).catch(error => {
           'REQUEST_FAILED'
         console.error(error);

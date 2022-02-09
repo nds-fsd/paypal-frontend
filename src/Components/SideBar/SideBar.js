@@ -12,9 +12,6 @@ const Main = () => {
     return(
         <div className = {styles.main}>
             <NavBar/>
-            <Dashboard />
-            <UserSideBar />
-
             <Routes>
                 <Route path="/dashboard" element={<Dashboard/>} />
                 <Route path="/wallet" element={<Wallet/>} />
@@ -22,6 +19,7 @@ const Main = () => {
                 <Route path="/request" element={<Request/>} />
                 <Route path="/accountsetting" element={<AccountSetting/>} />
             </Routes>
+            <UserSideBar />
         </div>
     )
 
