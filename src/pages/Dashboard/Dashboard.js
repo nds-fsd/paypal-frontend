@@ -1,15 +1,16 @@
 import styles from "./dashboard.module.css"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { removeSession } from "../../api/auth";
+
 
 const Dashboard = () => {
     const [email, setEmail] = useState();
-  const navigate = useNavigate();
-     // On component load, we ask the backend for our user data
-  // We send the JWT in the request to authenticate ourselves
+    const navigate = useNavigate();
+     
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3090/users", {
+    fetch("http://localhost:3090/users/me", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -22,17 +23,25 @@ const Dashboard = () => {
         return response.json();
       })
       .then((json) => {
+        debugger;
         setEmail(json.email);
+        console.log(email);
       })
       .catch(() => {
         localStorage.removeItem("token");
         navigate("/login");
       });
-  }, );
+    }, );
+
+    const onLogOut = () => {
+        removeSession()
+        navigate("/login");
+      };
+    
 
   return(
     <div className = {styles.dashboard}>
-       <h1>dashboard</h1>
+        <button onClick={() => onLogOut()}>Log Out</button>
         <p>Welcome: {email}</p>
     </div>
 )
@@ -41,6 +50,3 @@ const Dashboard = () => {
 
 
 export default Dashboard;
-
-
-

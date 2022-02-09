@@ -1,8 +1,21 @@
 .dashboard{
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
-
-    width:75vw;
+    align-items: center;
+    width: 80vw;
     height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: #F8FBFF;
+}
+
+.dashboard > button{
+    right: 30px;
+    top: 30px;
+    position: absolute;
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 10px;
+    background: transparent;
 }
