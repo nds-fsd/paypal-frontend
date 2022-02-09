@@ -4,10 +4,10 @@ import LandingPage from '../src/pages/LandingPage/LandingPage'
 import Login from '../src/pages/Login/Login'
 import Register from '../src/pages/Register/Signup'
 import React from "react"
-import SideBar from '../src/Components/SideBar/SideBar';
 import About from './pages/about/about';
 import Princing from './pages/pricing/Princing';
 import Contact from './pages/contact/contact';
+import Main from '../src/Components/SideBar/SideBar';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/main/*" element={<SideBar />} />
+        <Route path="/main/*" element={<Main />} />
       </Routes>
     </BrowserRouter>
     

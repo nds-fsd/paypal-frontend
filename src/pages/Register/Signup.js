@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import customFetch from '../../api';
+import { setUserSession } from "../../api/auth";
 import styles from "../Register/signup.module.css"
 import paydayLogo from "../../assets/paydayLogo.png";
 import imageLog from "../../assets/imageLog.png";
+
 
 const SignUp = () => {
    const navigate = useNavigate();
@@ -16,24 +19,16 @@ const SignUp = () => {
    
     const { register, handleSubmit, formState: { errors } } = useForm();
   
-    const onSubmit = async (data) => {
-      const response = await fetch("http://localhost:3090/users", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify(data),
-       });
-   
-       if (!response.ok) {
-         alert("Response wasn't ok");
-         return;
-       }
-   
-       const json = await response.json();
-   
-       localStorage.setItem("token", json.token);
-   
-       navigate("/main/dashboard")
-     };
+    const onSubmit = (data) => {
+      customFetch("POST", "users", {body: data})
+      .then(userSession => {
+        setUserSession(userSession);
+        navigate("/main");
+      }).catch(error => {
+          'REQUEST_FAILED'
+        console.error(error);
+      });
+    };
 
     return (
       <div className={styles.login}>
