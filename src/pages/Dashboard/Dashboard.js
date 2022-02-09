@@ -10,7 +10,7 @@ const Dashboard = () => {
      
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3090/users", {
+    fetch("http://localhost:3090/users/me", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -23,6 +23,7 @@ const Dashboard = () => {
         return response.json();
       })
       .then((json) => {
+        debugger;
         setEmail(json.email);
         console.log(email);
       })
