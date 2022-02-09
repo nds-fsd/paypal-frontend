@@ -1,14 +1,20 @@
 import styles from "./navbar.module.css"
 import NavButton from "../../NavButton/NavButton"
+import { removeSession } from "../../../api/auth";
 import { ReactComponent as DayPayLogo } from './DayPay.svg';
 import walletLogo from './walletLogo.svg';
 import dashboardLogo from './dashboardLogo.svg';
 import sendLogo from './sendLogo.svg';
 import receiveLogo from './receiveLogo.svg';
 import accountLogo from './accountlogo.svg';
-
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+    const navigate = useNavigate();
+    const onLogOut = () => {
+        removeSession()
+        navigate("/login");
+      };
     return(
         <div className = {styles.navbar}>
             <DayPayLogo className={styles.logo}/>
@@ -37,9 +43,11 @@ const NavBar = () => {
                 <img  src={accountLogo} alt="accountLogo" />
                 <NavButton path = "/main/accountsetting" text="Account Setting"/>
             </div>
-            
+            <button onClick={() => onLogOut()}>Log Out</button>
         </div>
     )
 }
 
 export default NavBar;
+
+

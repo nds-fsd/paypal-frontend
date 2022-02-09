@@ -13,8 +13,8 @@ const Login = () => {
 
     useEffect(() => {
         const token = getUserToken()
-        if (token) navigate("/main/dashboard");
-      }, );
+        if (token) navigate("/main");
+      }, []);
     
       const { register, handleSubmit, formState: { errors } } = useForm();
     
@@ -22,7 +22,7 @@ const Login = () => {
         customFetch("POST", "login", {body: data})
         .then(userSession => {
           setUserSession(userSession);
-          navigate("/main/dashboard");
+          navigate("/main");
         }).catch(error => {
             'REQUEST_FAILED'
           console.error(error);

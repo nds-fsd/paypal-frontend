@@ -2,14 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80vw;
+    width: 60vw;
     height: 100vh;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-content: center;
     background-color: #F8FBFF;
 }
-
 .dashboard > button{
     right: 30px;
     top: 30px;

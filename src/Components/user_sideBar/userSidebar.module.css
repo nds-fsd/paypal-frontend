@@ -1,0 +1,16 @@
+.profile > img{
+   width: 87px;
+   margin-top: 30px;
+}
+
+.user_sidebar{
+   display: flex;
+   width: 20vw;
+   height: 100vh;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-content: center;
+   align-items: center;
+   justify-content: flex-start;
+   background-color: white;
+}

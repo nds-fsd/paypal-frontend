@@ -6,11 +6,14 @@ import Send from "../../pages/Send/Send"
 import Request from "../../pages/Request/Request"
 import AccountSetting from "../../pages/AccountSetting/AccountSetting"
 import styles from "../SideBar/sideBar.module.css"
+import UserSideBar from "../../Components/user_sideBar/UserSideBar";
 
-const SideBar = () => {
+const Main = () => {
     return(
         <div className = {styles.main}>
             <NavBar/>
+            <Dashboard />
+            <UserSideBar />
 
             <Routes>
                 <Route path="/dashboard" element={<Dashboard/>} />
@@ -24,4 +27,4 @@ const SideBar = () => {
 
 }
 
-export default SideBar;
+export default Main;
