@@ -7,7 +7,7 @@ import React from "react"
 import About from './pages/about/about';
 import Princing from './pages/pricing/Princing';
 import Contact from './pages/contact/contact';
-import Main from '../src/Components/SideBar/SideBar';
+import Main from './pages/main/Main';
 
 function App() {
   return (

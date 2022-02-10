@@ -1,16 +1,19 @@
-import {Routes, Route} from "react-router-dom"
-import NavBar from "./NavBar/NavBar"
-import Dashboard from '../../pages/Dashboard/Dashboard'
-import Wallet from "../../pages/Wallet/Wallet"
-import Send from "../../pages/Send/Send"
-import Request from "../../pages/Request/Request"
-import AccountSetting from "../../pages/AccountSetting/AccountSetting"
-import styles from "../SideBar/sideBar.module.css"
+import {Routes, Route} from "react-router-dom";
+import NavBar from "../../Components/NavBar/NavBar";
+import Dashboard from "../Dashboard/Dashboard";
+import Wallet from "../Wallet/Wallet";
+import Send from "../Send/Send";
+import Request from "../Request/Request";
+import AccountSetting from "../AccountSetting/AccountSetting";
+import styles from "./main.module.css";
 import UserSideBar from "../../Components/user_sideBar/UserSideBar";
+import { UserContextProvider } from "../../context/userContext";
 
 const Main = () => {
+
     return(
         <div className = {styles.main}>
+            <UserContextProvider>
             <NavBar/>
             <Routes>
                 <Route path="/dashboard" element={<Dashboard/>} />
@@ -20,6 +23,8 @@ const Main = () => {
                 <Route path="/accountsetting" element={<AccountSetting/>} />
             </Routes>
             <UserSideBar />
+            </UserContextProvider>
+            
         </div>
     )
 

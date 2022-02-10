@@ -1,15 +1,17 @@
 import styles from "./dashboard.module.css"
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
-    const [email, setEmail] = useState();
+    const { name, setName } = useContext(UserContext);
     const navigate = useNavigate();
-     
+    
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    fetch("http://localhost:3090/users" , {
+    const userSession = localStorage.getItem("user-session");
+    const { token } = JSON.parse(userSession);
+    fetch("http://localhost:3090/users/me" , {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -22,19 +24,19 @@ const Dashboard = () => {
         return response.json();
       })
       .then((json) => {
-        setEmail(json.email);
+        setName(json.name);
        
       })
       .catch(() => {
         localStorage.removeItem("token");
         navigate("/login");
       });
-    }, []);
+    }, [navigate, setName]);
 
    
   return(
     <div className = {styles.dashboard}>
-        <p>Welcome: {email}</p>
+        <p>Welcome: {name}</p>
     </div>
    
 )
