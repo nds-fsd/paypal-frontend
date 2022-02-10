@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import styles from '../user_sideBar/userSidebar.module.css'
 
-const UserSideBar = () => {
-  const [name, setName] = useState();
 
-  useEffect(() => {
+const UserSideBar = () => {
+  const { name, setName } = useContext(UserContext);
+
     
-    const token = localStorage.getItem("token");
-    fetch("http://localhost:3090/users" , {
+  useEffect(() => {
+    const userSession = localStorage.getItem("user-session");
+    const { token } = JSON.parse(userSession);
+    fetch("http://localhost:3090/users/me" , {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -21,8 +24,13 @@ const UserSideBar = () => {
       })
       .then((json) => {
         setName(json.name);
+       
       })
-  }, []);
+      .catch(error => {
+        console.log("Couldn't retrieve user data");
+      });
+    }, [setName]);
+
   
   return (
   <div className={styles.user_sidebar}>

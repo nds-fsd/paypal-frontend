@@ -1,8 +1,11 @@
 .accountsetting{
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
-
-    width:75vw;
+    align-items: center;
+    width: 60vw;
     height: 100vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    background-color: #F8FBFF;
 }

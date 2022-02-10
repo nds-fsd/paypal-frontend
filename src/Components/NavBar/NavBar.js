@@ -1,12 +1,12 @@
 import styles from "./navbar.module.css"
-import NavButton from "../../NavButton/NavButton"
-import { removeSession } from "../../../api/auth";
-import { ReactComponent as DayPayLogo } from './DayPay.svg';
-import walletLogo from './walletLogo.svg';
-import dashboardLogo from './dashboardLogo.svg';
-import sendLogo from './sendLogo.svg';
-import receiveLogo from './receiveLogo.svg';
-import accountLogo from './accountlogo.svg';
+import NavButton from "../NavButton/NavButton"
+import { removeSession } from "../../api/auth";
+import { ReactComponent as DayPayLogo } from '../../assets/DayPay.svg';
+import walletLogo from '../../assets/walletLogo.svg';
+import dashboardLogo from '../../assets/dashboardLogo.svg';
+import sendLogo from '../../assets/sendLogo.svg';
+import receiveLogo from '../../assets/receiveLogo.svg';
+import accountLogo from '../../assets/accountlogo.svg';
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
