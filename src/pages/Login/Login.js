@@ -14,7 +14,7 @@ const Login = () => {
     useEffect(() => {
         const token = getUserToken()
         if (token) navigate("/main/dashboard");
-      }, []);
+      }, [navigate]);
     
       const { register, handleSubmit, formState: { errors } } = useForm();
     
