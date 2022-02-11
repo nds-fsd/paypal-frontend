@@ -3,11 +3,12 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
 }
 
 .amountsquare,
 .amountsquare2{
+    position:absolute;
+    right:75px;
     width: 65px;
     height: 16px;
 
@@ -74,10 +75,13 @@
     text-align: center;
 
     color: #979797;
+    margin:0px 40px;
+
 }
 
 .amount {
-    
+    position:absolute;
+    right:0px;
     height: 20px;
 
     font-family: Manrope;
@@ -90,4 +94,6 @@
     text-align: center;
 
     color: #1D293F;
+    
+
 }
