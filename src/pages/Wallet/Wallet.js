@@ -6,13 +6,15 @@ import arrow from "../../assets/arrow.png"
 import {useEffect, useState} from "react";
 import customFetch from '../../api';
 import Payment from "./Payment/Payment"
+import { UserContext } from "../../context/userContext";
+import { useContext } from "react";
 
 const Wallet = () => {
 
+    const { wallet, setWallet } = useContext(UserContext);
     const [payments, setPayments] = useState([]);
     const [id, setId] = useState(null);
     const [showPays, setShowPays] = useState(false);
-    const [wallet, setWallet] = useState(0);
     const [choose, setChoose] = useState(0);
     const clicked = {
         color: "#258AFF"

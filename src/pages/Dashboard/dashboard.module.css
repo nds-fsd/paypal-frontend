@@ -29,3 +29,39 @@
     margin: 5px 0 5px 30px;
     color: #979797;
 }
+
+.wallet{
+    width: 25vw;
+    height: auto;
+    background-color: white;
+    border-top: 5px #258AFF solid;
+    margin: 50px 0 50px 30px;
+    border-radius: 4px 0px 0px 0px;
+    font-family: 'Manrope';
+    padding-left: 20px;
+}
+
+.display > img{
+    width: 20px;
+}
+
+.wallet > h1{
+    font-family: 'Manrope';
+    margin: 0;
+}
+
+.display > h4{
+    color:#20E9BC;
+}
+.wallet > p{
+    color: #979797;
+}
+.display{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Manrope';
+}

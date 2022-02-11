@@ -16,7 +16,7 @@ const Main = () => {
             <UserContextProvider>
             <NavBar/>
             <Routes>
-                <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/wallet" element={<Wallet/>} />
                 <Route path="/send" element={<Send/>} />
                 <Route path="/request" element={<Request/>} />

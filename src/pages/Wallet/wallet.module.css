@@ -28,15 +28,11 @@
     height: 25px;
     left: 51px;
     top: 29px;
-
-    font-family: Manrope;
+    font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
-
-    /* identical to box height */
-
     color: #20E9BC;
 }
 .money {
@@ -45,13 +41,11 @@
     height: 49px;
     left: 34px;
     top: 53px;
-
-    font-family: Manrope;
+    font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
     line-height: 49px;
-
     color: #000000;
 }
 
@@ -227,5 +221,4 @@
     height:18px;
     left: 33px;
     top: 33px;
-
 }
