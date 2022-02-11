@@ -32,25 +32,23 @@ const FormularioPago = ({setPago, setChange, pago}) => {
     
     return (
         
-            <div className={styles.formulariopago}>
-                <div className={styles.formdot}> 
-                    <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
-                    <div className={styles.rectangulo}>              
-                        <form className={styles.formulario} onSubmit={()=>{onSubmit()}}>
-                            <h1 className={styles.titulo}>Formulario de Pago</h1>
-                            <br/>
-                            <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
-                            <br/>
-                            <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
-                            <br/>
-                            <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Send</button>
-                        </form>
-                        {err}
-                    </div>     
-                </div>
-
+        <div className={styles.formulariopago}>
+            <div className={styles.formdot}> 
+                <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
+                <div className={styles.rectangulo}>              
+                    <form className={styles.formulario} onSubmit={()=>{onSubmit()}}>
+                        <h1 className={styles.titulo}>Formulario de Pago</h1>
+                        <br/>
+                        <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
+                        <br/>
+                        <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
+                        <br/>
+                        <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Send</button>
+                    </form>
+                    {err}
+                </div>     
             </div>
-
+        </div>
     )
 }
 
