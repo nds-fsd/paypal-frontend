@@ -1,0 +1,23 @@
+.toggle {
+  display: none;
+ }
+ 
+ .toggle.is-open {
+   display: flex;
+ }
+ 
+ .toggleContainer {
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ .toggleClose {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+ }

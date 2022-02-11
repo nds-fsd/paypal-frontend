@@ -8,13 +8,14 @@
    width: 20vw;
    height: 100vh;
    flex-direction: column;
-   flex-wrap: wrap;
+   flex-wrap: nowrap;
    align-content: center;
    align-items: center;
    justify-content: flex-start;
    background-color: white;
 }
 
-.user_sidebar > p{
+.profile > p{
    text-align: center;
 }
+

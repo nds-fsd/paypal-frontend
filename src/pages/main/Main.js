@@ -6,7 +6,7 @@ import Send from "../Send/Send";
 import Request from "../Request/Request";
 import AccountSetting from "../AccountSetting/AccountSetting";
 import styles from "./main.module.css";
-import UserSideBar from "../../Components/user_sideBar/UserSideBar";
+import UserSideBar from "../../Components/userSidebar/UserSideBar";
 import { UserContextProvider } from "../../context/userContext";
 
 const Main = () => {
@@ -16,7 +16,7 @@ const Main = () => {
             <UserContextProvider>
             <NavBar/>
             <Routes>
-                <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/wallet" element={<Wallet/>} />
                 <Route path="/send" element={<Send/>} />
                 <Route path="/request" element={<Request/>} />

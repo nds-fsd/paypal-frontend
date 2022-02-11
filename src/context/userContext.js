@@ -6,12 +6,15 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
    const [name, setName] = useState();
    const [surname, setSurname] = useState();
+   const [wallet, setWallet] = useState(0);
 
    const sharedValues = {
        name,
        setName,
        surname,
-       setSurname
+       setSurname,
+       wallet,
+       setWallet
    }
 
    return(
@@ -21,3 +24,4 @@ export const UserContextProvider = ({ children }) => {
 
    )
 }
+
