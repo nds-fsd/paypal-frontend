@@ -11,7 +11,23 @@ const Request = () => {
 
 
     const onSubmit = () => {
-        
+        const userSession = localStorage.getItem("user-session");
+        const { id } = JSON.parse(userSession);
+
+        customFetch("GET", "users/id/" + email)
+        .then((_id) => {
+            if(_id === null) setErr("Email not found")
+            else {
+                const data = {
+                    from: id,
+                    to: _id,
+                    amount:amount,
+                    currency: "$",
+                }
+                customFetch("POST", "request", {body: data})
+                .then( () => {setErr("Request sent")})
+            }
+        })
         console.log("peticion realizada");
     }
 
@@ -31,8 +47,6 @@ const Request = () => {
                 {err}
             </div>
         </div>
-        
-        
     )
 }
 
