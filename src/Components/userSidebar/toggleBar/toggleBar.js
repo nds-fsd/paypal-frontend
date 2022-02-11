@@ -6,9 +6,10 @@ const ToggleBar = ({isToggle, closeUsersidebar }) => {
   return (
    <div onClick={ closeUsersidebar } className={`toggle ${isToggle && "is-open"}`}>
       <div className="toggleContainer">
-      
-          <button>Send</button>
-          <button>request</button>
+         <div className={"request_box"}>
+            <button>Send</button>
+            <button>request</button>
+         </div>
         
       </div>
  </div>
