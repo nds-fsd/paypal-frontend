@@ -1,28 +1,24 @@
 import styles from "./revisardatos.module.css";
 import dotpattern from '../Images/DotPattern.svg'
+import customFetch from '../../../api'
 
 const RevisarDatos = ({setChange, pago}) => {
 
     const onSubmit = () => {
-        setChange(2)
-        // fetch('http://localhost:3001/payment', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(pago)
-        // });
+        const userSession = localStorage.getItem("user-session");
+        const { id } = JSON.parse(userSession);
+        const data = {
+            from: id,
+            to:pago.id,
+            amount: Number(pago.amount),
+            currency:"$"
+        }
+        customFetch("POST", "payments", {body:data})
+        setChange(2);
     }
     
     const onReturn = () => {
         setChange(0)
-        // fetch('http://localhost:3001/payment', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(pago)
-        // });
     }
 
     return (
@@ -38,7 +34,7 @@ const RevisarDatos = ({setChange, pago}) => {
                         </div>
                         <div className={styles.box}>
                             <h2 className={styles.title}>Amount</h2>
-                            <p className={styles.inputs}>{pago.amount}€</p>
+                            <p className={styles.inputs}>{pago.amount}$</p>
                         </div>
                         <input value="Editar" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
                         <input value="Confirmar" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>

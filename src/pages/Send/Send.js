@@ -5,12 +5,12 @@ import ConfirmacionPago from "./ConfirmacionPago/ConfirmacionPago";
 import RevisarDatos from "./RevisarDatos/RevisarDatos";
 
 const Send = () => {
-    const [pago, setPago] = useState()
+    const [pago, setPago] = useState({email: "", amount:0, id:null})
     const [change, setChange] = useState(0)
 
     return(
         <div className = {styles.send}>
-            {change===0 && <FormularioPago setPago={setPago} setChange={setChange}/>}
+            {change===0 && <FormularioPago setPago={setPago} setChange={setChange} pago = {pago}/>}
             {change===1 && <RevisarDatos pago={pago} setChange={setChange}/>}
             {change===2 && <ConfirmacionPago setChange={setChange}/>}
         </div>
