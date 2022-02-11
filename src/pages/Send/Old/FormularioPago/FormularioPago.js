@@ -1,30 +1,32 @@
 import { useState} from 'react'
 import styles from "./formulariopago.module.css";
 import dotpattern from '../../Images/DotPattern.svg';
+import customFetch from '../../../../api'
 
 
-const FormularioPago = ({setPago, setChange}) => {
+const FormularioPago = ({setPago, setChange, pago}) => {
     
 
-    const [email, setEmail] = useState('');
-    const [amount, setAmount] = useState(0);
+    const [email, setEmail] = useState(pago.email);
+    const [amount, setAmount] = useState(pago.amount);
+    const [err, setErr] = useState("");
 
 
     const onSubmit = () => {
-        const data={
-            email:email,
-            amount:amount
-        }
-        console.log(email);
-        setPago(data);
-        setChange(1)
-        // fetch('http://localhost:3001/usuario', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data)
-        // });
+        
+        customFetch("GET", "users/id/" + email)
+        .then((_id) => {
+            if(_id === null) setErr("Email not found")
+            else {
+                const data={
+                    email:email,
+                    amount:amount,
+                    id:_id
+                }
+                setPago(data);
+                setChange(1);
+            }
+        })
     }
 
     
@@ -33,8 +35,6 @@ const FormularioPago = ({setPago, setChange}) => {
             <div className={styles.formulariopago}>
                 <div className={styles.formdot}> 
                     <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
-                    {/* <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/> */}
-                    
                     <div className={styles.rectangulo}>              
                         <form className={styles.formulario} onSubmit={()=>{onSubmit()}}>
                             <h1 className={styles.titulo}>Formulario de Pago</h1>
@@ -43,8 +43,9 @@ const FormularioPago = ({setPago, setChange}) => {
                             <br/>
                             <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                             <br/>
-                            <input type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
+                            <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Send</button>
                         </form>
+                        {err}
                     </div>     
                 </div>
 
