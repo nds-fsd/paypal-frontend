@@ -12,7 +12,16 @@
     height: 100vh;
 }
 
+.send > img {
+    position: absolute;
+    width: 176px;
+    height: 191px;
+    left: 650px;
+    top: 248px;
+}
+
 .paybox{
+    z-index:1;
     display: flex;
     width: 426px;
     height: 360px;
@@ -34,7 +43,7 @@
     align-items: center;
 }
 
-.amount{
+.form > input {
     margin: 10px;
     width: 120%;
     height: 30px;
@@ -44,25 +53,25 @@
     padding: 5px;
 }
 
-.email{
-    margin: 10px;
-    width: 120%;
-    height: 30px;
-    border-radius: 3px;
-    border:none;
-    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
-    padding: 5px;
 
-}
+button.submit{
+    margin-top: 20px;
+    background: #258AFF;
+    border-radius: 8px;
+    
 
-.submit{
-    margin: 10px;
-    width: 200%;
-    height: 30px;
-    background-color:#258AFF;
-    border:none;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
+    height: 40px;
+    width: 142px;
+
+
+
+    color:white;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+
+    text-align: center;
+    font-feature-settings: 'liga' off;
 }

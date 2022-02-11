@@ -1,6 +1,6 @@
 import styles from "./send.module.css"
 import { useState } from "react";
-import FormularioPago from "./Old/FormularioPago/FormularioPago";
+import FormularioPago from "./FormularioPago/FormularioPago";
 import ConfirmacionPago from "./ConfirmacionPago/ConfirmacionPago";
 import RevisarDatos from "./RevisarDatos/RevisarDatos";
 
