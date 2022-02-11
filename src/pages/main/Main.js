@@ -6,7 +6,7 @@ import Send from "../Send/Send";
 import Request from "../Request/Request";
 import AccountSetting from "../AccountSetting/AccountSetting";
 import styles from "./main.module.css";
-import UserSideBar from "../../Components/user_sideBar/UserSideBar";
+import UserSideBar from "../../Components/userSidebar/UserSideBar";
 import { UserContextProvider } from "../../context/userContext";
 
 const Main = () => {

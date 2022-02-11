@@ -36,7 +36,8 @@ const Dashboard = () => {
    
   return(
     <div className = {styles.dashboard}>
-        <p>Welcome: {name}</p>
+      <h3>Overview</h3>
+      <p>Hi {name}, get your summary of your transactions and requests here</p>
     </div>
    
 )

@@ -1,13 +1,13 @@
 .dashboard{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 60vw;
     height: 100vh;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
+    flex-direction: column;
+    align-content: flex-start;
     background-color: #F8FBFF;
+    flex-wrap: wrap;
 }
 .dashboard > button{
     right: 30px;
@@ -17,4 +17,15 @@
     padding: 20px;
     border-radius: 10px;
     background: transparent;
+}
+
+.dashboard > h3{
+    font-family: 'Manrope';
+    margin: 50px 0 5px 30px;
+}
+
+.dashboard > p{
+    font-family: 'Manrope';
+    margin: 5px 0 5px 30px;
+    color: #979797;
 }
