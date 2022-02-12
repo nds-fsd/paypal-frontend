@@ -28,3 +28,7 @@
     border-radius: 3px;
     border: 1px solid lightgray;
  }
+
+ .request_box > img{
+  width: 14px;
+}

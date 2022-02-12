@@ -1,7 +1,6 @@
 import styles from "./request.module.css"
 import { useState} from 'react'
 import dotpattern from '../../assets/DotPattern3.png';
-import customFetch from '../../api'
 
 const Request = () => {
 

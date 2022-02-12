@@ -1,4 +1,5 @@
 import React from 'react';
+import Pending from '../../pending/Pending';
 import '../toggleBar/toggleBar.css'
 
 const ToggleBar = ({isToggle, closeUsersidebar }) => {
@@ -6,10 +7,7 @@ const ToggleBar = ({isToggle, closeUsersidebar }) => {
   return (
    <div onClick={ closeUsersidebar } className={`toggle ${isToggle && "is-open"}`}>
       <div className="toggleContainer">
-         <div className={"request_box"}>
-            <button>Send</button>
-            <button>request</button>
-         </div>
+         <Pending />
         
       </div>
  </div>
