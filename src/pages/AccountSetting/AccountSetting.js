@@ -126,7 +126,7 @@ const AccountSetting = () => {
         email: userData.email,
         password: userData.password
       }
-      customFetch("POST", "users", {body:data})
+      customFetch("PUT", "users/" + id , {body:data})
   }
 
     return(
