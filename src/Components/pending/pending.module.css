@@ -12,3 +12,17 @@
    align-content: center;
    justify-content: flex-start;
  }
+
+ .buttons > button:nth-child(1){
+   width: 110px;
+   height: 30px;
+   background-color: #258AFF;
+   color: white;
+ }
+
+ .buttons > button:nth-child(2){
+   width: 80px;
+   height: 30px;
+   background-color: #FF374F;
+   color: white;
+ }
