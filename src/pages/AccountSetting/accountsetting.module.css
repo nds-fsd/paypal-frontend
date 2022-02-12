@@ -1,11 +1,172 @@
-.accountsetting{
+.settings {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.settingsbox{
     display: flex;
+
+    width: 426px;
+    height: 480px;
+    left: 0px;
+    top: 0px;
+    flex-direction: column; 
+    /* flex-wrap: wrap;  */
     justify-content: center;
     align-items: center;
-    width: 60vw;
-    height: 100vh;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    background-color: #F8FBFF;
+    background: #c45b5b;
+    border: 1px solid #E9E9E9;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+
+    opacity: 90%;
+}
+
+p {
+    font-family: Manrope;
+    font-size: 14px;
+}
+
+.images {
+    position: relative;
+    display: flex;
+  }
+
+.userimage{
+    margin: 0 auto;
+
+  opacity: 50%;
+
+  margin-top: 10px;
+
+  margin-bottom: 14px;
+  max-width: 527px;
+  padding: 0 10%;
+  padding: 4%;    
+}
+
+.editimg{
+    position: absolute;
+        /* top: 38%;
+        right: 16%; */
+    background-color: #258AFF;
+    padding: 0.5%;
+    border-style: none;
+    border-radius: 50%;
+    overflow: visible;
+    color: white;
+    transform: scale(1);
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    font-weight: 400;
+    font-size: 16px;
+
+    max-width: 500px;
+    min-height: 500px;
+    margin: 0 auto;
+
+    background: #fddf7b;
+    border: 1px solid #E9E9E9;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+
+    opacity: 60%;
+  }
+
+
+
+input {
+    margin-top: 10px;
+    /* width: 300px; */
+    width: 83%;
+    height: 50px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    max-width: 527px;
+
+    /* position: relative;
+    display: flex;
+    margin-bottom: 14px; 
+     margin: 0 auto;
+     */
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    /* padding: 0 10%; */
+  }
+
+.namesinput{
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.names{
+    width: 35%;
+    height: 50px;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    padding: 0 2%;
+    margin: 0 2%;
+}
+
+.email{
+    margin: 0 auto;
+    width: 83%;
+    height: 50px;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    padding: 0 2%;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 14px; 
+     margin: 0 auto;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.18);
+    padding: 0 10%;
+}
+
+i {
+    position: absolute;
+    top: 63%;
+    right: 40%; 
+  }
+
+  i:hover {
+    color: #258AFF;
+    cursor: pointer;
+  }
+
+.save{
+    /* flex-direction: column; */
+    margin: 10px;
+    width: 30%;
+    height: 5vh;
+    padding: 5px;
+    align-items: center;
+
+    /* margin: 10px;
+    padding: 5px;
+    width: 200%;
+    height: 30px; */
+    background-color:#258AFF;
+    border:none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+
+    
 }
