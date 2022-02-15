@@ -2,7 +2,6 @@ import styles from "./wallet.module.css"
 import dotpattern from "../../assets/DotPattern3.png"
 import dotpattern2 from "../../assets/DotPattern3.png"
 import arrow from "../../assets/arrow.png"
-
 import {useEffect, useState} from "react";
 import customFetch from '../../api';
 import Payment from "./Payment/Payment"

@@ -1,13 +1,13 @@
 import styles from "./request.module.css"
 import { useState} from 'react'
 import dotpattern from '../../assets/DotPattern3.png';
+import customFetch from '../../api';
+import { UserContext } from "../../context/userContext";
+import { useContext } from "react";
 
 const Request = () => {
 
-    const [email, setEmail] = useState("");
-    const [amount, setAmount] = useState(0);
-    const [err, setErr] = useState("");
-
+    const { email, setEmail, amount, setAmount, err, setErr } = useContext(UserContext);
 
     const onSubmit = () => {
         const userSession = localStorage.getItem("user-session");
