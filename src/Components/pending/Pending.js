@@ -25,13 +25,6 @@ const Pending = ({request, id }) => {
    }, [])
 
 
-   const onSend = () => {
-      setSend();
-   }
- 
-   const onCancel = () => {
-      setCancel('');
-   }
 
   return (
       <div className={styles.pending}>
@@ -44,8 +37,8 @@ const Pending = ({request, id }) => {
          <p>{request.amount} {request.currency}</p>
          <div className={styles.buttons}>
             <form className= {styles.form}>
-               <button type="button" value={send} onClick={onSend()}>✔︎ Send</button>
-               <button type="button" value={cancel} onClick={onCancel()}>✗ Cancel</button>      
+               <button type="button" value={send} >✔︎ Send</button>
+               <button type="button" value={cancel}>✗ Cancel</button>      
             </form>
          </div>
       </div>
