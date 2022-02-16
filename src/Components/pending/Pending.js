@@ -4,12 +4,18 @@ import styles from '../pending/pending.module.css';
 import { useState } from 'react';
 import customFetch from '../../api';
 import { useEffect } from 'react';
+import { UserContext } from "../../context/userContext";
+import { useContext } from "react";
 
 
-const Pending = ({request, id, send, onSend, cancel, onCancel}) => {
-   
+const Pending = ({request, id }) => {
+   const [send, setSend] = useState();
+   const [cancel, setCancel] = useState(0);
    const [name, setName] = useState("");
    const [to, setTo] = useState(null);
+
+   const { setErr, email, amount } = useContext(UserContext);
+
 
    useEffect(() => {
       const to = request.to === id;
@@ -17,6 +23,15 @@ const Pending = ({request, id, send, onSend, cancel, onCancel}) => {
       customFetch("GET", "users/name/" + (to ? request.to: request.from))
       .then((response) => {setName(response)});
    }, [])
+
+
+   const onSend = () => {
+      setSend();
+   }
+ 
+   const onCancel = () => {
+      setCancel('');
+   }
 
   return (
       <div className={styles.pending}>
@@ -29,8 +44,8 @@ const Pending = ({request, id, send, onSend, cancel, onCancel}) => {
          <p>{request.amount} {request.currency}</p>
          <div className={styles.buttons}>
             <form className= {styles.form}>
-               <button type="button" value={send} onClick={() => {onSend()}}>✔︎ Send</button>
-               <button type="button" value={cancel} onClick={() => {onCancel()}}>✗ Cancel</button>      
+               <button type="button" value={send} onClick={onSend()}>✔︎ Send</button>
+               <button type="button" value={cancel} onClick={onCancel()}>✗ Cancel</button>      
             </form>
          </div>
       </div>

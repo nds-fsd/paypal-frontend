@@ -7,8 +7,7 @@ import send from "../../../assets/sendWallet.png"
 import receive from "../../../assets/receiveWallet.png"
 
 const Payment = ({payment, id}) => {
-    
-    
+      
     const [name, setName] = useState("");
     const [from, setFrom] = useState(null);
 
