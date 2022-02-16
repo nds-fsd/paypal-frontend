@@ -1,13 +1,22 @@
 import React from 'react';
 import calendar from '../../assets/calendar.png';
 import styles from '../pending/pending.module.css';
+import { useState } from 'react';
+import customFetch from '../../api';
+import { useEffect } from 'react';
 
 
+const Pending = ({request, id, onSend, onCancel }) => {
+   
+   const [name, setName] = useState("");
+   const [to, setTo] = useState(null);
 
-const Pending = ({request, id }) => {
- 
-
-
+   useEffect(() => {
+      const to = request.to === id;
+      setTo(to);
+      customFetch("GET", "users/name/" + (to ? request.to: request.from))
+      .then((response) => {setName(response)});
+   }, [])
 
   return (
       <div className={styles.pending}>
@@ -15,13 +24,13 @@ const Pending = ({request, id }) => {
             <img src={calendar} alt="" />
             <p>{request.date.split('T')[0]}</p>
          </div>
-         <h2>Send to {}</h2>
-         <p>{} requested a payment</p>
+         <h2>Send to {name}</h2>
+         <p>{name} requested a payment</p>
          <p>{request.amount} {request.currency}</p>
          <div className={styles.buttons}>
             <form className= {styles.form}>
-               <button type="button"  >✔︎ Send</button>
-               <button type="button" >✗ Cancel</button>      
+               <button type="button" onClick={onSend}>✔︎ Send</button>
+               <button type="button" onClick={onCancel}>✗ Cancel</button>      
             </form>
          </div>
       </div>
