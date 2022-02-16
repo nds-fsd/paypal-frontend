@@ -2,7 +2,6 @@ import styles from "./wallet.module.css"
 import dotpattern from "../../assets/DotPattern3.png"
 import dotpattern2 from "../../assets/DotPattern3.png"
 import arrow from "../../assets/arrow.png"
-
 import {useEffect, useState} from "react";
 import customFetch from '../../api';
 import Payment from "./Payment/Payment"
@@ -10,9 +9,9 @@ import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
 
 const Wallet = () => {
-
-    const { wallet, setWallet } = useContext(UserContext);
-    const [payments, setPayments] = useState([]);
+    
+    const { wallet, setWallet, payments, setPayments } = useContext(UserContext);
+    
     const [id, setId] = useState(null);
     const [showPays, setShowPays] = useState(false);
     const [choose, setChoose] = useState(0);

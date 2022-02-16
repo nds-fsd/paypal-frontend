@@ -63,17 +63,14 @@
 }
 
 .date {
-    width: 64px;
+    width: 70px;
     height: 20px;
-
     font-family: Manrope;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
-
     text-align: center;
-
     color: #979797;
     margin:0px 40px;
 

@@ -7,17 +7,28 @@
  }
  
  .toggleContainer {
-   background-color: white;
-   display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-   align-content: center;
-   justify-content: center;
-   align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
  }
  
  .toggleClose {
-   position: absolute;
-   top: 1rem;
-   right: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
  }
+
+ .request_box{
+    height: 150px;
+    width: 193px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+ }
+
+ .request_box > img{
+  width: 14px;
+}

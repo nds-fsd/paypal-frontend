@@ -1,7 +1,7 @@
 import styles from './userSidebar.module.css'
 import UserHeader from './userHearder/userHeader';
 import { useToggle } from '../../hooks/useToggle';
-import ToggleBar from './toggleBar/toggleBar';
+import ToggleBar from '../userSidebar/toggleBar/toggleBar';
 
 const UserSideBar = () => {
   const [isToggle, openUsersidebar, closeUsersidebar] = useToggle(true);

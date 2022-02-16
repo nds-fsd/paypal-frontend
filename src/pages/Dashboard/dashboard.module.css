@@ -7,7 +7,7 @@
     flex-direction: column;
     align-content: flex-start;
     background-color: #F8FBFF;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .dashboard > button{
     right: 30px;

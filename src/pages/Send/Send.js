@@ -4,6 +4,7 @@ import FormularioPago from "./FormularioPago/FormularioPago";
 import ConfirmacionPago from "./ConfirmacionPago/ConfirmacionPago";
 import RevisarDatos from "./RevisarDatos/RevisarDatos";
 
+
 const Send = () => {
     const [pago, setPago] = useState({email: "", amount:0, id:null})
     const [change, setChange] = useState(0)
