@@ -6,17 +6,35 @@ import customFetch from '../../api';
 import { useEffect } from 'react';
 
 
-const Pending = ({request, id, onSend, onCancel }) => {
+const Pending = ({request}) => {
    
    const [name, setName] = useState("");
-   const [to, setTo] = useState(null);
+   const [requestState, setRequestState] = useState(request.status);
+
+   const onSend = () => {
+      const data = {
+         from: request.to,
+         to: request.from,
+         amount: Number(request.amount),
+         currency:"$"
+      }
+      customFetch("POST", "payments", {body:data});
+      const updatedReq = {...request, status: "accepted" };
+      customFetch("PUT", "request/" + request._id, {body:updatedReq})
+      .then(() => {setRequestState("accepted")});
+   }
+ 
+   const onCancel = () => {
+      const updatedReq = {...request, status: "declined" };
+      customFetch("PUT", "request/" + request._id, {body:updatedReq})
+      .then(() => {setRequestState("declined")});
+      
+   }
 
    useEffect(() => {
-      const to = request.to === id;
-      setTo(to);
-      customFetch("GET", "users/name/" + (to ? request.to: request.from))
+      customFetch("GET", "users/name/" + request.from)
       .then((response) => {setName(response)});
-   }, [])
+   }, [requestState])
 
   return (
       <div className={styles.pending}>
@@ -28,10 +46,17 @@ const Pending = ({request, id, onSend, onCancel }) => {
          <p>{name} requested a payment</p>
          <p>{request.amount} {request.currency}</p>
          <div className={styles.buttons}>
-            <form className= {styles.form}>
-               <button type="button" onClick={onSend}>✔︎ Send</button>
-               <button type="button" onClick={onCancel}>✗ Cancel</button>      
-            </form>
+
+            { requestState === "pending" ? 
+               <form className= {styles.form}>
+                  <button type="button" onClick={() => onSend()}>✔︎ Send</button>
+                  <button type="button" onClick={() => onCancel()}>✗ Cancel</button>      
+               </form>
+               :
+               (requestState === "accepted" ? "Accepted" :
+               "Declined")
+            }
+
          </div>
       </div>
    )
