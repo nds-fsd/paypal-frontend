@@ -26,3 +26,9 @@
    background-color: #FF374F;
    color: white;
  }
+
+ .pending {
+  padding: 10px;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+ }

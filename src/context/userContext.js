@@ -13,27 +13,22 @@ export const UserContextProvider = ({ children }) => {
    const [currency, setCurrency] = useState("$");
    const [from, setFrom] = useState(null);
    const [date, setDate] = useState("");
+   const [payments, setPayments] = useState([]);
+   const [pago, setPago] = useState({email: "", amount:0, id:null})
 
    
    const sharedValues = {
-       name,
-       setName,
-       surname,
-       setSurname,
-       wallet,
-       setWallet,
-       email,
-       setEmail,
-       amount,
-       setAmount,
-       err,
-       setErr,
-       currency,
-       setCurrency,
-       from,
-       setFrom,
-       date,
-       setDate
+       name, setName,
+       surname, setSurname,
+       wallet, setWallet,
+       email, setEmail,
+       amount, setAmount,
+       err, setErr,
+       currency, setCurrency,
+       from, setFrom,
+       date, setDate,
+       payments, setPayments,
+       pago, setPago
    }
 
    return(

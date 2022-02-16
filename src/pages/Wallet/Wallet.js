@@ -9,9 +9,9 @@ import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
 
 const Wallet = () => {
-
-    const { wallet, setWallet } = useContext(UserContext);
-    const [payments, setPayments] = useState([]);
+    
+    const { wallet, setWallet, payments, setPayments } = useContext(UserContext);
+    
     const [id, setId] = useState(null);
     const [showPays, setShowPays] = useState(false);
     const [choose, setChoose] = useState(0);
