@@ -10,12 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
-//Instalaciones:
-//npm i react-hook-form
-// npm i --save @fortawesome/fontawesome-svg-core
-// npm i --save @fortawesome/free-solid-svg-icons
-// npm i --save @fortawesome/react-fontawesome
-
 const AccountSetting = () => {
 
     const navigate = useNavigate();
@@ -25,32 +19,16 @@ const AccountSetting = () => {
       setPasswordShown(passwordShown ? false : true);
     };
 
-    ///TEST VARIABLE TO SEE THE INPUT///////
- 
     const [userData, setUserData] = useState({
       name:'', surname:'', email:'', password:''
     })
 
-    const handleChange = (e) => {
-      //return e.target.name
-      setUserData({
-        ...userData,
-        [e.target.name]: e.target.value
-      })
-    }
-
-    console.log(userData)
-
-    ////////////////////////////////////////
-
     const [user, setUser] = useState(0);
     
-
     useEffect(() => {
         getUser();
     }, []);
 
-    
     const getUser = () => {
       const userSession = localStorage.getItem("user-session");
       const { token } = JSON.parse(userSession);
@@ -67,14 +45,20 @@ const AccountSetting = () => {
         });
     }
 
-        
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSuuubmit = () => {
+    const handleChange = (e) => {
+      setUserData({
+        ...userData,
+        [e.target.name]: e.target.value
+      })
+    }
+
+    const onSubmit = () => {
       const userSession = localStorage.getItem("user-session");
       const { id } = JSON.parse(userSession);
       const data = {
@@ -87,48 +71,13 @@ const AccountSetting = () => {
       navigate("/main/dashboard");
     }
 
-    
     const inputFile = useRef(null);
-    const [photos, setPhotos] = useState([]);
-
-    const addPhoto = (data) => {
-      setPhotos([...photos, data])
-    };
-
-    const onUpload = () => {
-        debugger;
-        const files = inputFile.current.files;
-        const formData = new FormData();
-        const url = "https://api.cloudinary.com/v1_1/???????/image/upload";
-      
-        for (let i = 0; i < files.length; i++) {
-          let file = files[i];
-          formData.append("file", file);
-          formData.append("upload_preset", "hv3kmdau");
-          fetch(url, {
-            method: "POST",
-            header: {
-                'Content-Type': 'multipart/form-data'
-            },
-            body: formData
-          })
-            .then((response) => {
-                console.log(response);
-              return response.text();
-            })
-            .catch((data) => {
-              debugger;
-              addPhoto(JSON.parse(data));
-              console.log(data);
-            });
-        }
-    };
 
     return(
 
         <div className = {styles.settings}>
             <div className = {styles.editbox}>
-                <form className= {styles.form} onSubmit={handleSubmit(onSuuubmit)} onChange={handleChange}>
+                <form className= {styles.form} onSubmit={handleSubmit(onSubmit)} onChange={handleChange}>
                     <p>Edit profile</p>
                     
                     <div className={styles.images}>
@@ -138,24 +87,25 @@ const AccountSetting = () => {
                       <input type='file' ref={inputFile} className={styles.uploading}></input></div>
                     </div>
 
-                    <br></br>
-
                     <div className= {styles.namesinput}>
-                      <input className = {styles.names} type="name" id="name" name="name" placeholder={user.name} {...register("name")}></input>
-                      <input className = {styles.names} type="surname" id="surname" name="surname" placeholder={user.surname} {...register("surname")}></input>
+                      <input className = {styles.names} defaultValue={user.name} placeholder="name" {...register("name", { required: true })}></input>
+                      <input className = {styles.names} defaultValue={user.surname} placeholder="surname" {...register("surname", { required: true })}></input>
+                    </div>
+                    <div className= {styles.nameserror}>
+                      {errors.name && <span><h3>X</h3></span>}
+                      {errors.surname && <span><h3>X</h3></span>}
                     </div>
 
-                    <br></br>
-                    <input className = {styles.email} type="email" id="email" name="email" placeholder={user.email} {...register("email")}></input>
+                    <input className = {styles.email} type="email" defaultValue={user.email} placeholder="email" {...register("email", { required: true })}></input>
+                    {errors.email && <span><h3>X</h3></span>}
                     
-                    <br></br>
-
                     <div class={styles.passwordeye}>
-                      <input className = {styles.password} type={passwordShown ? "text" : "password"} id="password" name="password" placeholder='Password' {...register("password")} />
+                      <input className = {styles.password} type={passwordShown ? "text" : "password"} placeholder="Password" {...register("password")} />
                       <i className={styles.eye} onClick={togglePasswordVisiblity}>{eye}</i>
                     </div>
 
-                    <br></br>        
+                    {(errors.email || errors.name || errors.surname) && <span><h3>Fields Required! If password field empty, then no password change.</h3></span>}
+
                     <input className = {styles.submit} type="submit" id="submit" name="submit" value="Save"></input>
                 </form>
         </div>
