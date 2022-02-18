@@ -19,20 +19,16 @@ const AccountSetting = () => {
       setPasswordShown(passwordShown ? false : true);
     };
 
-    const [userData, setUserData] = useState({
-      name:'', surname:'', email:'', password:''
-    })
-
     const [user, setUser] = useState(0);
     
     useEffect(() => {
-        getUser();
+          getUser();
     }, []);
 
-    const getUser = () => {
+    const getUser = async () => {
       const userSession = localStorage.getItem("user-session");
       const { token } = JSON.parse(userSession);
-      fetch("http://localhost:3090/users/me" , {
+      await fetch("http://localhost:3090/users/me" , {
         method: "GET",
         headers: { Authorization: "Bearer " + token },
         })
@@ -51,6 +47,11 @@ const AccountSetting = () => {
         formState: { errors },
     } = useForm();
 
+
+    const [userData, setUserData] = useState({
+      name:'', surname:'', email:'', password:''
+    })
+
     const handleChange = (e) => {
       setUserData({
         ...userData,
@@ -61,12 +62,14 @@ const AccountSetting = () => {
     const onSubmit = () => {
       const userSession = localStorage.getItem("user-session");
       const { id } = JSON.parse(userSession);
-      const data = {
-        name: userData.name,
-        surname: userData.surname,
-        email: userData.email,
-        password: userData.password
-      }
+      
+
+      const data = {}
+      userData.name === '' ? data.name=user.name : data.name=userData.name;
+      userData.surname === '' ? data.surname=user.surname : data.surname=userData.surname;
+      userData.email === '' ? data.email=user.email : data.email=userData.email;
+      userData.password === '' ? data.password=user.password : data.password=userData.password;
+        
       customFetch("PUT", "users/" + id , {body:data});
       navigate("/main/dashboard");
     }
@@ -88,8 +91,9 @@ const AccountSetting = () => {
                     </div>
 
                     <div className= {styles.namesinput}>
-                      <input className = {styles.names} defaultValue={user.name} placeholder="name" {...register("name", { required: true })}></input>
-                      <input className = {styles.names} defaultValue={user.surname} placeholder="surname" {...register("surname", { required: true })}></input>
+                    <input className = {styles.names} type='text' defaultValue={user.name} onChange={(e) =>setUserData({name: e.target.value })} 
+                     placeholder="name" {...register("name", { required: true })}></input>
+                      <input className = {styles.names} type='text' defaultValue={user.surname} placeholder="surname" onChange={handleChange} {...register("surname", { required: true })}></input>
                     </div>
                     <div className= {styles.nameserror}>
                       {errors.name && <span><h3>X</h3></span>}
