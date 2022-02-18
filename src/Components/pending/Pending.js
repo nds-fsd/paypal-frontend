@@ -10,6 +10,13 @@ const Pending = ({request}) => {
    
    const [name, setName] = useState("");
    const [requestState, setRequestState] = useState(request.status);
+   
+
+   const StatusChanged = () => {
+      if( requestState === "accepted and sent"){
+         
+      }
+   }
 
    const onSend = () => {
       const data = {
@@ -19,7 +26,7 @@ const Pending = ({request}) => {
          currency:"$"
       }
       customFetch("POST", "payments", {body:data});
-      const updatedReq = {...request, status: "accepted" };
+      const updatedReq = {...request, status: "accepted and sent" };
       customFetch("PUT", "request/" + request._id, {body:updatedReq})
       .then(() => {setRequestState("accepted")});
    }
@@ -37,23 +44,23 @@ const Pending = ({request}) => {
    }, [requestState])
 
   return (
-      <div className={styles.pending}>
+      <div className={styles.pending} style={requestState === "declined" ? {border:"red 1px solid" } : null }>
          <div className={styles.dates}>
             <img src={calendar} alt="" />
             <p>{request.date.split('T')[0]}</p>
          </div>
          <h2>Send to {name}</h2>
          <p>{name} requested a payment</p>
-         <p>{request.amount} {request.currency}</p>
+         <p>{request.amount} {request.currency}</p> 
          <div className={styles.buttons}>
 
             { requestState === "pending" ? 
                <form className= {styles.form}>
-                  <button type="button" onClick={() => onSend()}>✔︎ Send</button>
-                  <button type="button" onClick={() => onCancel()}>✗ Cancel</button>      
+                  <button type="button" className={styles.send} onClick={() => onSend()}>✔︎ Send</button>
+                  <button type="button" className={styles.cancel} onClick={() => onCancel()}>✗ Cancel</button>      
                </form>
                :
-               (requestState === "accepted" ? "Accepted" :
+               (requestState === "accepted" ? "Accepted and Sent" :
                "Declined")
             }
 

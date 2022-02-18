@@ -7,8 +7,8 @@ import customFetch from '../../../api'
 const FormularioPago = ({setPago, setChange, pago}) => {
 
 
-    const [email, setEmail] = useState(pago.email);
-    const [amount, setAmount] = useState(pago.amount);
+    const [email, setEmail] = useState("");
+    const [amount, setAmount] = useState(0);
     const [err, setErr] = useState("");
 
 

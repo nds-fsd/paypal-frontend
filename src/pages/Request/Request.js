@@ -28,6 +28,8 @@ const Request = () => {
             }
         })
         console.log("peticion realizada");
+        setAmount(0);
+        setEmail("");
     }
 
     return(
