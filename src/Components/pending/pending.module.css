@@ -13,15 +13,15 @@
    justify-content: flex-start;
  }
 
- .buttons > button:nth-child(1){
-   width: 110px;
+ button.send{
+   width: 60%;
    height: 30px;
    background-color: #258AFF;
    color: white;
  }
 
- .buttons > button:nth-child(2){
-   width: 80px;
+ button.cancel{
+   width: 40%;
    height: 30px;
    background-color: #FF374F;
    color: white;
@@ -31,4 +31,24 @@
   padding: 10px;
   border: 1px lightgray solid;
   border-radius: 5px;
+ }
+
+ .form{
+   text-align: center;
+ }
+
+ .dates > p{
+   color:#D8D8D8;
+ }
+
+ .pending > h2{
+  margin: 0;
+ }
+
+ .pending > p{
+  color:#D8D8D8;
+ }
+
+ .currency > p{
+  color:#D8D8D8;
  }
