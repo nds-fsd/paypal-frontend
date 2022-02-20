@@ -65,3 +65,22 @@
     justify-content: flex-start;
     font-family: 'Manrope';
 }
+
+
+
+.currency{
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    background-color:#20E9BC;; 
+    color: white;
+    border-style: none;
+    border-radius: 50%;
+    transition: .5s ease;
+    opacity:1;
+    margin-bottom: 1%;
+}
+
+.currency:hover {
+    transform: scale(1.5);
+  }

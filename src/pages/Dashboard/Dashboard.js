@@ -1,5 +1,5 @@
 import styles from "./dashboard.module.css"
-import { useEffect, useContext } from "react";
+import { useEffect, useContext , useState} from "react";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import arrow from '../../assets/arrow.png'
@@ -7,6 +7,7 @@ import arrow from '../../assets/arrow.png'
 
 const Dashboard = () => {
     const { name, setName, wallet, setWallet } = useContext(UserContext);
+    const [euro, setEuro] = useState(0);
     const navigate = useNavigate();
     
   useEffect(() => {
@@ -53,7 +54,19 @@ const Dashboard = () => {
         setWallet(json.wallet);
     });
 }
-  return(
+
+    const [usdShow, setUsdShow] = useState(true);
+    const toggleCurrency = () => { setUsdShow(usdShow ? false : true); };
+
+    const convertCurrency = () => {
+        toggleCurrency();
+        const amount = wallet;       
+        setEuro(amount * 0.88)
+    }
+
+if (usdShow ===true) {
+
+  return (
     <div className = {styles.dashboard}>
       <h3>Overview</h3>
       <p>Hi {name}, get your summary of your transactions and requests here</p>
@@ -61,13 +74,35 @@ const Dashboard = () => {
         <div className={styles.display}>
           <img src ={arrow} alt = "arrow"/>
           <h4>23%</h4>
+          <div className= {styles.currency} onClick={(e) => {e.preventDefault();e.stopPropagation();convertCurrency();}}>$</div>
         </div>
         <h1>{wallet}$</h1>
         <p>Recent transactions</p>
       </div>
     </div>
-   
-)
+      
+  )
+}
+
+else {
+  return (
+    <div className = {styles.dashboard}>
+    <h3>Overview</h3>
+    <p>Hi {name}, get your summary of your transactions and requests here</p>
+    <div className={styles.wallet}>
+      <div className={styles.display}>
+        <img src ={arrow} alt = "arrow"/>
+        <h4>23%</h4>
+        <div className= {styles.currency} onClick={(e) => {e.preventDefault();e.stopPropagation();convertCurrency();}}>$</div>
+      </div>
+      <h1>{euro}€</h1>
+      <p>Recent transactions</p>
+    </div>
+  </div>
+      
+      
+  );
+}
 };
 
 
