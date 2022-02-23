@@ -21,7 +21,10 @@
 
 .dashboard > h3{
     font-family: 'Manrope';
-    margin: 50px 0 5px 30px;
+    margin: 0 0 5px 30px;
+    color: black;
+    font-weight: 500;
+    font-size: 24px;
 }
 
 .dashboard > p{

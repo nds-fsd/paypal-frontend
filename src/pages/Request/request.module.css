@@ -61,20 +61,19 @@ button.submit{
     margin-top: 20px;
     background: #258AFF;
     border-radius: 8px;
-    
-
     height: 40px;
     width: 142px;
-
-
-
     color:white;
     font-family: Manrope;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
-
     text-align: center;
     font-feature-settings: 'liga' off;
+}
+.requestSent{
+    margin-top:20px;
+    font-size: 18px;
+    color: red;
 }

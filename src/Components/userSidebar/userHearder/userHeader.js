@@ -3,7 +3,6 @@ import { UserContext } from "../../../context/userContext";
 import styles from './userHeader.module.css'
 import DownArrow from '../../../assets/DownArrow.png'
 
-
 const UserHeader = ({ onClick }) => {
 
    const { name, setName, surname, setSurname } = useContext(UserContext);
@@ -17,6 +16,7 @@ const UserHeader = ({ onClick }) => {
         Authorization: "Bearer " + token,
       },
     })
+    
       .then((response) => {
         if (response.status !== 200) {
           throw new Error("Couldn't retrieve user data");

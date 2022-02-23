@@ -11,8 +11,7 @@ const UserSideBar = () => {
        closeUsersidebar();
     } else {
        openUsersidebar();
-    }
-    
+    }  
  }
 
   return (

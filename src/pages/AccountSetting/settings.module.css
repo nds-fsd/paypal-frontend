@@ -2,12 +2,12 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h3 {
+/* h3 {
     font-size: 9px;
     color: #ff0202;
     width: 100%;
     padding: 0 5%;
-}
+} */
 
 .nameserror {
     display: flex;
