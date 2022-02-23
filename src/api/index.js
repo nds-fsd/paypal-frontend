@@ -47,6 +47,7 @@ const fetchResource = (method = "GET", path, userOptions = {}) => {
             ...userOptions.headers,
         },
     };
+    console.log(options)
 
     // Build Url
     const url = `${ API_URL }/${ path }`;
@@ -66,6 +67,7 @@ const fetchResource = (method = "GET", path, userOptions = {}) => {
     return fetch(url, options)
         
         .then(responseObject => {
+            console.log(responseObject)
             // Saving response for later use in lower scopes
             response = responseObject;
 

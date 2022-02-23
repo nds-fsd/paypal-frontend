@@ -5,19 +5,20 @@ import pen from './images/pen.svg'
 import { useNavigate } from "react-router-dom";
 import customFetch from '../../api';
 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const AccountSetting = () => {
 
-    const navigate = useNavigate();
-
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => { setPasswordShown(passwordShown ? false : true); };
 
     const [user, setUser] = useState({name:"name", surname:"surname", email: "email", password:"pass"});
-    const getUser = () => {customFetch("GET", "users/me").then((json) => { setUser({...json, password:""});}); }
+    
+    const getUser = () => {customFetch("GET", "users/me").then((json) => 
+    { setUser({...json, password:""});}); }
     useEffect(() => { getUser() }, []);
 
     const onSubmit = () => {
@@ -29,6 +30,7 @@ const AccountSetting = () => {
       .then(res => {window.location.reload();})
       .catch(err => console.log(err));
     }
+
 
     const inputFile = useRef(null);
 

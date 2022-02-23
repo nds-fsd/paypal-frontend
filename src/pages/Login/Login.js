@@ -24,7 +24,7 @@ const Login = () => {
           setUserSession(userSession);
           navigate("/main/dashboard");
         }).catch(error => {
-            'REQUEST_FAILED'
+            //'REQUEST_FAILED'
           console.error(error);
         });
       };

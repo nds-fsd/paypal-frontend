@@ -2,7 +2,8 @@ import styles from "./dashboard.module.css"
 import { useEffect, useContext , useState} from "react";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
-import arrow from '../../assets/arrow.png'
+import arrow from '../../assets/arrow.png';
+import customFetch from '../../api';
 
 
 const Dashboard = () => {
@@ -13,23 +14,16 @@ const Dashboard = () => {
   useEffect(() => {
     const userSession = localStorage.getItem("user-session");
     const { token } = JSON.parse(userSession);
-    fetch("http://localhost:3090/users/me" , {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error("Couldn't retrieve user data");
-        }
-        return response.json();
-      })
+
+    customFetch('GET', 'users/me', 
+            {headers: {Authorization: "Bearer " + token}})
+
       .then((json) => {
         setName(json.name);
        
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         localStorage.removeItem("token");
         navigate("/login");
       });
