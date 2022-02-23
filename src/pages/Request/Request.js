@@ -9,13 +9,14 @@ const Request = () => {
 
     const { email, setEmail, amount, setAmount, err, setErr } = useContext(UserContext);
 
+
     const onSubmit = () => {
         const userSession = localStorage.getItem("user-session");
         const { id } = JSON.parse(userSession);
 
         customFetch("GET", "users/id/" + email)
         .then((_id) => {
-            if(_id === null) setErr("Email not found")
+            if(_id === null) setErr(<div className={styles.requestSent}>"Email not found"</div>)
             else {
                 const data = {
                     from: id,
@@ -24,7 +25,7 @@ const Request = () => {
                     currency: "$",
                 }
                 customFetch("POST", "request", {body: data})
-                .then( () => {setErr("Request sent")})
+                .then( () => {setErr(<div className={styles.requestSent}>"Request sent"</div>)})
             }
         })
         console.log("peticion realizada");

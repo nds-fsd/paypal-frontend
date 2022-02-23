@@ -4,6 +4,7 @@
  
  .toggle.is-open {
    display: flex;
+   overflow-y: auto;
  }
  
  .toggleContainer {
@@ -14,6 +15,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin-top: 40%;
+    
  }
  
  .toggleClose {

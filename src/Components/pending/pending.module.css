@@ -14,14 +14,14 @@
  }
 
  button.send{
-   width: 60%;
+   width: 50%;
    height: 30px;
    background-color: #258AFF;
    color: white;
  }
 
  button.cancel{
-   width: 40%;
+   width: 50%;
    height: 30px;
    background-color: #FF374F;
    color: white;
@@ -31,6 +31,8 @@
   padding: 10px;
   border: 1px lightgray solid;
   border-radius: 5px;
+  width: 193px;
+  margin-bottom: 10px;
  }
 
  .form{
@@ -49,6 +51,40 @@
   color:#D8D8D8;
  }
 
- .currency > p{
+ .payclass{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+ }
+ .payclass > p{
   color:#D8D8D8;
+  font-size: 18px;
+  font-weight: bold;
+ }
+
+ .payclass > h1{
+  color: black;
+  margin:0;
+ }
+
+ .declined{
+  border: 1px solid #FF374F;
+ }
+
+ .accepted {
+  border: 1px solid #20E9BC;
+ }
+
+ p.accepted {
+  text-align: center;
+  background: rgba(32, 233, 188, 0.15);
+  color: #20E9BC;
+ }
+
+ p.declined {
+  text-align: center;
+  color: #FF374F;
+  background: rgba(255, 55, 79, 0.15);
  }
