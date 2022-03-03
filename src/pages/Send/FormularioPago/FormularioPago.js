@@ -9,6 +9,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
 
     const [email, setEmail] = useState("");
     const [amount, setAmount] = useState(0);
+    const [sendCurrency, setSendCurrency] = useState("$");
     const [err, setErr] = useState("");
 
 
@@ -21,6 +22,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                 const data={
                     email:email,
                     amount:amount,
+                    currency:sendCurrency,
                     id:_id
                 }
                 setPago(data);
@@ -40,7 +42,14 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
-                    <br/>       
+                    <br/>
+                    {/* <input type="currency" placeholder='currency' value={sendCurrency} onChange={(e)=>{setSendCurrency(e.target.value)}} className={styles.input}/>
+                    <br/> */}
+                    <select type='currency' value={sendCurrency} onChange={(e)=>{setSendCurrency(e.target.value)}} >
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    </select>
+                    <br/>
                     <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Send</button>
                 </form>
                 {err}

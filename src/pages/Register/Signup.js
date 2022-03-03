@@ -49,6 +49,12 @@ const SignUp = () => {
                   
                   <input type='password' placeholder="password"{...register("password", { required: true })} />
                   {errors.password && <span>password field is required</span>}
+
+                  <select type='currency' {...register("currency", { required: true })} >
+                  <option value="$">USD ($)</option>
+                  <option value="€">EUR (€)</option>
+                  </select>
+                  {errors.currency && <span>currency field is required</span>}
                   
                   <div className={styles.send_button}>
                       <input type="submit" value="Sign Up" />

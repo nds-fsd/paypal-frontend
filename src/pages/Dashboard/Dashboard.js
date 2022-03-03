@@ -6,7 +6,7 @@ import arrow from '../../assets/arrow.png'
 
 
 const Dashboard = () => {
-    const { name, setName, wallet, setWallet } = useContext(UserContext);
+    const { name, setName, wallet, setWallet, currency, setCurrency } = useContext(UserContext);
     const navigate = useNavigate();
     
   useEffect(() => {
@@ -26,7 +26,7 @@ const Dashboard = () => {
       })
       .then((json) => {
         setName(json.name);
-       
+        
       })
       .catch(() => {
         localStorage.removeItem("token");
@@ -51,6 +51,7 @@ const Dashboard = () => {
     })
     .then((json) => {
         setWallet(json.wallet);
+        setCurrency(json.currency);
     });
 }
   return(
@@ -62,7 +63,7 @@ const Dashboard = () => {
           <img src ={arrow} alt = "arrow"/>
           <h4>23%</h4>
         </div>
-        <h1>{wallet}$</h1>
+        {currency=='$' ? <h1>{wallet}$</h1> : <h1>{wallet}€</h1>}
         <p>Recent transactions</p>
       </div>
     </div>

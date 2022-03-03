@@ -11,11 +11,13 @@ const RevisarDatos = ({setChange, pago}) => {
             from: id,
             to:pago.id,
             amount: Number(pago.amount),
-            currency:"$"
+            currency: pago.currency
         }
         customFetch("POST", "payments", {body:data})
         setChange(2);
     }
+
+    console.log(pago)
     
     const onReturn = () => {
         setChange(0)
@@ -34,7 +36,8 @@ const RevisarDatos = ({setChange, pago}) => {
                         </div>
                         <div className={styles.box}>
                             <h2 className={styles.title}>Amount</h2>
-                            <p className={styles.inputs}>{pago.amount}$</p>
+                            
+                            {pago.currency=='$' ? <p className={styles.inputs}>{pago.amount}$</p> : <p className={styles.inputs}>{pago.amount}€</p>}
                         </div>
                         <input value="Editar" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
                         <input value="Confirmar" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>

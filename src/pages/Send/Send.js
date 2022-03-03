@@ -6,7 +6,7 @@ import RevisarDatos from "./RevisarDatos/RevisarDatos";
 
 
 const Send = () => {
-    const [pago, setPago] = useState({email: "", amount:0, id:null})
+    const [pago, setPago] = useState({email: "", amount:0, currency:"", id:null})
     const [change, setChange] = useState(0)
 
     return(

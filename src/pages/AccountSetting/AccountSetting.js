@@ -16,18 +16,43 @@ const AccountSetting = () => {
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => { setPasswordShown(passwordShown ? false : true); };
 
-    const [user, setUser] = useState({name:"name", surname:"surname", email: "email", password:"pass"});
-    const getUser = () => {customFetch("GET", "users/me").then((json) => { setUser({...json, password:""});}); }
-    useEffect(() => { getUser() }, []);
+    const [user, setUser] = useState({name:"name", surname:"surname", email: "email", password:"pass", currency:"currency", wallet:"wallet"});
+    const [initialCurrency, setInitialCurrency] = useState({currency:"currency"});
+    const getUser = () => {customFetch("GET", "users/me").then((json) => { setUser({...json, password:""});   setInitialCurrency(json.currency)  }); }
+    useEffect(() => { getUser() },[]);
 
     const onSubmit = () => {
       const userSession = localStorage.getItem("user-session");
       const { id } = JSON.parse(userSession);
-      const data = {name: user.name, surname: user.surname, email:user.email, password:user.password}
-
-      customFetch("PUT", "users/" + id , {body:data})
+      
+      if (initialCurrency=="€" && user.currency=="€") {
+        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
+        customFetch("PUT", "users/" + id , {body:data})
       .then(res => {window.location.reload();})
       .catch(err => console.log(err));
+      }
+
+      else if (initialCurrency=="$" && user.currency=="$") {
+        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
+        customFetch("PUT", "users/" + id , {body:data})
+      .then(res => {window.location.reload();})
+      .catch(err => console.log(err));
+      }
+
+      else if (initialCurrency=="€" && user.currency=="$") {
+        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(1.1*user.wallet)).toFixed(4)}
+        customFetch("PUT", "users/" + id , {body:data})
+      .then(res => {window.location.reload();})
+      .catch(err => console.log(err));
+      }
+
+      else if (initialCurrency=="$" && user.currency=="€") {
+        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(0.9*user.wallet)).toFixed(4)}
+        customFetch("PUT", "users/" + id , {body:data})
+      .then(res => {window.location.reload();})
+      .catch(err => console.log(err));
+      }
+      
     }
 
     const inputFile = useRef(null);
@@ -63,6 +88,12 @@ const AccountSetting = () => {
                     <input className = {styles.password} type={passwordShown ? "text" : "password"} onChange={(e) =>setUser({...user,password: e.target.value})} placeholder="Password"  />
                     <i className={styles.eye} onClick={togglePasswordVisiblity}>{eye}</i>
                   </div>
+
+
+                  <select type='currency' value={user.currency} onChange={(e) =>setUser({...user,currency: e.target.value})} >
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    </select>
 
                   <button className = {styles.submit} onClick={(e) => {e.preventDefault();e.stopPropagation();onSubmit();}}>Save</button>
               </form>

@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 const Request = () => {
 
-    const { email, setEmail, amount, setAmount, err, setErr } = useContext(UserContext);
+    const { email, setEmail, amount, setAmount, err, setErr,currency, setCurrency } = useContext(UserContext);
 
 
     const onSubmit = () => {
@@ -22,7 +22,7 @@ const Request = () => {
                     from: id,
                     to: _id,
                     amount:amount,
-                    currency: "$",
+                    currency: currency,
                 }
                 customFetch("POST", "request", {body: data})
                 .then( () => {setErr(<div className={styles.requestSent}>"Request sent"</div>)})
@@ -43,6 +43,11 @@ const Request = () => {
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
+                    <br/> 
+                    <select type='currency' value={currency} onChange={(e)=>{setCurrency(e.target.value)}} >
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    </select>
                     <br/>       
                     <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Request</button>
                 </form>

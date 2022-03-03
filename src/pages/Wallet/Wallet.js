@@ -10,7 +10,7 @@ import { useContext } from "react";
 
 const Wallet = () => {
     
-    const { wallet, setWallet, payments, setPayments } = useContext(UserContext);
+    const { wallet, setWallet, payments, setPayments,currency, setCurrency } = useContext(UserContext);
     
     const [id, setId] = useState(null);
     const [showPays, setShowPays] = useState(false);
@@ -47,6 +47,7 @@ const Wallet = () => {
         })
         .then((json) => {
             setWallet(json.wallet);
+            setCurrency(json.currency);
         });
     }
 
@@ -63,7 +64,9 @@ const Wallet = () => {
                 </div>
                 <img className = {styles.arrow}src = {arrow} alt = "arrow"/>
                 <div className={styles.percent}>23%</div>
-                <div className = {styles.money}>{wallet}$</div>
+                
+                {currency=='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
+
                 <div className = {styles.subTitle}>Recent transactions</div>
                 <div className = {styles.options}>
                     <button className={styles.button} style ={choose === 0 ? clicked : null} onClick={() => setChoose(0)}>All</button>

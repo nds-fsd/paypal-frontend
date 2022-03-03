@@ -25,7 +25,7 @@ const Pending = ({request}) => {
          from: request.to,
          to: request.from,
          amount: Number(request.amount),
-         currency:"$"
+         currency:request.currency
       }
       customFetch("POST", "payments", {body:data});
       const updatedReq = {...request, status: "accepted" };
