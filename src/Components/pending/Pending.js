@@ -12,8 +12,6 @@ const Pending = ({request}) => {
    
    const [name, setName] = useState("");
    const [requestState, setRequestState] = useState(request.status);
-   
-   
 
    const requestClass = classnames(styles.pending, {
       [styles.accepted]: request.status === "accepted",
