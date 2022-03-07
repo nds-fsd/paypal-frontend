@@ -15,6 +15,8 @@ export const UserContextProvider = ({ children }) => {
    const [date, setDate] = useState("");
    const [payments, setPayments] = useState([]);
    const [pago, setPago] = useState({email: "", amount:0, id:null})
+   const [choose, setChoose] = useState(0);
+   const [showPays, setShowPays] = useState(false);
 
    
    const sharedValues = {
@@ -28,7 +30,9 @@ export const UserContextProvider = ({ children }) => {
        from, setFrom,
        date, setDate,
        payments, setPayments,
-       pago, setPago
+       pago, setPago,
+       choose, setChoose,
+       showPays, setShowPays
    }
 
    return(

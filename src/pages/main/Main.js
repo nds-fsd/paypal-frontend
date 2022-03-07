@@ -8,6 +8,7 @@ import AccountSetting from "../AccountSetting/AccountSetting";
 import styles from "./main.module.css";
 import UserSideBar from "../../Components/userSidebar/UserSideBar";
 import { UserContextProvider } from "../../context/userContext";
+import PrivateRoute from "../../api/auth/privateRoute";
 
 const Main = () => {
 
@@ -16,11 +17,11 @@ const Main = () => {
             <UserContextProvider>
             <NavBar/>
             <Routes>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/wallet" element={<Wallet/>} />
-                <Route path="/send" element={<Send/>} />
-                <Route path="/request" element={<Request/>} />
-                <Route path="/accountsetting" element={<AccountSetting/>} />
+                <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>} />
+                <Route path="/send" element={<PrivateRoute><Send/></PrivateRoute>} />
+                <Route path="/request" element={<PrivateRoute><Request/></PrivateRoute>} />
+                <Route path="/accountsetting" element={<PrivateRoute><AccountSetting/></PrivateRoute>} />
             </Routes>
             <UserSideBar />
             </UserContextProvider>

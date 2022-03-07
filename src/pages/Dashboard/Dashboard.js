@@ -3,33 +3,27 @@ import { useEffect, useContext } from "react";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import arrow from '../../assets/arrow.png'
-
+import customFetch from '../../api';
+import { getSessionUser, getUserToken, removeSession } from "../../api/auth";
+import RenderLineChart from "../../Components/linechart/Linechart";
 
 const Dashboard = () => {
     const { name, setName, wallet, setWallet } = useContext(UserContext);
     const navigate = useNavigate();
+
     
   useEffect(() => {
-    const userSession = localStorage.getItem("user-session");
-    const { token } = JSON.parse(userSession);
-    fetch("http://localhost:3090/users/me" , {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error("Couldn't retrieve user data");
-        }
-        return response.json();
-      })
+    
+    getSessionUser();
+    getUserToken();
+
+    customFetch( "GET", "users/me")
       .then((json) => {
         setName(json.name);
-       
       })
       .catch(() => {
-        localStorage.removeItem("token");
+        
+        removeSession();
         navigate("/login");
       });
     }, [navigate, setName]);
@@ -39,12 +33,10 @@ const Dashboard = () => {
   }, []);
 
   const getWallet = () => {
-    const userSession = localStorage.getItem("user-session");
-    const { token } = JSON.parse(userSession);
-    fetch("http://localhost:3090/users/me" , {
-        method: "GET",
-        headers: { Authorization: "Bearer " + token },
-    })
+    getSessionUser();
+    getUserToken();
+
+    customFetch( "GET", "users/me")
     .then((response) => {
         if (response.status !== 200) throw new Error("Couldn't retrieve user data");
         return response.json();
@@ -52,7 +44,8 @@ const Dashboard = () => {
     .then((json) => {
         setWallet(json.wallet);
     });
-}
+  }
+
   return(
     <div className = {styles.dashboard}>
       <h3>Overview</h3>
@@ -64,6 +57,9 @@ const Dashboard = () => {
         </div>
         <h1>{wallet}$</h1>
         <p>Recent transactions</p>
+      </div>
+      <div>
+        <RenderLineChart />
       </div>
     </div>
    
