@@ -4,7 +4,6 @@ import styles from '../pending/pending.module.css';
 import { useState } from 'react';
 import customFetch from '../../api';
 import { useEffect } from 'react';
-import { getUserToken } from '../../api/auth';
 import classnames from 'classnames';
 
 

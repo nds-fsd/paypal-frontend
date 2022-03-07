@@ -60,7 +60,7 @@ const Wallet = () => {
                 <img className = {styles.arrow}src = {arrow} alt = "arrow"/>
                 <div className={styles.percent}>23%</div>
                 
-                {currency=='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
+                {currency==='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
 
                 <div className = {styles.subTitle}>Recent transactions</div>
                 <div className = {styles.options}>

@@ -57,7 +57,7 @@ const Dashboard = () => {
           <img src ={arrow} alt = "arrow"/>
           <h4>23%</h4>
         </div>
-        {currency=='$' ? <h1>{wallet}$</h1> : <h1>{wallet}€</h1>}
+        {currency==='$' ? <h1>{wallet}$</h1> : <h1>{wallet}€</h1>}
         <p>Recent transactions</p>
       </div>
       <div>
