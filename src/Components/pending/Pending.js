@@ -40,7 +40,7 @@ const Pending = ({request}) => {
    useEffect(() => {
       customFetch("GET", "users/name/" + request.from)
       .then((response) => {setName(response)});
-   }, [requestState])
+   }, [requestState, request.from])
 
   return (
        <div className={requestClass} > 
