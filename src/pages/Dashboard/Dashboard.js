@@ -14,6 +14,7 @@ const Dashboard = () => {
     
   useEffect(() => {
     
+    
     getSessionUser();
     getUserToken();
 
@@ -30,23 +31,25 @@ const Dashboard = () => {
     }, [navigate, setName]);
 
     useEffect(() => {
+      const getWallet = () => {
+        getSessionUser();
+        getUserToken();
+    
+        customFetch( "GET", "users/me")
+        .then((response) => {
+            if (response.status !== 200) throw new Error("Couldn't retrieve user data");
+            return response.json();
+        })
+        .then((json) => {
+            setWallet(json.wallet);
+            setCurrency(json.currency);
+        });
+      }
+
       getWallet();
-  }, []);
+  }, [setCurrency,setWallet]);
 
-  const getWallet = () => {
-    getSessionUser();
-    getUserToken();
-
-    customFetch( "GET", "users/me")
-    .then((response) => {
-        if (response.status !== 200) throw new Error("Couldn't retrieve user data");
-        return response.json();
-    })
-    .then((json) => {
-        setWallet(json.wallet);
-        setCurrency(json.currency);
-    });
-  }
+  
 
   return(
     <div className = {styles.dashboard}>

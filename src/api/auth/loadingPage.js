@@ -23,7 +23,7 @@ const LoadingPage = () => {
 
       <div className="sweet-loading">
 
-         <DotLoader loading={loading} css={override} size={350}/>
+         <DotLoader loading={loading} css={override} setLoadin = {setLoading} size={350}/>
       </div>
    )
 

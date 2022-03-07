@@ -19,32 +19,35 @@ const Wallet = () => {
     const clicked = {
         color: "#258AFF"
     }
+    
     useEffect(() => {
+
+        const getWallet = () => {
+            getSessionUser();
+            getUserToken();
+    
+            customFetch( "GET", "users/me")
+            .then((json) => {
+                setWallet(json.wallet);
+                setCurrency(json.currency);
+            });
+        }
+
+        const getPayments = () => {
+            const userSession = localStorage.getItem("user-session");
+            const { id } = JSON.parse(userSession);
+            setId(id);
+            customFetch("GET", "users/" + id +"/payments/")
+            .then(paymentsBack => {
+                setPayments(paymentsBack);
+                setShowPays(true);
+            });
+        }
+
+
         getPayments();
         getWallet();
-    }, []);
-
-    const getPayments = () => {
-        const userSession = localStorage.getItem("user-session");
-        const { id } = JSON.parse(userSession);
-        setId(id);
-        customFetch("GET", "users/" + id +"/payments/")
-        .then(paymentsBack => {
-            setPayments(paymentsBack);
-            setShowPays(true);
-        });
-    }
-
-    const getWallet = () => {
-        getSessionUser();
-        getUserToken();
-
-    customFetch( "GET", "users/me")
-        .then((json) => {
-            setWallet(json.wallet);
-            setCurrency(json.currency);
-        });
-    }
+    }, [setCurrency, setShowPays, setPayments, setWallet]);
 
     return(
         <div className = {styles.wallet}>
