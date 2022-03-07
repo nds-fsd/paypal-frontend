@@ -21,7 +21,7 @@ const Payment = ({payment, id}) => {
         setFrom(from);
         customFetch("GET", "users/name/" + (from ? payment.to : payment.from))
         .then((response) => {setName(response)});
-    }, [])
+    }, [id, payment.from, payment.to])
 
     return(
         <div className={style.payment}>

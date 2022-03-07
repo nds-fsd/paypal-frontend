@@ -24,7 +24,7 @@ const useAuth = () => {
             setLoading(false);
         }
 
-    }, [])
+    }, [token])
 
     return {
         loading,

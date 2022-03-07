@@ -2,7 +2,6 @@ import styles from "./settings.module.css"
 import { useEffect , useState, useRef} from "react";
 import userimg from './images/userimg.svg'
 import pen from './images/pen.svg'
-import { useNavigate } from "react-router-dom";
 import customFetch from '../../api';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,8 +9,6 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const AccountSetting = () => {
-
-    const navigate = useNavigate();
 
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => { setPasswordShown(passwordShown ? false : true); };
@@ -25,28 +22,28 @@ const AccountSetting = () => {
       const userSession = localStorage.getItem("user-session");
       const { id } = JSON.parse(userSession);
       
-      if (initialCurrency=="€" && user.currency=="€") {
+      if (initialCurrency==="€" && user.currency==="€") {
         const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
         customFetch("PUT", "users/" + id , {body:data})
       .then(res => {window.location.reload();})
       .catch(err => console.log(err));
       }
 
-      else if (initialCurrency=="$" && user.currency=="$") {
+      else if (initialCurrency==="$" && user.currency==="$") {
         const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
         customFetch("PUT", "users/" + id , {body:data})
       .then(res => {window.location.reload();})
       .catch(err => console.log(err));
       }
 
-      else if (initialCurrency=="€" && user.currency=="$") {
+      else if (initialCurrency==="€" && user.currency==="$") {
         const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(1.1*user.wallet)).toFixed(4)}
         customFetch("PUT", "users/" + id , {body:data})
       .then(res => {window.location.reload();})
       .catch(err => console.log(err));
       }
 
-      else if (initialCurrency=="$" && user.currency=="€") {
+      else if (initialCurrency==="$" && user.currency==="€") {
         const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(0.9*user.wallet)).toFixed(4)}
         customFetch("PUT", "users/" + id , {body:data})
       .then(res => {window.location.reload();})

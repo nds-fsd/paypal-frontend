@@ -4,7 +4,6 @@ import styles from '../pending/pending.module.css';
 import { useState } from 'react';
 import customFetch from '../../api';
 import { useEffect } from 'react';
-import { getUserToken } from '../../api/auth';
 import classnames from 'classnames';
 
 
@@ -41,7 +40,7 @@ const Pending = ({request}) => {
    useEffect(() => {
       customFetch("GET", "users/name/" + request.from)
       .then((response) => {setName(response)});
-   }, [requestState])
+   }, [requestState, request.from])
 
   return (
        <div className={requestClass} > 

@@ -19,32 +19,35 @@ const Wallet = () => {
     const clicked = {
         color: "#258AFF"
     }
+    
     useEffect(() => {
+
+        const getWallet = () => {
+            getSessionUser();
+            getUserToken();
+    
+            customFetch( "GET", "users/me")
+            .then((json) => {
+                setWallet(json.wallet);
+                setCurrency(json.currency);
+            });
+        }
+
+        const getPayments = () => {
+            const userSession = localStorage.getItem("user-session");
+            const { id } = JSON.parse(userSession);
+            setId(id);
+            customFetch("GET", "users/" + id +"/payments/")
+            .then(paymentsBack => {
+                setPayments(paymentsBack);
+                setShowPays(true);
+            });
+        }
+
+
         getPayments();
         getWallet();
-    }, []);
-
-    const getPayments = () => {
-        const userSession = localStorage.getItem("user-session");
-        const { id } = JSON.parse(userSession);
-        setId(id);
-        customFetch("GET", "users/" + id +"/payments/")
-        .then(paymentsBack => {
-            setPayments(paymentsBack);
-            setShowPays(true);
-        });
-    }
-
-    const getWallet = () => {
-        getSessionUser();
-        getUserToken();
-
-    customFetch( "GET", "users/me")
-        .then((json) => {
-            setWallet(json.wallet);
-            setCurrency(json.currency);
-        });
-    }
+    }, [setCurrency, setShowPays, setPayments, setWallet]);
 
     return(
         <div className = {styles.wallet}>
@@ -60,7 +63,7 @@ const Wallet = () => {
                 <img className = {styles.arrow}src = {arrow} alt = "arrow"/>
                 <div className={styles.percent}>23%</div>
                 
-                {currency=='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
+                {currency==='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
 
                 <div className = {styles.subTitle}>Recent transactions</div>
                 <div className = {styles.options}>

@@ -37,7 +37,7 @@ const RevisarDatos = ({setChange, pago}) => {
                         <div className={styles.box}>
                             <h2 className={styles.title}>Amount</h2>
                             
-                            {pago.currency=='$' ? <p className={styles.inputs}>{pago.amount}$</p> : <p className={styles.inputs}>{pago.amount}€</p>}
+                            {pago.currency==='$' ? <p className={styles.inputs}>{pago.amount}$</p> : <p className={styles.inputs}>{pago.amount}€</p>}
                         </div>
                         <input value="Editar" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
                         <input value="Confirmar" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>

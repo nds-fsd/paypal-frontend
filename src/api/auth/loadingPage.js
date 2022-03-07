@@ -21,6 +21,7 @@ const LoadingPage = () => {
       <div className="sweet-loading">
 
          <DotLoader loading={true} css={override} size={350}/>
+
       </div>
    )
 
