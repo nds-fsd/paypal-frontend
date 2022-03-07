@@ -7,14 +7,15 @@ import customFetch from '../../api';
 import Payment from "./Payment/Payment"
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
+import { getSessionUser, getUserToken } from "../../api/auth";
 
 const Wallet = () => {
     
-    const { wallet, setWallet, payments, setPayments,currency, setCurrency } = useContext(UserContext);
-    
+    const { wallet, setWallet, payments, setPayments, choose, setChoose, showPays, setShowPays , currency, setCurrency} = useContext(UserContext);
+
     const [id, setId] = useState(null);
-    const [showPays, setShowPays] = useState(false);
-    const [choose, setChoose] = useState(0);
+    
+   
     const clicked = {
         color: "#258AFF"
     }
@@ -35,16 +36,10 @@ const Wallet = () => {
     }
 
     const getWallet = () => {
-        const userSession = localStorage.getItem("user-session");
-        const { token } = JSON.parse(userSession);
-        fetch("http://localhost:3090/users/me" , {
-            method: "GET",
-            headers: { Authorization: "Bearer " + token },
-        })
-        .then((response) => {
-            if (response.status !== 200) throw new Error("Couldn't retrieve user data");
-            return response.json();
-        })
+        getSessionUser();
+        getUserToken();
+
+    customFetch( "GET", "users/me")
         .then((json) => {
             setWallet(json.wallet);
             setCurrency(json.currency);
