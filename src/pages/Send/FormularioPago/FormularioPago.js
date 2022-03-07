@@ -1,0 +1,61 @@
+import styles from "./formulariopago.module.css"
+import { useState} from 'react'
+import dotpattern from '../Images/DotPattern.svg';
+import customFetch from '../../../api'
+
+
+const FormularioPago = ({setPago, setChange, pago}) => {
+
+
+    const [email, setEmail] = useState("");
+    const [amount, setAmount] = useState(0);
+    const [sendCurrency, setSendCurrency] = useState("$");
+    const [err, setErr] = useState("");
+
+
+    const onSubmit = () => {
+        
+        customFetch("GET", "users/id/" + email)
+        .then((_id) => {
+            if(_id === null) setErr("Email not found")
+            else {
+                const data={
+                    email:email,
+                    amount:amount,
+                    currency:sendCurrency,
+                    id:_id
+                }
+                setPago(data);
+                setChange(1);
+            }
+        })
+    }
+
+
+    return(
+        <div className = {styles.send}>
+            <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
+            <div className = {styles.paybox}>
+                <form className= {styles.form}>
+                    <p>Send money to another user</p>
+                    <br/>
+                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
+                    <br/>
+                    <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
+                    <br/>
+                    {/* <input type="currency" placeholder='currency' value={sendCurrency} onChange={(e)=>{setSendCurrency(e.target.value)}} className={styles.input}/>
+                    <br/> */}
+                    <select type='currency' value={sendCurrency} onChange={(e)=>{setSendCurrency(e.target.value)}} >
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    </select>
+                    <br/>
+                    <button type="button" className={styles.submit} onClick={() => {onSubmit()}}>Send</button>
+                </form>
+                {err}
+            </div>
+        </div>
+    )
+}
+
+export default FormularioPago;

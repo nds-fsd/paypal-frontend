@@ -1,0 +1,105 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.login_inputs{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_inputs > form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_inputs > form > input{
+    height: 56px;
+    width: 283px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 16px 0px #33333314;
+    border: none;
+    margin-bottom: 32px;
+    text-align: center;
+
+}
+
+.send_button > input{
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #258AFF;
+    color:white;
+    border: none;
+    margin: 32px 0 32px 0;
+}
+
+.block_img > img{
+    width: 721px;;
+}
+
+.float_buttons > img{
+    width: 193px;
+    z-index: 100;
+}
+
+.logo > img{
+    height: 55px;
+    width: 165px;
+    left: 250px;
+    top: 345px;
+    border-radius: 0px;   
+    margin-bottom: 63px;; 
+}
+
+.login_block{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.error{
+    color:red;
+    margin-bottom: 20px;
+}
+
+.link{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Manrope';
+    color: #258AFF;
+    text-decoration: none;
+}
+
+.login_inputs > p{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Manrope';
+}

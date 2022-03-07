@@ -1,0 +1,73 @@
+.header_container{
+   width: 100vw;
+   height: 72px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   align-items: center;
+   justify-content: space-around;
+}
+
+nav > ul {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: flex-start;
+   align-items: center;
+   text-align: left;
+}
+
+nav > ul > li {
+   text-decoration: none;
+   padding: 10px 30px 10px 0;
+   list-style-type: none;
+   font-family: 'Manrope';
+}
+
+nav > ul > li > a{
+   text-decoration: none;
+   font-family: 'Manrope';
+   color: black;
+}
+
+
+.buttons_style {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+
+.login > button {
+   background-color: #258AFF29;
+   color: #258AFF;
+   height: 40px;
+   width: 100px;
+   border-radius: 8px;
+   border: none;
+   margin-right: 14px;
+}
+
+.login > button > a {
+   color: #258AFF;
+   text-decoration: none;
+}
+
+.sign_up > button {
+   background-color: #258AFF;
+   color:white;
+   height: 40px;
+   width: 100px;
+   border-radius: 8px;
+   border: none;
+}
+
+.sign_up > button > a {
+   color:white;
+   text-decoration: none;
+}

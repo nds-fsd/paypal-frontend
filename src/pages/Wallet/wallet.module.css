@@ -1,0 +1,224 @@
+.wallet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    background-color: #F8FBFF;
+}
+.container {
+    position: absolute;
+    width: 543px;
+    height: 627px;
+    left: calc(50% - 271.5);
+    top: 17vh;
+
+    background: #FFFFFF;
+    border: 1px solid #E9E9E9;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+
+.percent {
+    position: absolute;
+    width: 37px;
+    height: 25px;
+    left: 51px;
+    top: 29px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #20E9BC;
+}
+.money {
+    position: absolute;
+    width: 129px;
+    height: 49px;
+    left: 34px;
+    top: 53px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 49px;
+    color: #000000;
+}
+
+.bar {
+    position: absolute;
+    width: 271px;
+    height: 4px;
+    left: 0px;
+    top: 0px;
+
+    background: #258AFF;
+    border-radius: 4px 0px 0px 0px;
+}
+
+.addFunds {
+    position: absolute;
+    width: 272px;
+    height: 150px;
+    left: 271px;
+    top: 0px;
+
+    background: rgba(237, 243, 250, 0.7);
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 0px 4px 0px 0px;
+}
+
+.subTitle {
+    position: absolute;
+    width: 134px;
+    height: 20px;
+    left: 26px;
+    top: 174px;
+
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    /* identical to box height, or 143% */
+    text-align: center;
+    font-feature-settings: 'liga' off;
+
+    color: #1D293F;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: absolute;
+    width: 144px;
+    height: 20px;
+    left: 373px;
+    top: 174px;
+}
+
+.button{
+    position: static;
+    height: 20px;
+
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+
+    /* identical to box height, or 167% */
+    text-align: center;
+    font-feature-settings: 'liga' off;
+
+    
+    color: #979797;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 5px;
+}
+
+/* .selected {
+    color: #258AFF;
+} */
+
+.show {
+    position: absolute;
+    width: 137px;
+    height: 20px;
+    left: 203px;
+    top: 586px;
+
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+
+    /* identical to box height, or 167% */
+    text-align: center;
+    font-feature-settings: 'liga' off;
+
+    color: #258AFF;
+}
+
+.submit {
+    position: absolute;
+    left: 86px;
+    top: 55px;
+
+    width: 100px;
+    height:40px;
+    
+    background: #258AFF;
+    border-radius: 8px;
+}
+
+.fundText {
+    position: absolute;
+    width: 77px;
+    height: 20px;
+    left: calc(50% - 77px/2 + 0.5px);
+    top: calc(50% - 20px/2);
+
+    /* Label / Medium Label */
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+
+    /* identical to box height, or 143% */
+    text-align: center;
+    font-feature-settings: 'liga' off;
+
+    /* Default / White */
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.dot1 {
+    position: absolute;
+    left: calc(50% - 271.5px - 88px + 26px) ;
+    top: calc(17vh - 88px);
+}
+
+.dot2 {
+    position: absolute;
+    left: calc(50% + 271.5px - 88px + 26px) ;
+    top: calc(17vh + 627px - 85px);
+}
+
+.transactions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: absolute;
+    width: 491px;
+    height: 342px;
+    left: 26px;
+    top: 225px;
+    overflow:auto;
+}
+
+.arrow {
+    position: absolute;
+    width: 15px;
+    height:18px;
+    left: 33px;
+    top: 33px;
+}

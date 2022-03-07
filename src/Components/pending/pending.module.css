@@ -1,0 +1,90 @@
+.dates > img{
+   width: 14px;
+   display: flex;
+   flex-direction: row;
+ }
+
+ .dates{
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: flex-start;
+ }
+
+ button.send{
+   width: 50%;
+   height: 30px;
+   background-color: #258AFF;
+   color: white;
+ }
+
+ button.cancel{
+   width: 50%;
+   height: 30px;
+   background-color: #FF374F;
+   color: white;
+ }
+
+ .pending {
+  padding: 10px;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  width: 193px;
+  margin-bottom: 10px;
+ }
+
+ .form{
+   text-align: center;
+ }
+
+ .dates > p{
+   color:#D8D8D8;
+ }
+
+ .pending > h2{
+  margin: 0;
+ }
+
+ .pending > p{
+  color:#D8D8D8;
+ }
+
+ .payclass{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+ }
+ .payclass > p{
+  color:#D8D8D8;
+  font-size: 18px;
+  font-weight: bold;
+ }
+
+ .payclass > h1{
+  color: black;
+  margin:0;
+ }
+
+ .declined{
+  border: 1px solid #FF374F;
+ }
+
+ .accepted {
+  border: 1px solid #20E9BC;
+ }
+
+ p.accepted {
+  text-align: center;
+  background: rgba(32, 233, 188, 0.15);
+  color: #20E9BC;
+ }
+
+ p.declined {
+  text-align: center;
+  color: #FF374F;
+  background: rgba(255, 55, 79, 0.15);
+ }
