@@ -1,6 +1,6 @@
 import {getUserToken} from "./auth";
 
-export const API_URL =  window.location.hostname === 'payday-deployed-front' ? "payday-deployed-backend" : "http://localhost:3090";
+export const API_URL =  window.location.hostname === 'daypay.netlify.app' ? "https://nuclio-payday.herokuapp.com/" : "http://localhost:3090";
 // Custom API error to throw
 function ApiError(message, data, status) {
     let response = null;
