@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { css } from "@emotion/react";
 import DotLoader from "react-spinners/DotLoader";
 
@@ -16,14 +16,12 @@ const override = css`
 
 const LoadingPage = () => {
 
-   let [loading, setLoading] = useState(true);
-   
-
    return(
 
       <div className="sweet-loading">
 
-         <DotLoader loading={loading} css={override} setLoadin = {setLoading} size={350}/>
+         <DotLoader loading={true} css={override} size={350}/>
+
       </div>
    )
 
