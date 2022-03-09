@@ -4,7 +4,7 @@ import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import arrow from '../../assets/arrow.png'
 import customFetch from '../../api';
-import { getSessionUser, getUserToken, removeSession } from "../../api/auth";
+import { removeSession } from "../../api/auth";
 import RenderLineChart from "../../Components/linechart/Linechart";
 
 const Dashboard = () => {
@@ -13,17 +13,12 @@ const Dashboard = () => {
 
     
   useEffect(() => {
-    
-    getSessionUser();
-    getUserToken();
 
     customFetch( "GET", "users/me")
       .then((json) => {
         setName(json.name);
-
       })
       .catch(() => {
-        
         removeSession();
         navigate("/login");
       });
@@ -31,14 +26,8 @@ const Dashboard = () => {
 
     useEffect(() => {
       const getWallet = () => {
-        getSessionUser();
-        getUserToken();
     
         customFetch( "GET", "users/me")
-        .then((response) => {
-            if (response.status !== 200) throw new Error("Couldn't retrieve user data");
-            return response.json();
-        })
         .then((json) => {
             setWallet(json.wallet);
             setCurrency(json.currency);
