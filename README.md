@@ -4,11 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # My library [https://nuclio-payday.herokuapp.com](https://nuclio-payday.herokuapp.com)
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # ¿Que es DayPay?
+
+Una forma segura de enviar dinero, comprar y vender
 
 ![](DayPay.gif)
 
@@ -16,6 +14,12 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 # Funcionalidades
 
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Installation / requirements
 
 
 ## Available Scripts
