@@ -8,6 +8,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# ¿Que es DayPay?
+
+![](DayPay.gif)
+
+DayPay opera un sistema de pagos en línea que soporta transferencias de dinero entre usuarios y sirve como una alternativa electrónica a los métodos de pago tradicionales como cheques y giros postales. 
+
+# Funcionalidades
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
