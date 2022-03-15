@@ -138,11 +138,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 </p>
-<p align="center">Love the project? Please consider <a href="paypal.me/lmu1">donating</a> to help it improve!
+<p align="center">Love the project? Please consider <a href="https://paypal.me/lmu1">donating with this link</a> to help it improve!
 <p>
-
-Are you considering to support the project by donating to me? Please DON'T!!  
-
     
 </p>
 <p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support Ukraine <a href="https://www.withukraine.org/">donating</a>
