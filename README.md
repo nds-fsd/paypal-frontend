@@ -53,11 +53,20 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 - Ejecuta Docker , e.g. "docker run -d -p 27020:27017 mongo --name mongo-test" y "sudo docker-compose up -d"
 
 
+# Muestras de código
+
+```html
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats" />
+</a>
+<a href="https://github.com/anuraghazra/convoychat">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=convoychat" />
+</a>
+```
 
 
 
-
-# Authors and acknowledgment
+# :sparkling_heart: Authors and acknowledgment :sparkling_heart:
 
 This project was created by lisaub, Marylizr and Marcsc99
 
@@ -65,8 +74,7 @@ This project was created by lisaub, Marylizr and Marcsc99
 
 
 
-
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
