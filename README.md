@@ -137,15 +137,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-[![Lisa's GitHub stats](https://github-readme-stats.vercel.app/api?username=lisaub)](https://github.com/anuraghazra/github-readme-stats)
+[![nds-fds's GitHub stats](https://github-readme-stats.vercel.app/api?username=nds-fds)](https://github.com/anuraghazra/github-readme-stats)
 
-</p>
-<p align="center">Love the project? Please consider <a href="https://paypal.me/lmu1">donating with this link</a> to help it improve!
-<p>
+
+<p align="center">Love the project? Please consider <a href="https://paypal.me/lmu1">donating with this link</a> to help it improve!<p>
     
-</p>
-<p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a>
-<p>
+<p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a><p>
     
 
     
