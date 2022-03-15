@@ -55,20 +55,43 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 # Muestras de código
 
+```
+const SignUp = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) navigate("/main/dashboard");
+    }, [navigate]);
+    
+   
+    const { register, handleSubmit, formState: { errors } } = useForm();
+  
+    const onSubmit = (data) => {
+      customFetch("POST", "users", {body: data})
+      .then(userSession => {
+        setUserSession(userSession);
+        navigate("/main/dashboard");
+      }).catch(error => {
+          'REQUEST_FAILED'
+        console.error(error);
+      });
+    };
+```   
 ```html
 <form onSubmit={handleSubmit(onSubmit)}>
-              <input type='text' placeholder="Name" {...register("name", {required: true })}/>
-                  {errors.name && <span className={styles.error}>Name field is required</span>}
+    <input type='text' placeholder="Name" {...register("name", {required: true })}/>
+    {errors.name && <span className={styles.error}>Name field is required</span>}
+    
     <select type='currency' {...register("currency", { required: true })} >
-                  <option value="$">USD ($)</option>
-                  <option value="€">EUR (€)</option>
-                  </select>
-                  {errors.currency && <span>currency field is required</span>}
-                  
-                  <div className={styles.send_button}>
-                      <input type="submit" value="Sign Up" />
-                  </div>
-              </form>
+    <option value="$">USD ($)</option>
+    <option value="€">EUR (€)</option>
+    </select>
+    {errors.currency && <span>currency field is required</span>}
+    
+    <div className={styles.send_button}>
+    <input type="submit" value="Sign Up" />
+</form>
 ```
 
 
