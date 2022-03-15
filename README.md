@@ -13,7 +13,7 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 # Funcionalidades
 
-- Landing paga, página principal de DayPay y como se muestra al mundo
+- Landing page, página principal de DayPay
 
 - Sign up, para crear un usuario
 
@@ -49,8 +49,12 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
   DB_HOST = mongodb://localhost:27017/mongo-test
   
   JWT_SECRET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcnltYXJ5QGdtYWlsLmNvbSIsImlhdCI6MTY0Mzk3ODU4MH0.XHbyy1_FsSfTcBAD_vBmfdNJ19s6BGZelw4Rvj19sW4
-- ejecuta "npm install" y "npm install -s mongoose"
-- ejecuta docker , e.g. "docker run -d -p 27020:27017 mongo --name mongo-test" y "sudo docker-compose up -d"
+- Ejecuta "npm install" y "npm install -s mongoose"
+- Ejecuta Docker , e.g. "docker run -d -p 27020:27017 mongo --name mongo-test" y "sudo docker-compose up -d"
+
+
+
+
 
 
 # Authors and acknowledgment
@@ -132,3 +136,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+</p>
+<p align="center">Love the project? Please consider <a href="paypal.me/lmu1">donating</a> to help it improve!
+<p>
+
+Are you considering to support the project by donating to me? Please DON'T!!  
+
+    
+</p>
+<p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support Ukraine <a href="https://www.withukraine.org/">donating</a>
+<p>
+    
+
+    
