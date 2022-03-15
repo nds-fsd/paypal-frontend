@@ -55,7 +55,7 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 # Muestras de código
 
-```
+```js
 const SignUp = () => {
    const navigate = useNavigate();
 
