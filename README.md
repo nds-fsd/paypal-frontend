@@ -55,6 +55,8 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 # Muestras de código
 
+## Frontend
+
 ```js
 const SignUp = () => {
    const navigate = useNavigate();
@@ -93,8 +95,65 @@ const SignUp = () => {
     <input type="submit" value="Sign Up" />
 </form>
 ```
+## Backend
+```js
+exports.update = async (req,res) => {
+  const id = req.params.id;
+  const data = req.body;
+  console.log("updating");
+  if (data.password && data.password.length>0) {
+    console.log("if: " + data.password);
+    const genSalt = 10;
+    const passwordHashed = bcrypt.hashSync(data.password, genSalt);
+    data.password=passwordHashed;
+  } else {
+    console.log("else1: " + data.password);
+    data.password = await User.find({_id:id}).password;
+    console.log("else2: " + data.password);
+  }
+```
+```js
+var currencyConverter = new CC()
 
+exports.create = async (req, res) => {
+  const data = req.body;
+  var newPayment = new Payment(data);
 
+  const fromUser = await User.findById(data.from);
+  const toUser = await User.findById(data.to);
+  
+  newPayment.save(
+    function (err) {
+      if (err) {
+        console.log(err);
+        return handleError(err);
+      }
+      else {
+if (data.currency=='€') {
+        
+            if (fromUser.currency=='$' && toUser.currency=='$') 
+            {
+            currencyConverter.from("EUR").to("USD").amount(data.amount).convert()
+              .then((response) => {
+                console.log(response/100) ;
+                fromUser.wallet -=response/100;
+                fromUser.save();
+              })
+            
+            currencyConverter.from("EUR").to("USD").amount(data.amount).convert()
+              .then((response) => {
+                console.log(response/100) ;
+                toUser.wallet +=response/100;
+                toUser.save();
+              })
+            }
+            }
+        }
+    }
+  );
+  res.status(201).json({Message: "Your new payment was created Succesfully", newPayment});
+}
+```
 
 # :sparkling_heart: Authors and acknowledgment :sparkling_heart:
 
