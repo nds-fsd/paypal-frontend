@@ -142,7 +142,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <p>
     
 </p>
-<p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support Ukraine <a href="https://www.withukraine.org/">donating</a>
+<p align="center">Are you considering to support the project by donating to me? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a>
 <p>
     
 
