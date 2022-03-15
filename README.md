@@ -15,6 +15,8 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 - Landing page, página principal de DayPay
 
+desde aquí se puede navegar a diverentes páginas, incluyendo la página del signup y del login
+
 - Sign up, para crear un usuario
 
 - Login el usuario
