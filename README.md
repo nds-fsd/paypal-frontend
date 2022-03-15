@@ -12,9 +12,22 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 
 # Funcionalidades
--bla
--bla
--bla
+
+- Landing paga, página principal de DayPay y como se muestra al mundo
+
+- Sign up, para crear un usuario
+
+- Login el usuario
+
+- Dashboard, mostrando el saldo del usuario
+
+- Wallet, para ver las tarnsacciones del usuario
+
+- Send, para que el usuario puedo mandar dinero
+
+- Request, para que el usuario puede solicitar dinero
+
+- Account Settings, donde el usuario puede cambiar sus detalles
 
 # Instrucciones
 Installation / requirements
