@@ -3,61 +3,85 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import styles from '../linechart/linechart.module.css';
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState } from "react";
-import { getStorageObject } from '../../api/storage';
 import customFetch from '../../api';
+import { getUserId } from '../../api/auth';
 
 
 const RenderLineChart = () => {
 
    const { payments, setPayments } = useContext(UserContext);
-   const [income, setIncome] = useState(0);
-   const [outcome, setOutcome] = useState(0);
-   const [date, setDate] = useState;
-
+   const [data, setData] = useState([]);
    useEffect(() => {
-         const id = getStorageObject("id");
    
-         customFetch("GET", "users/" + id +"/payments")
+         customFetch("GET", "users/payments")
          .then(paymentsBack => {
              setPayments(paymentsBack);
          });
     
-      const from = payments.map((payments) => {return payments.to === id ? null : payments});
-      const to = payments.map((payments) => {return payments.from === id ? null : payments});
-      const paymentDate = payments.map((payments) => {return payments.paymentDate === id ? null : payments});
+      
 
-      let resultFrom = 0;
-      from.forEach(element => {
-          resultFrom+=element.amount;
-      });
-         setOutcome(resultFrom);
-         setDate(paymentDate);
+   }, [setPayments]);
 
-      let resultTo = 0;
-      to.forEach(element => {
-          resultTo+=element.amount;
-      });
-         setIncome(resultTo);
-         setDate(paymentDate);
+   const monthsNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-   }, [payments, setPayments, setDate])
+   useEffect(() => {
+
+      if(payments.length > 0 ){
+         const id = getUserId();
+
+         const months = payments.reduce((acc, payment) => {
+
+               const date = new Date(payment.date);
+               const monthName = monthsNames[date.getMonth()];
+
+               let month = acc[monthName];
+
+               if(!month){
+                  month = {
+                     income: 0,
+                     outcome: 0
+                  }
+               }
+
+               if(payment.to === id){
+                  month.income += payment.amount;
+               }
+
+               if(payment.from === id){
+                  month.outcome += payment.amount;
+               }
+
+               acc[monthName] = month;
+               return acc;
+
+         }, {} );
+
+         console.log(months)
+         //const to = payments.filter((payments) => payments.to === id).reduce((acc, payment) => acc+payment.amount, 0 );
+   
+         //const from = payments.filter(payment => payment.from === id).reduce((acc, payment) => acc+payment.amount, 0 );
+         //const to = payments.filter((payments) => payments.to === id).reduce((acc, payment) => acc+payment.amount, 0 );
+   
+         const monthsData = Object.entries(months).map(([key, value]) => {
+            return {month: key, income: value.income, outcome: value.outcome}
+         });
+
+         setData(monthsData);
+        
+      }
+      
+     
+   }, [payments])
    
 
-      const data = [
-         {
-            month:{date},
-            Income: {income},
-            Outcome: {outcome},
-         },
-      ];
   return (
       <div className={styles.linechart}> 
          <h2>your balance </h2>
          <BarChart width={300} height={300} data={data}>
-            <XAxis dataKey="month" />
+            <XAxis dataKey="month"/>
             <YAxis />
-            <Bar dataKey="Income" fill="#8884d8" />
-            <Bar dataKey="Outcome" fill="#FF374F" />
+            <Bar dataKey="income" fill="#8884d8" />
+            <Bar dataKey="outcome" fill="#FF374F" />
             <Tooltip />
             <Legend />
   
