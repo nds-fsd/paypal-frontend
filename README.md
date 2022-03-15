@@ -36,6 +36,7 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 - Clona los siguentes repositiorios en esta carpeta:
 
     https://github.com/nds-fsd/paypal-frontend.git
+    
     https://github.com/nds-fsd/paypal-backend.git
 
 - Ingrese a la carpeta de paypal-frontend y ejecute npm install
