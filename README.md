@@ -1,26 +1,40 @@
 # DayPay Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-# My library [payday.netlify.app](https://payday.netlify.app)
+# Website [payday.netlify.app](https://payday.netlify.app)
 
 # ¿Que es DayPay?
 
 Una forma segura de enviar dinero, comprar y vender
 
-![](DayPay.gif)
-
 DayPay opera un sistema de pagos en línea que soporta transferencias de dinero entre usuarios y sirve como una alternativa electrónica a los métodos de pago tradicionales como cheques y giros postales. 
 
+![](DayPay.gif)
+
+
 # Funcionalidades
+-bla
+-bla
+-bla
+
+# Instrucciones
+Installation / requirements
+
+-Clone este repository en tu carpeta donde quieras
+
+
+
+# Authors and acknowledgment
+
+This project was created by lisaub, Marylizr and Marcsc99
+
+
+
+
 
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-# Installation / requirements
-
 
 ## Available Scripts
 
