@@ -33,17 +33,20 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 - Crea una carpeta para este projecto y ir a la carpeta
 
-- Clona los siguentes repositiorios en esta carpeta
+- Clona los siguentes repositiorios en esta carpeta:
+
     https://github.com/nds-fsd/paypal-frontend.git
     https://github.com/nds-fsd/paypal-backend.git
 
 - Ingrese a la carpeta de paypal-frontend y ejecute npm install
 
-- Ingrese a la carpeta de paypal-fbackend
-- Navega al fichero "index.js" y en línea 13 cambia el port a 3090
-- Navega al fichero "src/mongo/index.js" y cambia línea 4 a tu docker, aquí por ejemplo "mongoose.connect('mongodb://localhost:27020/mongo-test');"
-- agrega el fichero ".env" en la carpeta principal del backend con el siguiente contenido:
+- Ingrese a la carpeta de paypal-backend
+-   Navega al fichero "index.js" y en línea 13 cambia el port a 3090
+-   Navega al fichero "src/mongo/index.js" y cambia línea 4 a tu docker, aquí por ejemplo "mongoose.connect('mongodb://localhost:27020/mongo-test');"
+-   Agrega el fichero ".env" en la carpeta principal del backend con el siguiente contenido:
+
   DB_HOST = mongodb://localhost:27017/mongo-test
+  
   JWT_SECRET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcnltYXJ5QGdtYWlsLmNvbSIsImlhdCI6MTY0Mzk3ODU4MH0.XHbyy1_FsSfTcBAD_vBmfdNJ19s6BGZelw4Rvj19sW4
 - ejecuta "npm install" y "npm install -s mongoose"
 - ejecuta docker , e.g. "docker run -d -p 27020:27017 mongo --name mongo-test" y "sudo docker-compose up -d"
