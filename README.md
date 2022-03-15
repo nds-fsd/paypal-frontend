@@ -56,12 +56,19 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 # Muestras de código
 
 ```html
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats" />
-</a>
-<a href="https://github.com/anuraghazra/convoychat">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=convoychat" />
-</a>
+<form onSubmit={handleSubmit(onSubmit)}>
+              <input type='text' placeholder="Name" {...register("name", {required: true })}/>
+                  {errors.name && <span className={styles.error}>Name field is required</span>}
+    <select type='currency' {...register("currency", { required: true })} >
+                  <option value="$">USD ($)</option>
+                  <option value="€">EUR (€)</option>
+                  </select>
+                  {errors.currency && <span>currency field is required</span>}
+                  
+                  <div className={styles.send_button}>
+                      <input type="submit" value="Sign Up" />
+                  </div>
+              </form>
 ```
 
 
@@ -70,7 +77,9 @@ DayPay opera un sistema de pagos en línea que soporta transferencias de dinero 
 
 This project was created by lisaub, Marylizr and Marcsc99
 
-
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lisaub)](https://github.com/anuraghazra/github-readme-stats)
+   
+<p align="center">Are you considering to support the project by donating to <a href="https://paypal.me/lmu1">me</a>? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a><p>
 
 
 
@@ -145,10 +154,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lisaub)](https://github.com/anuraghazra/github-readme-stats)
-   
-<p align="center">Are you considering to support the project by donating to <a href="https://paypal.me/lmu1">me</a>? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a><p>
     
 
 <p align="center">Made with :heart: and JavaScript.<p>
