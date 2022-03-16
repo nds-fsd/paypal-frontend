@@ -27,7 +27,7 @@ const UserHeader = ({ onClick }) => {
   return (
   <div className={styles.user_sidebar}>
      <div className={styles.profile}>
-       <img src="http://placeimg.com/150/150/people" alt="profile_pic"/>
+       <img src="http://localhost:3000/static/media/userimg.b973b975da9ac1f277c315d31a3f95c5.svg" alt="profile_pic"/>
        <div className={styles.name}>
        <p>{name} {surname}</p>
        <button className={styles.sidebarClose} onClick={onClick}><img src={DownArrow} alt="arrow"/></button>

@@ -85,3 +85,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.inputs > select {
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0px 4px 4px rgb(51 51 51 / 4%), 0px 4px 16px rgb(51 51 51 / 18%);
+  padding: 5px;
+}

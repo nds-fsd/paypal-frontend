@@ -87,7 +87,7 @@ const AccountSetting = () => {
                   </div>
 
 
-                  <select type='currency' value={user.currency} onChange={(e) =>setUser({...user,currency: e.target.value})} >
+                  <select  type='currency' value={user.currency} onChange={(e) =>setUser({...user,currency: e.target.value})} >
                     <option value="$">USD ($)</option>
                     <option value="€">EUR (€)</option>
                     </select>

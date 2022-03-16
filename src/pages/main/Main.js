@@ -25,6 +25,7 @@ const Main = () => {
                 <Route path="/accountsetting" element={<PrivateRoute><AccountSetting/></PrivateRoute>} />
                 <Route path="/addcontact" element={<PrivateRoute><AddContact/></PrivateRoute>} />
             </Routes>
+            
             <UserSideBar />
             </UserContextProvider>
             
