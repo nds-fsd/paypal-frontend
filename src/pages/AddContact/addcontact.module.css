@@ -1,0 +1,10 @@
+.addcontact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #F8FBFF;
+    flex-wrap: nowrap;
+}
