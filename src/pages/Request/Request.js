@@ -3,7 +3,7 @@ import dotpattern from '../../assets/DotPattern3.png';
 import customFetch from '../../api';
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-import { getSessionUser } from "../../api/auth";
+import { getStorageObject } from "../../api/storage";
 
 
 const Request = () => {
@@ -12,8 +12,7 @@ const Request = () => {
 
 
     const onSubmit = () => {
-        const userSession = getSessionUser;
-        const { id } = JSON.parse(userSession);
+        const id = getStorageObject("id");
 
         customFetch("GET", "users/id/" + email)
         .then((_id) => {

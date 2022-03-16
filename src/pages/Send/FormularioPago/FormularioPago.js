@@ -2,7 +2,6 @@ import styles from "./formulariopago.module.css"
 import { useState, useEffect} from 'react'
 import dotpattern from '../Images/DotPattern.svg';
 import customFetch from '../../../api'
-import {getSessonUser} from "../../../api/auth"
 import { getStorageObject } from "../../../api/storage";
 
 const FormularioPago = ({setPago, setChange, pago}) => {
@@ -33,9 +32,8 @@ const FormularioPago = ({setPago, setChange, pago}) => {
         })
     }
 
-    useEffect = (() => {
-        const userSesion = getStorageObject("id");
-        const id = userSesion.id;
+    useEffect(() => {
+        const id = getStorageObject("id");
         customFetch("GET", "users/" + id +"/contacts")
         .then(response => {
             let names = response.map(contact => {
@@ -58,7 +56,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
             setContacts(cont.map(contact => {return( <option value={contact.email}>{contact.name}</option>)}));
         })
 
-    },[contacts])
+    },[contacts]);
 
     return(
         <div className = {styles.send}>
@@ -69,8 +67,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                     <br/>
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <select name="Send to" required={false}>
-                        <option value={""}>Contact Name</option>
-                        {console.log(contacts)}
+                        <option >Contact Name</option>
                         {contacts}
                     </select>
                     <br/>
