@@ -73,6 +73,35 @@ react-fontawesome: Para editar el imagen de usuario, se utiliza el package @fort
 
 custom Fetch: se crea un fetch personalizado para resumir los methods, paths y options 
 
+
+## Backend
+
+mongo / mongoAtlas como base de datos 
+
+docker / docker-compose para virtualizar el sistema operativo del servidor
+
+express: infraestructura de aplicaciones web Node.js; p. ej. permite definir rutas que corresponden a métodos HTTP como son peticiones GET, POST, PUT, DELETE.
+
+estructura: auth, controllers, models, router, mongo
+
+jwt_secret /jsonwebtoken: poner un token al usuario
+´´´
+const jwt = require("jsonwebtoken");
+´´´
+
+brypt: hashear el password del usuario
+´´´
+const bcrypt = require('bcrypt');
+´´´
+´´´
+const genSalt = 10;
+const passwordHashed = bcrypt.hashSync(password, genSalt);
+´´´
+´´´
+const token = jwt.sign({ id: userSaved._id }, process.env.JWT_SECRET, {expiresIn: '1h' });
+´´´
+
+
 # Muestras de código
 
 ## Frontend
