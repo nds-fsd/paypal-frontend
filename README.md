@@ -73,16 +73,18 @@ react-fontawesome: Para editar el imagen de usuario, se utiliza el package @fort
 
 custom Fetch: se crea un fetch personalizado para resumir los methods, paths y options 
 
+cloudinary: para mostrar el imagen del usuario
 
 ## Backend
+
+estructura: auth, controllers, models, router, mongo
 
 mongo / mongoAtlas como base de datos 
 
 docker / docker-compose para virtualizar el sistema operativo del servidor
 
 express: infraestructura de aplicaciones web Node.js; p. ej. permite definir rutas que corresponden a métodos HTTP como son peticiones GET, POST, PUT, DELETE.
-
-estructura: auth, controllers, models, router, mongo
+```const app = express();```
 
 jwt_secret /jsonwebtoken: poner un token al usuario
 ```
@@ -106,7 +108,29 @@ Se puede crear una cuenta en Dolares o en Euros y se convierte entre estas moned
 const CC = require('../../node_modules/currency-converter-lt');
 var currencyConverter = new CC()
 ```
+```
+if (data.currency=='$') 
+{
 
+if (fromUser.currency=='$' && toUser.currency=='$') 
+{
+fromUser.wallet -= data.amount;
+fromUser.save();
+toUser.wallet += data.amount;
+toUser.save();
+}
+else if (fromUser.currency=='$' && toUser.currency=='€') 
+{
+fromUser.wallet -= data.amount;
+fromUser.save();
+currencyConverter.from("USD").to("EUR").amount(data.amount).convert()
+.then((response) => {
+console.log(response/100) ;
+toUser.wallet +=response/100;
+toUser.save();
+})
+}
+```
 
 # Muestras de código
 
