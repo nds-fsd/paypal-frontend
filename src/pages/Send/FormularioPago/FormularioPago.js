@@ -1,12 +1,8 @@
 import styles from "./formulariopago.module.css"
-import { useState, useEffect} from 'react'
+import { useState } from 'react'
 import dotpattern from '../Images/DotPattern.svg';
 import customFetch from '../../../api'
-<<<<<<< HEAD
 //import { getStorageObject } from "../../../api/storage";
-=======
-import { getStorageObject } from "../../../api/storage";
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
 
 const FormularioPago = ({setPago, setChange, pago}) => {
 
@@ -36,7 +32,6 @@ const FormularioPago = ({setPago, setChange, pago}) => {
         })
     }
 
-<<<<<<< HEAD
     // useEffect(() => {
     //     const userSesion = getStorageObject("id");
     //     const id = userSesion;
@@ -48,18 +43,6 @@ const FormularioPago = ({setPago, setChange, pago}) => {
     //             .then(response => {name = response})
     //             return name;
     //         });
-=======
-    useEffect(() => {
-        const id = getStorageObject("id");
-        customFetch("GET", "users/" + id +"/contacts")
-        .then(response => {
-            let names = response.map(contact => {
-                let name;
-                customFetch("GET", "users/name" + id)
-                .then(response => {name = response})
-                return name;
-            });
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
 
     //         let emails = response.map(contact => {
     //             let email;
@@ -74,11 +57,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
     //         setContacts(cont.map(contact => {return( <option value={contact.email}>{contact.name}</option>)}));
     //     })
 
-<<<<<<< HEAD
     // },[contacts])
-=======
-    },[contacts]);
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
 
     return(
         <div className = {styles.send}>
@@ -88,14 +67,9 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                     <p>Send money to another user</p>
                     <br/>
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
-<<<<<<< HEAD
                     {/* <select name="Send to" required={false}>
                         <option value={""}>Contact Name</option>
                         {console.log(contacts)}
-=======
-                    <select name="Send to" required={false}>
-                        <option >Contact Name</option>
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
                         {contacts}
                     </select> */}
                     <br/>

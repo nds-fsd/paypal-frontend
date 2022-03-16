@@ -3,11 +3,7 @@ import dotpattern from '../../assets/DotPattern3.png';
 import customFetch from '../../api';
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-<<<<<<< HEAD
 import { getUserId } from "../../api/auth";
-=======
-import { getStorageObject } from "../../api/storage";
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
 
 
 const Request = () => {
@@ -16,11 +12,7 @@ const Request = () => {
 
 
     const onSubmit = () => {
-<<<<<<< HEAD
         const id = getUserId();
-=======
-        const id = getStorageObject("id");
->>>>>>> ebaeb26b18f115a50c25d4b9258511ceb09cb642
 
         customFetch("GET", "users/id/" + email)
         .then((_id) => {
