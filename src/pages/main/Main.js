@@ -5,6 +5,7 @@ import Wallet from "../Wallet/Wallet";
 import Send from "../Send/Send";
 import Request from "../Request/Request";
 import AccountSetting from "../AccountSetting/AccountSetting";
+import AddContact from "../AddContact/AddContact";
 import styles from "./main.module.css";
 import UserSideBar from "../../Components/userSidebar/UserSideBar";
 import { UserContextProvider } from "../../context/userContext";
@@ -22,6 +23,7 @@ const Main = () => {
                 <Route path="/send" element={<PrivateRoute><Send/></PrivateRoute>} />
                 <Route path="/request" element={<PrivateRoute><Request/></PrivateRoute>} />
                 <Route path="/accountsetting" element={<PrivateRoute><AccountSetting/></PrivateRoute>} />
+                <Route path="/addcontact" element={<PrivateRoute><AddContact/></PrivateRoute>} />
             </Routes>
             
             <UserSideBar />
