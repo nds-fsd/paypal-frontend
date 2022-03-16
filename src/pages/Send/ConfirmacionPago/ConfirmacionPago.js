@@ -11,8 +11,8 @@ const ConfirmacionPago = ({setChange}) => {
                 <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
                 {/* <img  src={reactangulo} alt="dashboardlogo" className={styles.rectangulo}/> */}
                 <div className = {styles.rectangulo}>
-                    <h1 className={styles.titulo}>¡Pago Realizado!</h1>
-                    <input type='button' value='Done' className={styles.submit} onClick={()=> setChange(0)}/>
+                    <h1 className={styles.titulo}>¡Payment done!</h1>
+                    <input type='button' value='Ok' className={styles.submit} onClick={()=> setChange(0)}/>
                 </div>
             </div> 
 

@@ -29,7 +29,7 @@ const RevisarDatos = ({setChange, pago}) => {
                 <div className={styles.formdot}>
                     <img  src={dotpattern} alt="dashboardlogo" className={styles.dotpattern}/>
                     <div className={styles.rectangulo}>
-                        <h1 className={styles.titulo}>Información del pago</h1>
+                        <h1 className={styles.titulo}>Payment Information</h1>
                         <div className={styles.box}>
                             <h2 className={styles.title}>Email</h2>
                             <p className={styles.inputs}>{pago.email}</p>
@@ -39,8 +39,8 @@ const RevisarDatos = ({setChange, pago}) => {
                             
                             {pago.currency==='$' ? <p className={styles.inputs}>{pago.amount}$</p> : <p className={styles.inputs}>{pago.amount}€</p>}
                         </div>
-                        <input value="Editar" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
-                        <input value="Confirmar" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
+                        <input value="Edit" type="submit" className={styles.editar} onClick={() => {onReturn()}}/>
+                        <input value="Confirm" type="submit" className={styles.submit} onClick={() => {onSubmit()}}/>
                     </div>
 
                 </div>

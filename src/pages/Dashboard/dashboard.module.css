@@ -1,14 +1,16 @@
 .dashboard{
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     width: 60vw;
     height: 100vh;
     flex-direction: column;
-    align-content: flex-start;
+    align-content: center;
     background-color: #F8FBFF;
     flex-wrap: nowrap;
+    padding-top: 5vh;
 }
+
 .dashboard > button{
     right: 30px;
     top: 30px;
