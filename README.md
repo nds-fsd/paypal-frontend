@@ -85,21 +85,27 @@ express: infraestructura de aplicaciones web Node.js; p. ej. permite definir rut
 estructura: auth, controllers, models, router, mongo
 
 jwt_secret /jsonwebtoken: poner un token al usuario
-´´´
+```
 const jwt = require("jsonwebtoken");
-´´´
+```
 
 brypt: hashear el password del usuario
-´´´
+```
 const bcrypt = require('bcrypt');
-´´´
-´´´
+```
+```
 const genSalt = 10;
 const passwordHashed = bcrypt.hashSync(password, genSalt);
-´´´
-´´´
+```
+```
 const token = jwt.sign({ id: userSaved._id }, process.env.JWT_SECRET, {expiresIn: '1h' });
-´´´
+```
+CurrencyConverter: Para cambiar la moneda, mandar y solicitar dinero en otra moneda
+Se puede crear una cuenta en Dolares o en Euros y se convierte entre estas monedas.
+```
+const CC = require('../../node_modules/currency-converter-lt');
+var currencyConverter = new CC()
+```
 
 
 # Muestras de código
