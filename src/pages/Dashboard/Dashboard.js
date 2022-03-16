@@ -4,7 +4,7 @@ import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import arrow from '../../assets/arrow.png'
 import customFetch from '../../api';
-import { getSessionUser, getUserToken, removeSession } from "../../api/auth";
+import { removeSession } from "../../api/auth";
 import RenderLineChart from "../../Components/linechart/Linechart";
 
 const Dashboard = () => {
