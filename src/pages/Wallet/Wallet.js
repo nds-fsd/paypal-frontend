@@ -7,7 +7,7 @@ import customFetch from '../../api';
 import Payment from "./Payment/Payment"
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-import { getStorageObject } from "../../api/storage";
+import { getUserId } from "../../api/auth";
 
 const Wallet = () => {
     
@@ -31,9 +31,9 @@ const Wallet = () => {
         }
 
         const getPayments = () => {
-            const userSesion = getStorageObject("id");
-            const id = userSesion;
+            const id = getUserId();
             setId(id);
+            
             customFetch("GET", "users/payments/")
             .then(paymentsBack => {
                 setPayments(paymentsBack);
