@@ -37,7 +37,7 @@ const Wallet = () => {
             const userSession = localStorage.getItem("user-session");
             const { id } = JSON.parse(userSession);
             setId(id);
-            customFetch("GET", "users/" + id +"/payments/")
+            customFetch("GET", "users/payments/")
             .then(paymentsBack => {
                 setPayments(paymentsBack);
                 setShowPays(true);

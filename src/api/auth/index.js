@@ -16,6 +16,14 @@ export const getSessionUser = () => {
     return undefined;
 }
 
+export const getUserId = () => {
+    const session = getStorageObject("user-session");
+    if(session){
+        return session.id
+    }
+    return undefined;
+}
+
 export const setUserSession = (sessionData) =>{
     setStorageObject("user-session", sessionData);
 }
