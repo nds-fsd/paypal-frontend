@@ -71,7 +71,7 @@ const RenderLineChart = () => {
       }
       
      
-   }, [payments])
+   }, [payments, monthsNames])
    
 
   return (
