@@ -7,7 +7,7 @@ import customFetch from '../../api';
 import Payment from "./Payment/Payment"
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-import { getSessionUser, getUserToken } from "../../api/auth";
+import { getStorageObject } from "../../api/storage";
 
 const Wallet = () => {
     
@@ -23,9 +23,6 @@ const Wallet = () => {
     useEffect(() => {
 
         const getWallet = () => {
-            getSessionUser();
-            getUserToken();
-    
             customFetch( "GET", "users/me")
             .then((json) => {
                 setWallet(json.wallet);
@@ -34,8 +31,8 @@ const Wallet = () => {
         }
 
         const getPayments = () => {
-            const userSession = localStorage.getItem("user-session");
-            const { id } = JSON.parse(userSession);
+            const userSesion = getStorageObject("id");
+            const id = userSesion;
             setId(id);
             customFetch("GET", "users/payments/")
             .then(paymentsBack => {

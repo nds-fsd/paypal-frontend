@@ -2,7 +2,6 @@ import styles from "./formulariopago.module.css"
 import { useState, useEffect} from 'react'
 import dotpattern from '../Images/DotPattern.svg';
 import customFetch from '../../../api'
-import {getSessonUser} from "../../../api/auth"
 import { getStorageObject } from "../../../api/storage";
 
 const FormularioPago = ({setPago, setChange, pago}) => {
@@ -33,9 +32,9 @@ const FormularioPago = ({setPago, setChange, pago}) => {
         })
     }
 
-    useEffect = (() => {
+    useEffect(() => {
         const userSesion = getStorageObject("id");
-        const id = userSesion.id;
+        const id = userSesion;
         customFetch("GET", "users/" + id +"/contacts")
         .then(response => {
             let names = response.map(contact => {
