@@ -7,6 +7,7 @@ import dashboardLogo from '../../assets/dashboardLogo.svg';
 import sendLogo from '../../assets/sendLogo.svg';
 import receiveLogo from '../../assets/receiveLogo.svg';
 import accountLogo from '../../assets/accountlogo.svg';
+import contactsLogo from '../../assets/accountlogo.svg';
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -42,6 +43,11 @@ const NavBar = () => {
             <div className={styles.bar}>
                 <img  src={accountLogo} alt="accountLogo" />
                 <NavButton path = "/main/accountsetting" text="Account Setting"/>
+            </div>
+            <br/><br/>
+            <div className={styles.bar}>
+                <img  src={contactsLogo} alt="contactsLogo" />
+                <NavButton path = "/main/addcontact" text="Contacts"/>
             </div>
             <button onClick={() => onLogOut()}>Log Out</button>
         </div>
