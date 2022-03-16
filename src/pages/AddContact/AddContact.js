@@ -25,7 +25,7 @@ const AddContact = () => {
                 <button onClick={() => addContact()}>Add Contact</button>
             </form>
             
-            {contacts && contacts.map(contact => {return(<Contact data = {contact}/>)})}
+            {contacts && contacts.map(contact => {return(<Contact key={contact._id}data = {contact}/>)})}
         </div>
     )
 }

@@ -29,7 +29,7 @@ const Dashboard = () => {
     
         customFetch( "GET", "users/me")
         .then((json) => {
-            setWallet(json.wallet);
+            setWallet(Math.round(json.wallet * 100) / 100);
             setCurrency(json.currency);
         });
       }
