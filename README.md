@@ -60,14 +60,18 @@ Desde aquí se puede navegar a diverentes páginas, incluyendo la página del si
 
 Esta aplicación se ha creado con npx "create-react-app"
 
-Se usan componentes de React, p. ej. useState, useEffect, useRef, createContext y useContext
+React: Se usan componentes de React, p. ej. useState, useEffect, useRef, createContext y useContext
 Tambien se usa useForm de react-hook-form y p. ej. Route, Navigate y Link de react-router-dom 
 
 recharts: se usa este libreria para crear el gráfico en el Dashboard para mostar los ingresos y egresos totales
 ```
 import { BarChart, Bar, XAxis, YAxis } from 'recharts';
 ```
-custom Fetch
+DotLoader: se importa "react-spinners/DotLoader" como animación para mostrar que la página requerida se carga
+
+react-fontawesome: Para editar el imagen de usuario, se utiliza el package @fortawesome/react-fontawesome para mostar un ojo
+
+custom Fetch: se crea un fetch personalizado para resumir los methods, paths y options 
 
 # Muestras de código
 
