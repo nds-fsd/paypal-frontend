@@ -77,7 +77,7 @@ const AccountSetting = () => {
                     <div className={styles.editimg}>
                       
                       <label>
-                        <input type='file' ref={inputFile} className={styles.uploading}></input>
+                        <input type='file' ref={inputFile} onChange={(e) => setUser({...user,image: URL.createObjectURL(e.target.files[0])}) }className={styles.uploading}></input>
                         <img src={pen} alt="penlogo"/>
                       </label>
                     </div>
