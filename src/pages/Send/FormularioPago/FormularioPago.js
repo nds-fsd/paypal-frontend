@@ -14,19 +14,24 @@ const FormularioPago = ({setPago, setChange, pago}) => {
 
 
     const onSubmit = () => {
-        
-        customFetch("GET", "users/id/" + email)
-        .then((_id) => {
-            if(_id === null) setErr("Email not found")
-            else {
-                const data={
-                    email:email,
-                    amount:amount,
-                    currency:sendCurrency,
-                    id:_id
-                }
-                setPago(data);
-                setChange(1);
+        customFetch("GET", "users/me")
+        .then(res=>{
+            if(email === res.email){setErr("You can't send to yourself")}
+            else{
+                customFetch("GET", "users/id/" + email)
+                .then((_id) => {
+                    if(_id === null) setErr("Email not found")
+                    else {
+                        const data={
+                            email:email,
+                            amount:amount,
+                            currency:sendCurrency,
+                            id:_id
+                        }
+                        setPago(data);
+                        setChange(1);
+                    }
+                })
             }
         })
     }
