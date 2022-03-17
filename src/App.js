@@ -9,6 +9,9 @@ import Princing from './pages/pricing/Princing';
 import Contact from './pages/contact/contact';
 import Main from './pages/main/Main';
 
+
+
+
 function App() {
   return (
     <BrowserRouter>

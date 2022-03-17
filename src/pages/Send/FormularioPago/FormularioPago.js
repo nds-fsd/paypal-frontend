@@ -1,8 +1,7 @@
 import styles from "./formulariopago.module.css"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import dotpattern from '../Images/DotPattern.svg';
 import customFetch from '../../../api'
-//import { getStorageObject } from "../../../api/storage";
 
 const FormularioPago = ({setPago, setChange, pago}) => {
 
@@ -11,7 +10,7 @@ const FormularioPago = ({setPago, setChange, pago}) => {
     const [amount, setAmount] = useState(0);
     const [sendCurrency, setSendCurrency] = useState("$");
     const [err, setErr] = useState("");
-    //const [contacts, setContacts] = useState(null);
+    const [contacts, setContacts] = useState(null);
 
 
     const onSubmit = () => {
@@ -32,32 +31,19 @@ const FormularioPago = ({setPago, setChange, pago}) => {
         })
     }
 
-    // useEffect(() => {
-    //     const userSesion = getStorageObject("id");
-    //     const id = userSesion;
-    //     customFetch("GET", "users/" + id +"/contacts")
-    //     .then(response => {
-    //         let names = response.map(contact => {
-    //             let name;
-    //             customFetch("GET", "users/name" + id)
-    //             .then(response => {name = response})
-    //             return name;
-    //         });
+    useEffect(() => {
+        customFetch("GET", "users/contacts")
+        .then(response => {
+            const cont = response.map((contact) => {
+                return {name: contact.contact_name, email:contact.contact_email}
+            })
+            setContacts(cont.map(contact => {return( <option value={contact.email} >{contact.name}</option>)}));
+        })
+    },[contacts])
 
-    //         let emails = response.map(contact => {
-    //             let email;
-    //             customFetch("GET", "users/email" + id)
-    //             .then(response => {email = response})
-    //             return email;
-    //         });
+    useEffect(() => {
 
-    //         const cont = names.map((name, index) => {
-    //             return {name: name, email:emails[index]}
-    //         })
-    //         setContacts(cont.map(contact => {return( <option value={contact.email}>{contact.name}</option>)}));
-    //     })
-
-    // },[contacts])
+    }, [])
 
     return(
         <div className = {styles.send}>
@@ -67,11 +53,10 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                     <p>Send money to another user</p>
                     <br/>
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
-                    {/* <select name="Send to" required={false}>
+                    <select name="Send to" required={false} onChange={(e)=>{setEmail(e.target.value)}}>
                         <option value={""}>Contact Name</option>
-                        {console.log(contacts)}
                         {contacts}
-                    </select> */}
+                    </select>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                     <br/>
