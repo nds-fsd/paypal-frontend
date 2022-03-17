@@ -73,6 +73,8 @@
 
     transition: .5s ease;
     opacity:1;
+    width: 20px;
+    height: 20px;
 
     -webkit-filter: invert(100%);
     filter: invert(100%);
@@ -85,11 +87,18 @@
   } */
 
   .uploading {
-      display: none;
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    opacity: 0;
   }
 
 .editimg:hover {
     transform: scale(1.5);
+  }
+
+  .uploading:hover {
+    opacity: 100;
   }
 
 

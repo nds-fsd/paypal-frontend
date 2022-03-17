@@ -1,70 +1,266 @@
-# Getting Started with Create React App
+# DayPay
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Website [payday.netlify.app](https://payday.netlify.app)
 
-## Available Scripts
+# ¿Que es DayPay?
 
-In the project directory, you can run:
+Una forma segura de enviar dinero, comprar y vender
 
-### `npm start`
+DayPay opera un sistema de pagos en línea que soporta transferencias de dinero entre usuarios y sirve como una alternativa electrónica a los métodos de pago tradicionales como cheques y giros postales. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![](./readme_media/DayPay.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Landing page, página principal de DayPay
 
-### `npm run build`
+Desde aquí se puede navegar a diverentes páginas, incluyendo la página del signup y del login
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Sign up, para crear un usuario
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Hay que poner el nombre, apellido, email, contraseña y se puede elegir entre una cuenta en Euros o Dolares
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Login el usuario
 
-### `npm run eject`
+Acceder a los datos del ususario
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Dashboard, mostrando el saldo del usuario
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ver el saldo y los ingresos y egresos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Wallet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para ver las transaciones del usuario
 
-## Learn More
+- Send
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+El usuario puede mandar dinero a otro usuario de DayPay
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Request
 
-### Code Splitting
+Para que el usuario puede solicitar dinero
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Account Settings
 
-### Analyzing the Bundle Size
+Donde el usuario puede cambiar sus detalles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Contacts
 
-### Making a Progressive Web App
+Aquí el usuario puede añadir otro usuario
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Instrucciones de instalación
 
-### Advanced Configuration
+- Crea una carpeta para este projecto y ir a la carpeta
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Clona los siguentes repositiorios en esta carpeta:
 
-### Deployment
+    https://github.com/nds-fsd/paypal-frontend.git
+    
+    https://github.com/nds-fsd/paypal-backend.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Ingrese a la carpeta de paypal-frontend y ejecute npm install
 
-### `npm run build` fails to minify
+- Ingrese a la carpeta de paypal-backend
+-   Navega al fichero "index.js" y en línea 13 cambia el port a 3090
+-   Navega al fichero "src/mongo/index.js" y cambia línea 4 a tu docker, aquí por ejemplo "mongoose.connect('mongodb://localhost:27020/mongo-test');"
+-   Agrega el fichero ".env" en la carpeta principal del backend con el siguiente contenido:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  DB_HOST = mongodb://localhost:27017/mongo-test
+  
+  JWT_SECRET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcnltYXJ5QGdtYWlsLmNvbSIsImlhdCI6MTY0Mzk3ODU4MH0.XHbyy1_FsSfTcBAD_vBmfdNJ19s6BGZelw4Rvj19sW4
+- Ejecuta "npm install" y "npm install -s mongoose"
+- Ejecuta Docker , e.g. "docker run -d -p 27020:27017 mongo --name mongo-test" y "sudo docker-compose up -d"
+
+# Tecnología
+
+## Frontend
+
+Esta aplicación se ha creado con npx "create-react-app"
+
+React: Se usan componentes de React, p. ej. useState, useEffect, useRef, createContext y useContext
+Tambien se usa useForm de react-hook-form y p. ej. Route, Navigate y Link de react-router-dom 
+
+recharts: se usa este libreria para crear el gráfico en el Dashboard para mostar los ingresos y egresos totales
+```
+import { BarChart, Bar, XAxis, YAxis } from 'recharts';
+```
+DotLoader: se importa "react-spinners/DotLoader" como animación para mostrar que la página requerida se carga
+
+react-fontawesome: Para editar el imagen de usuario, se utiliza el package @fortawesome/react-fontawesome para mostar un ojo
+
+custom Fetch: se crea un fetch personalizado para resumir los methods, paths y options 
+
+cloudinary: lugar donde se guardan los imagenes de usuario
+
+## Backend
+
+estructura: auth, controllers, models, router, mongo
+
+mongo / mongoAtlas como base de datos 
+
+docker / docker-compose para virtualizar el sistema operativo del servidor
+
+express: infraestructura de aplicaciones web Node.js; p. ej. permite definir rutas que corresponden a métodos HTTP como son peticiones GET, POST, PUT, DELETE.
+```const app = express();```
+
+jwt_secret /jsonwebtoken: poner un token al usuario
+```
+const jwt = require("jsonwebtoken");
+```
+
+brypt: hashear el password del usuario
+```
+const bcrypt = require('bcrypt');
+```
+```
+const genSalt = 10;
+const passwordHashed = bcrypt.hashSync(password, genSalt);
+```
+```
+const token = jwt.sign({ id: userSaved._id }, process.env.JWT_SECRET, {expiresIn: '1h' });
+```
+CurrencyConverter: Para cambiar la moneda, mandar y solicitar dinero en otra moneda
+Se puede crear una cuenta en Dolares o en Euros y se convierte entre estas monedas.
+```
+const CC = require('../../node_modules/currency-converter-lt');
+var currencyConverter = new CC()
+```
+```
+if (data.currency=='$') 
+{
+
+if (fromUser.currency=='$' && toUser.currency=='$') 
+{
+fromUser.wallet -= data.amount;
+fromUser.save();
+toUser.wallet += data.amount;
+toUser.save();
+}
+else if (fromUser.currency=='$' && toUser.currency=='€') 
+{
+fromUser.wallet -= data.amount;
+fromUser.save();
+currencyConverter.from("USD").to("EUR").amount(data.amount).convert()
+.then((response) => {
+console.log(response/100) ;
+toUser.wallet +=response/100;
+toUser.save();
+})
+}
+```
+
+# Muestras de código
+
+## Frontend
+
+```js
+const SignUp = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) navigate("/main/dashboard");
+    }, [navigate]);
+    
+   
+    const { register, handleSubmit, formState: { errors } } = useForm();
+  
+    const onSubmit = (data) => {
+      customFetch("POST", "users", {body: data})
+      .then(userSession => {
+        setUserSession(userSession);
+        navigate("/main/dashboard");
+      }).catch(error => {
+          'REQUEST_FAILED'
+        console.error(error);
+      });
+    };
+```   
+```html
+<form onSubmit={handleSubmit(onSubmit)}>
+    <input type='text' placeholder="Name" {...register("name", {required: true })}/>
+    {errors.name && <span className={styles.error}>Name field is required</span>}
+    
+    <select type='currency' {...register("currency", { required: true })} >
+    <option value="$">USD ($)</option>
+    <option value="€">EUR (€)</option>
+    </select>
+    {errors.currency && <span>currency field is required</span>}
+    
+    <div className={styles.send_button}>
+    <input type="submit" value="Sign Up" />
+</form>
+```
+## Backend
+```js
+exports.update = async (req,res) => {
+  const id = req.params.id;
+  const data = req.body;
+  console.log("updating");
+  if (data.password && data.password.length>0) {
+    console.log("if: " + data.password);
+    const genSalt = 10;
+    const passwordHashed = bcrypt.hashSync(data.password, genSalt);
+    data.password=passwordHashed;
+  } else {
+    console.log("else1: " + data.password);
+    data.password = await User.find({_id:id}).password;
+    console.log("else2: " + data.password);
+  }
+```
+```js
+var currencyConverter = new CC()
+
+exports.create = async (req, res) => {
+  const data = req.body;
+  var newPayment = new Payment(data);
+
+  const fromUser = await User.findById(data.from);
+  const toUser = await User.findById(data.to);
+  
+  newPayment.save(
+    function (err) {
+      if (err) {
+        console.log(err);
+        return handleError(err);
+      }
+      else {
+if (data.currency=='€') {
+        
+            if (fromUser.currency=='$' && toUser.currency=='$') 
+            {
+            currencyConverter.from("EUR").to("USD").amount(data.amount).convert()
+              .then((response) => {
+                console.log(response/100) ;
+                fromUser.wallet -=response/100;
+                fromUser.save();
+              })
+            
+            currencyConverter.from("EUR").to("USD").amount(data.amount).convert()
+              .then((response) => {
+                console.log(response/100) ;
+                toUser.wallet +=response/100;
+                toUser.save();
+              })
+            }
+            }
+        }
+    }
+  );
+  res.status(201).json({Message: "Your new payment was created Succesfully", newPayment});
+}
+```
+
+![](./readme_media/changecurrency.gif)
+
+# :sparkling_heart: Authors and acknowledgment :sparkling_heart:
+
+This project was created by lisaub, Marylizr and Marcsc99
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lisaub)](https://github.com/anuraghazra/github-readme-stats)
+   
+<p align="center">Are you considering to support the project by donating to <a href="https://paypal.me/lmu1">me</a>? Please DON'T!! Instead, please consider donating to support <a href="https://www.withukraine.org/">Ukraine</a><p>
+  
+
+<p align="center">Made with :heart: and JavaScript.<p>
