@@ -49,7 +49,7 @@ const Dashboard = () => {
           <h4>23%</h4>
         </div>
         {currency==='$' ? <h1>{wallet}$</h1> : <h1>{wallet}€</h1>}
-        <p>Recent transactions</p>
+        <p>Your Balance</p>
       </div>
       <div>
         <RenderLineChart />
