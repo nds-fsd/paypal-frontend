@@ -4,16 +4,18 @@ import dotpattern2 from "../../assets/DotPattern3.png"
 import arrow from "../../assets/arrow.png"
 import {useEffect, useState} from "react";
 import customFetch from '../../api';
-import Payment from "./Payment/Payment"
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
 import { getUserId } from "../../api/auth";
+import Transactions from "./Transactions/Transactions"
+import AddFunds from "./AddFunds/AddFunds"
 
 const Wallet = () => {
     
     const { wallet, setWallet, payments, setPayments, choose, setChoose, showPays, setShowPays , currency, setCurrency} = useContext(UserContext);
 
     const [id, setId] = useState(null);
+    const [add, setAdd] = useState(false);
     
    
     const clicked = {
@@ -51,35 +53,33 @@ const Wallet = () => {
             <img className={styles.dot1}src = {dotpattern} alt="dotpattern"></img>
             <img className={styles.dot2}src = {dotpattern2} alt="dotpattern"></img>
             <div className={styles.container}>
-                <div className={styles.bar}></div>
-                <div className={styles.addFunds}>
-                    <div className={styles.submit}>
+                
+                <div className={!add ? styles.addFunds : styles.addFunds2}>
+                    <div className={styles.submit} onClick={() => setAdd(true)}>
                         <p className={styles.fundText}>Add Funds</p>
                     </div>
                 </div>
-                <img className = {styles.arrow}src = {arrow} alt = "arrow"/>
-                <div className={styles.percent}>23%</div>
-                
-                {currency==='$' ? <div className = {styles.money}>{wallet}$</div> : <div className = {styles.money}>{wallet}€</div>}
 
-                <div className = {styles.subTitle}>Recent transactions</div>
-                <div className = {styles.options}>
-                    <button className={styles.button} style ={choose === 0 ? clicked : null} onClick={() => setChoose(0)}>All</button>
-                    <button className={styles.button} style ={choose === 2 ? clicked : null} onClick={() => setChoose(2)}>Income</button>
-                    <button className={styles.button} style ={choose === 1 ? clicked : null} onClick={() => setChoose(1)}>Outcome</button>
+
+                <div className={!add ? styles.wall : styles.wall2}>
+                    <img className = {styles.arrow}src = {arrow} alt = "arrow"/>
+                    <div className={styles.percent}>23%</div>
+                    
+                    <div className = {styles.money} onClick={() => setAdd(false)}>{wallet + currency}</div>
                 </div>
-                <div className = {styles.transactions}>
-                    {showPays && payments.map((payment) => {
-                        
-                        if(choose === 0 || (choose === 1 && payment.from === id) || (choose === 2 && payment.to === id) ) return (
-                            <div key={payment._id}>
-                                <Payment  payment={payment} id ={id} />
-                            </div>
-                        );
-                        return null;
-                    })}
-                </div>
-                <div className={styles.show}>Show more transactions</div>
+
+
+                
+
+
+                {!add ? <Transactions showPays = {showPays} payments = { payments} choose = {choose} id = {id} clicked = {clicked} setChoose = {setChoose}/>
+                : <AddFunds/>}
+
+                
+                <div className={!add ? styles.bar : styles.bar2}></div>
+
+
+
             </div>
             
         </div>
