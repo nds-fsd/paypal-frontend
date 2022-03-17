@@ -4,12 +4,23 @@ import customFetch from '../../api';
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
 import { getUserId } from "../../api/auth";
+import {useState, useEffect} from "react"
 
 
 const Request = () => {
 
     const { email, setEmail, amount, setAmount, err, setErr,currency, setCurrency } = useContext(UserContext);
+    const [contacts, setContacts] = useState(null);
 
+    useEffect(() => {
+        customFetch("GET", "users/contacts")
+        .then(response => {
+            const cont = response.map((contact) => {
+                return {key:contact._id,name: contact.contact_name, email:contact.contact_email}
+            })
+            setContacts(cont.map(contact => {return( <option key={contact.key}value={contact.email} >{contact.name}</option>)}));
+        })
+    },[])
 
     const onSubmit = () => {
         const id = getUserId();
@@ -41,6 +52,10 @@ const Request = () => {
                     <p>Request money to another user</p>
                     <br/>
                     <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
+                    <select name="Request to" required={false} onChange={(e)=>{setEmail(e.target.value)}}>
+                        <option value={""}>Contact Name</option>
+                        {contacts}
+                    </select>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                     <br/> 
