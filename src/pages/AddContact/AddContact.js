@@ -24,7 +24,10 @@ const AddContact = () => {
     const addContact = () => {
         customFetch("GET", "users/me")
         .then(res => {
-          if(res.email === newContact) { setError("No se puede agregar a uno mismo");  }
+          if(res.email === newContact) { 
+              setError(<div className={style.add_user}>"cannot add your own contact"</div>);  
+              
+            }
           else{
             //const added = (contacts.indexOf(newContact) > -1);
             // const added = contacts.find(o => o.email === newContact);
@@ -33,18 +36,25 @@ const AddContact = () => {
             if(!added){
                 customFetch("GET", "users/id/" + newContact)
                 .then(res => {
-                    if(res !== null){ customFetch("POST", "contact", {body:{email: newContact}}).then(res => {window.location.reload()}) }
-                    else{  setError("Email no registrado"); }
+                    if(res !== null){ 
+                        customFetch("POST", "contact", {body:{email: newContact}})
+                        .then(res => {window.location.reload()}) }
+                    else {  
+                        setError(<div className={style.add_user}>"this email is not registered"</div>); 
+                    }
                 });
             }
-            else{setError("Email ya añadido"); }
+            else {
+                setError(<div className={style.add_user}>"this email has been already added"</div>); 
+                
+            }
           }
         })
     }
 
     return (
         <div className = {style.addcontact}>
-            <h3>AddContact</h3>
+            <h3>Add Contact</h3>
             <form className={style.contact_form}>
                 <input placeholder = "example@example.com" value = {newContact} onChange={(e)=> setNewContact(e.target.value)}></input>
                 <button onClick={(e) => {addContact(); e.preventDefault()}}>Add Contact</button>

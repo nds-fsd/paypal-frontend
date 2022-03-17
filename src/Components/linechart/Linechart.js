@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import styles from '../linechart/linechart.module.css';
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState } from "react";
@@ -78,12 +78,13 @@ const RenderLineChart = () => {
 
   return (
       <div className={styles.linechart}> 
-         <h2>your balance </h2>
-         <BarChart width={300} height={300} data={data}>
-            <XAxis dataKey="month"/>
+         <h3>Montly operations </h3>
+         <BarChart width={400} height={300} data={data} barSize={30}>
+            <XAxis dataKey="month"scale="point" padding={{ left: 10, right: 10 }}/>
             <YAxis />
-            <Bar dataKey="income" fill="#8884d8" />
-            <Bar dataKey="outcome" fill="#FF374F" />
+            <Bar dataKey="income" fill="#20E9BC" background={{ fill: '#eee' }} label={{ position: 'top' }}/>
+            <Bar dataKey="outcome" fill="#FF374F" label={{ position: 'top' }} />
+            <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
             <Legend />
   
