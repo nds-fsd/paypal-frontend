@@ -52,11 +52,11 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                 <form className= {styles.form}>
                     <p>Send money to another user</p>
                     <br/>
-                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <select name="Send to" required={false} onChange={(e)=>{setEmail(e.target.value)}}>
                         <option value={""}>Contact Name</option>
                         {contacts}
                     </select>
+                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                     <br/>
