@@ -4,6 +4,9 @@ import userimg from './images/userimg.svg'
 import pen from './images/pen.svg'
 import customFetch from '../../api';
 
+// import { AdvancedImage } from '@cloudinary/react';
+// import { Cloudinary } from '@cloudinary/url-gen';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -12,44 +15,52 @@ const AccountSetting = () => {
 
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => { setPasswordShown(passwordShown ? false : true); };
-
-    const [user, setUser] = useState({name:"name", surname:"surname", email: "email", password:"pass", currency:"currency", wallet:"wallet"});
+    const [user, setUser] = useState({name:"name", surname:"surname", email: "email", password:"pass",image:"image", currency:"currency", wallet:"wallet"});
     const [initialCurrency, setInitialCurrency] = useState({currency:"currency"});
     const getUser = () => {customFetch("GET", "users/me").then((json) => { setUser({...json, password:""});   setInitialCurrency(json.currency)  }); }
     useEffect(() => { getUser() },[]);
 
-    const onSubmit = () => {
-      const userSession = localStorage.getItem("user-session");
-      const { id } = JSON.parse(userSession);
+    const onSubmit = async() => {
+      const wallet = (initialCurrency==="€" && user.currency==="$") ? (Math.floor(1.1*user.wallet)).toFixed(4) : ((initialCurrency==="$" && user.currency==="€") ? (Math.floor(0.9*user.wallet)).toFixed(4) : user.wallet);
+      let resultado;
+      const imagen = fileUpload();
+      await imagen.then(result => { resultado = result; })
+      const data = {name: user.name, surname: user.surname, email:user.email, password:user.password,image:resultado ? resultado : user.image, currency:user.currency, wallet:wallet}
       
-      if (initialCurrency==="€" && user.currency==="€") {
-        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
-        customFetch("PUT", "users/" + id , {body:data})
+      customFetch("PUT", "users/", {body:data})
+      .then(response => {console.log(response);})
       .then(res => {window.location.reload();})
-      .catch(err => console.log(err));
-      }
+      .catch(err => console.log(err));      
+    }
 
-      else if (initialCurrency==="$" && user.currency==="$") {
-        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet:user.wallet}
-        customFetch("PUT", "users/" + id , {body:data})
-      .then(res => {window.location.reload();})
-      .catch(err => console.log(err));
-      }
-
-      else if (initialCurrency==="€" && user.currency==="$") {
-        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(1.1*user.wallet)).toFixed(4)}
-        customFetch("PUT", "users/" + id , {body:data})
-      .then(res => {window.location.reload();})
-      .catch(err => console.log(err));
-      }
-
-      else if (initialCurrency==="$" && user.currency==="€") {
-        const data = {name: user.name, surname: user.surname, email:user.email, password:user.password, currency:user.currency, wallet: (Math.floor(0.9*user.wallet)).toFixed(4)}
-        customFetch("PUT", "users/" + id , {body:data})
-      .then(res => {window.location.reload();})
-      .catch(err => console.log(err));
-      }
+    const fileUpload = async () => {
+        const files = inputFile.current.files;
+        const formData = new FormData();
+        const url = "https://api.cloudinary.com/v1_1/dlh7p829u/image/upload";
+        let imagen;
       
+        let file = files[0];
+        formData.append("file", file);
+        formData.append("upload_preset", "vn6yolxr");
+        await fetch(url, {
+          method: "POST",
+          header: {
+              'Content-Type': 'multipart/form-data'
+          },
+          body: formData
+        })
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((photo) => {
+          imagen = photo.url;
+        })
+        .catch((data) => {
+          console.log(data);
+        });
+
+        return imagen;
     }
 
     const inputFile = useRef(null);
@@ -62,10 +73,13 @@ const AccountSetting = () => {
                   <p>Edit profile</p>
                   
                   <div className={styles.images}>
-                    <div className={styles.userimage}><img src={userimg} alt="userImage"/></div>
+                    <div className={styles.userimage}><img src={user.image ? user.image : userimg } className = {styles.imagen} alt="userImage"/></div>
                     <div className={styles.editimg}>
-                      <img src={pen} alt="penlogo"/>
-                      <input type='file' ref={inputFile} className={styles.uploading}></input>
+                      
+                      <label>
+                        <input type='file' ref={inputFile} className={styles.uploading}></input>
+                        <img src={pen} alt="penlogo"/>
+                      </label>
                     </div>
                   </div>
 

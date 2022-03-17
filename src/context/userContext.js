@@ -8,6 +8,7 @@ export const UserContextProvider = ({ children }) => {
    const [surname, setSurname] = useState("");
    const [wallet, setWallet] = useState(0);
    const [email, setEmail] = useState("");
+   const [photo, setPhoto] = useState("");
    const [amount, setAmount] = useState(0);
    const [err, setErr] = useState("");
    const [currency, setCurrency] = useState("$");
@@ -24,6 +25,7 @@ export const UserContextProvider = ({ children }) => {
        surname, setSurname,
        wallet, setWallet,
        email, setEmail,
+       photo, setPhoto,
        amount, setAmount,
        err, setErr,
        currency, setCurrency,
