@@ -35,11 +35,11 @@ const FormularioPago = ({setPago, setChange, pago}) => {
         customFetch("GET", "users/contacts")
         .then(response => {
             const cont = response.map((contact) => {
-                return {name: contact.contact_name, email:contact.contact_email}
+                return {key:contact._id,name: contact.contact_name, email:contact.contact_email}
             })
-            setContacts(cont.map(contact => {return( <option value={contact.email} >{contact.name}</option>)}));
+            setContacts(cont.map(contact => {return( <option key={contact.key}value={contact.email} >{contact.name}</option>)}));
         })
-    },[contacts])
+    },[])
 
     useEffect(() => {
 

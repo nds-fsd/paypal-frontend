@@ -12,9 +12,7 @@ const ToggleBar = ({isToggle, closeUsersidebar }) => {
    const [requests, setRequests] = useState([]);
 
    const getRequest = () => {
-      const userSession = localStorage.getItem("user-session");
-      const { id } = JSON.parse(userSession);
-      customFetch("GET", "users/" + id + "/requests")
+      customFetch("GET", "users/requests")
       .then(requested => {
          setRequests(requested);
       });

@@ -3,36 +3,34 @@ import { UserContext } from "../../../context/userContext";
 import styles from './userHeader.module.css'
 import DownArrow from '../../../assets/DownArrow.png'
 import customFetch from '../../../api';
-import { getSessionUser, getUserToken } from "../../../api/auth";
 import user from "../../../assets/user.svg";
 
 const UserHeader = ({ onClick }) => {
 
-  const { name, setName, surname, setSurname } = useContext(UserContext);
+  const { name, setName, photo, setPhoto, surname, setSurname } = useContext(UserContext);
    
   useEffect(() => {
-    getSessionUser();
-    getUserToken();
 
       customFetch( "GET", "users/me")
       .then((json) => {
         setName(json.name);
         setSurname(json.surname);
+        setPhoto(json.image)
       })
       .catch(error => {
         console.log(error, "Couldn't retrieve user data");
       }); 
      
-   }, [setName, setSurname]);
+   }, [setName, setSurname, setPhoto]);
     
   return (
   <div className={styles.user_sidebar}>
      <div className={styles.profile}>
-        <img src={user} alt="user-pic" />
-        <div className={styles.name}>
-        <p>{name} {surname}</p>
-        <button className={styles.sidebarClose} onClick={onClick}><img src={DownArrow} alt="arrow"/></button>
-        </div>
+       <img src={photo ? photo : user} alt="profile_pic"/>
+       <div className={styles.name}>
+       <p>{name} {surname}</p>
+       <button className={styles.sidebarClose} onClick={onClick}><img src={DownArrow} alt="arrow"/></button>
+       </div>
      </div>
   </div>
   )

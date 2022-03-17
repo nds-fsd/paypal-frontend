@@ -53,12 +53,20 @@
 .images {
     position: relative;
     padding: 2% 0;
-  }
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .userimage{
-    display: block;
+
     width: 100%;
     height: auto;
+}
+.imagen{
+    width:100px;
+    height:100px;
 }
 
 .editimg{
@@ -84,9 +92,10 @@
   height:0
   } */
 
-  .uploading {
-      display: none;
-  }
+.uploading {
+    display: none;
+}
+
 
 .editimg:hover {
     transform: scale(1.5);
