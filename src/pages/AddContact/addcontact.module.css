@@ -1,10 +1,44 @@
 .addcontact{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 60vw;
     height: 100vh;
     flex-direction: column;
     background-color: #F8FBFF;
     flex-wrap: nowrap;
+    font-family: 'Manrope';
+    margin: 0 0 5px 30px;
+    color: black;
+    font-weight: 500;
+    font-size: 24px;
+    padding-top: 5vh;
+}
+
+.addcontact > h3{
+    font-family: 'Manrope';
+    margin: 0 0 5px 30px;
+    color: black;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.contact_form > input {
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 4px 4px rgb(51 51 51 / 4%), 0px 4px 16px rgb(51 51 51 / 18%);
+    padding: 5px;   
+    margin-top: 30px;
+    width: 250px;
+    height: 35px;
+}
+
+.contact_form > button {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 50px;
+    background: transparent;
+    width: 150px;
+    margin-left: 10px;
 }
