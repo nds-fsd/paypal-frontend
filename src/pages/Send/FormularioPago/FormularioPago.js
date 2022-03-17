@@ -14,19 +14,24 @@ const FormularioPago = ({setPago, setChange, pago}) => {
 
 
     const onSubmit = () => {
-        
-        customFetch("GET", "users/id/" + email)
-        .then((_id) => {
-            if(_id === null) setErr("Email not found")
-            else {
-                const data={
-                    email:email,
-                    amount:amount,
-                    currency:sendCurrency,
-                    id:_id
-                }
-                setPago(data);
-                setChange(1);
+        customFetch("GET", "users/me")
+        .then(res=>{
+            if(email === res.email){setErr("You can't send to yourself")}
+            else{
+                customFetch("GET", "users/id/" + email)
+                .then((_id) => {
+                    if(_id === null) setErr("Email not found")
+                    else {
+                        const data={
+                            email:email,
+                            amount:amount,
+                            currency:sendCurrency,
+                            id:_id
+                        }
+                        setPago(data);
+                        setChange(1);
+                    }
+                })
             }
         })
     }
@@ -52,11 +57,11 @@ const FormularioPago = ({setPago, setChange, pago}) => {
                 <form className= {styles.form}>
                     <p>Send money to another user</p>
                     <br/>
-                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <select name="Send to" required={false} onChange={(e)=>{setEmail(e.target.value)}}>
                         <option value={""}>Contact Name</option>
                         {contacts}
                     </select>
+                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                     <br/>

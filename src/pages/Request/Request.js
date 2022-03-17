@@ -24,24 +24,31 @@ const Request = () => {
 
     const onSubmit = () => {
         const id = getUserId();
-
-        customFetch("GET", "users/id/" + email)
-        .then((_id) => {
-            if(_id === null) setErr(<div className={styles.requestSent}>"Email not found"</div>)
-            else {
-                const data = {
-                    from: id,
-                    to: _id,
-                    amount:amount,
-                    currency: currency,
-                }
-                customFetch("POST", "request", {body: data})
-                .then( () => {setErr(<div className={styles.requestSent}>"Request sent"</div>)})
+        customFetch("GET", "users/me")
+        .then(res => {
+            if(email === res.email){
+                setErr(<div className={styles.requestSent}>"You can't request to yourself"</div>)
+            }
+            else{
+                customFetch("GET", "users/id/" + email)
+                .then((_id) => {
+                    if(_id === null) setErr(<div className={styles.requestSent}>"Email not found"</div>)
+                    else {
+                        const data = {
+                            from: id,
+                            to: _id,
+                            amount:amount,
+                            currency: currency,
+                        }
+                        customFetch("POST", "request", {body: data})
+                        .then( () => {setErr(<div className={styles.requestSent}>"Request sent"</div>)})
+                    }
+                })
+                setAmount(0);
+                setEmail("");
             }
         })
-        console.log("peticion realizada");
-        setAmount(0);
-        setEmail("");
+        
     }
 
     return(
@@ -51,11 +58,11 @@ const Request = () => {
                 <form className= {styles.form}>
                     <p>Request money to another user</p>
                     <br/>
-                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <select name="Request to" required={false} onChange={(e)=>{setEmail(e.target.value)}}>
                         <option value={""}>Contact Name</option>
                         {contacts}
                     </select>
+                    <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} className={styles.input}/>
                     <br/>
                     <input type="number" placeholder='0' value={amount} onChange={(e)=>{setAmount(e.target.value)}} className={styles.input}/>
                     <br/> 
