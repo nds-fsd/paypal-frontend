@@ -11,9 +11,9 @@ const Contact = ({data}) => {
     return (
         <div className={style.contact}>
             <img src={data.contact_img ? data.contact_img : user} alt="user-pic" />
-            Name: {data.contact_name}
-            <br></br>
-            Email: {data.contact_email}
+            <p>Name: {data.contact_name}
+            <br/>
+            Email: {data.contact_email}</p>
             <button className={style.delete} onClick={() => {deleteContact();}}>Delete</button>
         </div>
     )
