@@ -18,7 +18,27 @@
 
 .contact > img{
     border-radius: 50px;
-    margin: 0 20px 0 20px;
+    margin: 0 10px 0 10px;
     width:90px;
     height: 90px;;
+}
+
+.delete {
+    margin: 0 0 0 10px;
+    background: #258AFF;
+    border-radius: 8px;
+    height: 31px;
+    width: 75px;
+    color: white;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    left:0;
+}
+
+.contact > p{
+    width: 204px;
 }
