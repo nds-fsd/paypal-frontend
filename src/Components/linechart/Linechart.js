@@ -7,7 +7,7 @@ import customFetch from '../../api';
 import { getUserId } from '../../api/auth';
 
 
-const RenderLineChart = () => {
+const RenderLineChart = ({setPercent}) => {
 
    const { payments, setPayments } = useContext(UserContext);
    const [data, setData] = useState([]);
@@ -68,12 +68,14 @@ const RenderLineChart = () => {
             return {month: key, income: value.income, outcome: value.outcome}
          });
 
+         setPercent(monthsData[0].income-monthsData[0].outcome);
+
          setData(monthsData);
         
       }
       
      
-   }, [payments])
+   }, [payments, setPercent])
    
 
   return (
